@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda_Usuarios.chm
+Contents file=Table of Contents Ayuda Usuarios.hhc
+Default Window=Usuarios Ayuda
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+Usuarios Ayuda=,"Table of Contents Ayuda Usuarios.hhc",,,,,,,,0x2120,,0x0,,,,,,,,0
+
+
+[FILES]
+Usuarios-Ayuda.html
+
+[INFOTYPES]
+

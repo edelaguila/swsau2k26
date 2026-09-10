@@ -1,0 +1,13 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda_CambioContraseña.chm
+Contents file=Ayuda_CambioContraseña.hhc
+Display compile progress=No
+Language=0x580a Español (Latinoamérica)
+
+
+[FILES]
+ayuda_cambiar_contraseña.html
+
+[INFOTYPES]
+
