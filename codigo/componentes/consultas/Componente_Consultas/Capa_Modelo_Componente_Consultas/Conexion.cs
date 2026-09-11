@@ -12,7 +12,7 @@ namespace Capa_Modelo_Componente_Consultas
         private OdbcConnection _cn;          // Objeto que maneja la conexión ODBC real
 
         // Constructor por defecto: usa como DSN "Prueba1"
-        public Conexion() : this("bd_SIG") { }
+        public Conexion() : this("bd_auditoria") { }
 
         // Constructor que recibe el DSN (nombre de la conexión configurada en ODBC)
         public Conexion(string dsn)

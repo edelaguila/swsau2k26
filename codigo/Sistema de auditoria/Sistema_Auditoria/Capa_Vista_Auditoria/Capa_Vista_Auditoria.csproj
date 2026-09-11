@@ -11,6 +11,9 @@
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+    <Reference Include="Menu_ejecutable">
+      <HintPath>..\..\..\Menu_Opciones\Menu_ejecutable\Menu_ejecutable\bin\Debug\Menu_ejecutable.exe</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
