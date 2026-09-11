@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Capa_Vista_Auditoria">
+      <HintPath>..\..\..\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
