@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cls_Diseño_Auditoria.cs" />
     <Compile Include="Frm_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
