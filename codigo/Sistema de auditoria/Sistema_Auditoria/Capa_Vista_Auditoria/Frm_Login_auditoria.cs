@@ -14,22 +14,60 @@ namespace Capa_Vista_Auditoria
 {
     public partial class Frm_Login_auditoria : Form
     {
+        // ==========================================
         // VARIABLES GLOBALES
+        // ==========================================
+        private Cls_BitacoraControlador ctrlBitacora =
+            new Cls_BitacoraControlador();
 
-        private Cls_BitacoraControlador ctrlBitacora = new Cls_BitacoraControlador(); // Bitácora
-        private Cls_ControladorLogin cn = new Cls_ControladorLogin();
-        private Cls_Usuario_Controlador gUsuarioControlador = new Cls_Usuario_Controlador();
+        private Cls_ControladorLogin cn =
+            new Cls_ControladorLogin();
+
+        private Cls_Usuario_Controlador gUsuarioControlador =
+            new Cls_Usuario_Controlador();
+
+        // ==========================================
+        // CLASE DE DISEÑO
+        // ==========================================
+        private Cls_Diseño_Auditoria diseño =
+            new Cls_Diseño_Auditoria();
+
+
+        // ==========================================
+        // CONSTRUCTOR
+        // ==========================================
         public Frm_Login_auditoria()
         {
             InitializeComponent();
+
+            // Aplicar diseño del login
+            diseño.AplicarDiseñoLogin(
+                this,
+                txtUsuario,
+                txtContrasena,
+                chkMostrarContrasena,
+                lblkRecuperarContrasena,
+                btnIniciarSesion
+            );
+
+            // Ocultar contraseña
             txtContrasena.UseSystemPasswordChar = true;
+
+            // Evento al cerrar
             this.FormClosing += Frm_Login_FormClosing;
-            this.AcceptButton = btnIniciarSesion; // ENTER = Iniciar sesión
+
+            // ENTER = iniciar sesión
+            this.AcceptButton = btnIniciarSesion;
         }
 
-        private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
-        {
 
+        // ==========================================
+        // CERRAR FORMULARIO
+        // ==========================================
+        private void Frm_Login_FormClosing(
+            object sender,
+            FormClosingEventArgs e)
+        {
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 Application.Exit();
@@ -37,123 +75,157 @@ namespace Capa_Vista_Auditoria
         }
 
 
-        // EVENTOS CHECKBOX
-
-        private void chkMostrarContrasena_CheckedChanged(object sender, EventArgs e)
+        // ==========================================
+        // MOSTRAR / OCULTAR CONTRASEÑA
+        // ==========================================
+        private void chkMostrarContrasena_CheckedChanged(
+            object sender,
+            EventArgs e)
         {
-            txtContrasena.UseSystemPasswordChar = !chkMostrarContrasena.Checked;
+            txtContrasena.UseSystemPasswordChar =
+                !chkMostrarContrasena.Checked;
         }
 
 
-        // LINK RECUPERAR CONTRASEÑA
-
-        private void lblkRecuperarContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        // ==========================================
+        // RECUPERAR CONTRASEÑA
+        // ==========================================
+        private void lblkRecuperarContrasena_LinkClicked(
+            object sender,
+            LinkLabelLinkClickedEventArgs e)
         {
-            Frm_Recuperar_Contrasena frmRecuperar = new Frm_Recuperar_Contrasena();
+            Frm_Recuperar_Contrasena frmRecuperar =
+                new Frm_Recuperar_Contrasena();
+
             frmRecuperar.Show();
+
             this.Hide();
         }
 
 
-        // BOTÓN INICIAR SESIÓN
-
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        // ==========================================
+        // INICIAR SESIÓN
+        // ==========================================
+        private void btnIniciarSesion_Click(
+            object sender,
+            EventArgs e)
         {
-            string sUsuario = txtUsuario.Text.Trim();
-            string sContrasena = txtContrasena.Text.Trim();
+            string sUsuario =
+                txtUsuario.Text.Trim();
+
+            string sContrasena =
+                txtContrasena.Text.Trim();
+
             string sNombreUsuarioReal = "";
 
             string sMensaje;
-            bool bLoginExitoso = cn.bAutenticarUsuario(sUsuario, sContrasena, out sMensaje, out int iIdUsuario, out sNombreUsuarioReal);
+
+            bool bLoginExitoso =
+                cn.bAutenticarUsuario(
+                    sUsuario,
+                    sContrasena,
+                    out sMensaje,
+                    out int iIdUsuario,
+                    out sNombreUsuarioReal
+                );
 
             MessageBox.Show(sMensaje);
 
             if (bLoginExitoso)
             {
-                int iIdPerfil = gUsuarioControlador.ObtenerIdPerfilDeUsuario(iIdUsuario);
+                int iIdPerfil =
+                    gUsuarioControlador
+                    .ObtenerIdPerfilDeUsuario(
+                        iIdUsuario
+                    );
 
                 // Guardar sesión
-                Cls_Usuario_Conectado.IniciarSesion(iIdUsuario, sNombreUsuarioReal, iIdPerfil);
-
+                Cls_Usuario_Conectado.IniciarSesion(
+                    iIdUsuario,
+                    sNombreUsuarioReal,
+                    iIdPerfil
+                );
 
                 // Registrar inicio en bitácora
-                ctrlBitacora.RegistrarInicioSesion(iIdUsuario);
+                ctrlBitacora.RegistrarInicioSesion(
+                    iIdUsuario
+                );
 
-                // Abrir Frm_Principal
+                // Abrir menú principal de Auditoría
                 this.Hide();
-                Frm_MDI_Auditoria frmMenu = new Frm_MDI_Auditoria();
+
+                Frm_MDI_Auditoria frmMenu =
+                    new Frm_MDI_Auditoria();
+
                 frmMenu.ShowDialog();
+
                 this.Close();
             }
             else
             {
                 txtContrasena.Clear();
+
                 txtContrasena.Focus();
             }
         }
 
-        private void frmLogin_Load(object sender, EventArgs e) { }
+
+        // ==========================================
+        // LOAD
+        // ==========================================
+        private void frmLogin_Load(
+            object sender,
+            EventArgs e)
+        {
+        }
 
 
+        // ==========================================
+        // MOVER FORMULARIO
+        // ==========================================
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
+
 
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
+
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        public static extern int SendMessage(
+            IntPtr hWnd,
+            int Msg,
+            int wParam,
+            int lParam
+        );
 
-        private void Pic_Cerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void Pnl_Superior_MouseDown(object sender, MouseEventArgs e)
+        private void Pnl_Superior_MouseDown(
+            object sender,
+            MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+
+                SendMessage(
+                    Handle,
+                    WM_NCLBUTTONDOWN,
+                    HTCAPTION,
+                    0
+                );
             }
         }
 
-        private void btnIniciarSesion_Click_1(object sender, EventArgs e)
+
+        // ==========================================
+        // BOTÓN CERRAR
+        // ==========================================
+        private void Pic_Cerrar_Click(
+            object sender,
+            EventArgs e)
         {
-            string sUsuario = txtUsuario.Text.Trim();
-            string sContrasena = txtContrasena.Text.Trim();
-            string sNombreUsuarioReal = "";
-
-            string sMensaje;
-            bool bLoginExitoso = cn.bAutenticarUsuario(sUsuario, sContrasena, out sMensaje, out int iIdUsuario, out sNombreUsuarioReal);
-
-            MessageBox.Show(sMensaje);
-
-            if (bLoginExitoso)
-            {
-                int iIdPerfil = gUsuarioControlador.ObtenerIdPerfilDeUsuario(iIdUsuario);
-
-                // Guardar sesión
-                Cls_Usuario_Conectado.IniciarSesion(iIdUsuario, sNombreUsuarioReal, iIdPerfil);
-
-
-                // Registrar inicio en bitácora
-                ctrlBitacora.RegistrarInicioSesion(iIdUsuario);
-
-                // Abrir Frm_Principal
-                this.Hide();
-                Frm_MDI_Auditoria frmMenu = new Frm_MDI_Auditoria();
-                frmMenu.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                txtContrasena.Clear();
-                txtContrasena.Focus();
-            }
-
+            this.Close();
         }
-
-
     }
 }
