@@ -227,5 +227,19 @@ namespace Capa_Vista_Auditoria
         {
             this.Close();
         }
+
+        private void lblkRecuperarContrasena_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Frm_Recuperar_Contraseña frmRecuperar = new Frm_Recuperar_Contraseña();
+
+            frmRecuperar.Show();
+
+            this.Hide();
+        }
+
+        private void chkMostrarContrasena_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = !chkMostrarContrasena.Checked;
+        }
     }
 }

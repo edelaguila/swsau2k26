@@ -17,6 +17,14 @@ namespace Capa_Vista_Auditoria
         public Frm_MDI_Auditoria()
         {
             InitializeComponent();
+
+            // Abrir maximizado
+            this.WindowState = FormWindowState.Maximized;
+
+            // Mantener controles de ventana
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
