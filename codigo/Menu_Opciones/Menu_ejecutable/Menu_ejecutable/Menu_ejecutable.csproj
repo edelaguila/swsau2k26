@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7113AE16-B446-4ACB-A01D-A58542FC90EB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Menu_ejecutable</RootNamespace>
     <AssemblyName>Menu_ejecutable</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,12 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Auditoria">
-      <HintPath>..\..\..\Sistema de auditoria\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.exe</HintPath>
+      <HintPath>..\..\..\Sistema de auditoria\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaVista\bin\Debug\Capa_Vista_Seguridad.dll</HintPath>

@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="Capa_Vista_Auditoria">
-      <HintPath>..\..\..\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.exe</HintPath>
+      <HintPath>..\..\..\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.dll</HintPath>
     </Reference>
   </ItemGroup>
 
