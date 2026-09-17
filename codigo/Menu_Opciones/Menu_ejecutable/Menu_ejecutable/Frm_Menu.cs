@@ -8,24 +8,11 @@ namespace Menu_ejecutable
     public partial class Frm_Menu : Form
     {
         // ==========================================
-        // CLASE DE DISEÑO
-        // ==========================================
-        private Cls_Diseño_Auditoria diseño = new Cls_Diseño_Auditoria();
-
-
-        // ==========================================
         // CONSTRUCTOR
         // ==========================================
         public Frm_Menu()
         {
             InitializeComponent();
-
-            diseño.AplicarDiseñoMenu(
-                this,
-                label1,
-                Btn_Seguridad,
-                Btn_Auditoria
-            );
         }
 
         // ==========================================
@@ -41,6 +28,16 @@ namespace Menu_ejecutable
             frm_LoginS.Show();
         }
 
+        private void Btn_Seguridad_MouseEnter(object sender, EventArgs e)
+        {
+            Btn_Seguridad.BackColor = System.Drawing.Color.FromArgb(45, 135, 235);
+        }
+
+        private void Btn_Seguridad_MouseLeave(object sender, EventArgs e)
+        {
+            Btn_Seguridad.BackColor = System.Drawing.Color.FromArgb(30, 120, 220);
+        }
+
         // ==========================================
         // AUDITORÍA
         // ==========================================
@@ -49,6 +46,16 @@ namespace Menu_ejecutable
             Frm_Login_auditoria frm_loginA = new Frm_Login_auditoria();
             this.Hide();
             frm_loginA.Show();
+        }
+
+        private void Btn_Auditoria_MouseEnter(object sender, EventArgs e)
+        {
+            Btn_Auditoria.BackColor = System.Drawing.Color.FromArgb(0, 175, 120);
+        }
+
+        private void Btn_Auditoria_MouseLeave(object sender, EventArgs e)
+        {
+            Btn_Auditoria.BackColor = System.Drawing.Color.FromArgb(0, 150, 105);
         }
     }
 }

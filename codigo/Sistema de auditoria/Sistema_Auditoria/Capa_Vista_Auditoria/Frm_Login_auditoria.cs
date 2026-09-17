@@ -27,28 +27,11 @@ namespace Capa_Vista_Auditoria
             new Cls_Usuario_Controlador();
 
         // ==========================================
-        // CLASE DE DISEÑO
-        // ==========================================
-        private Cls_Diseño_Auditoria diseño =
-            new Cls_Diseño_Auditoria();
-
-
-        // ==========================================
         // CONSTRUCTOR
         // ==========================================
         public Frm_Login_auditoria()
         {
             InitializeComponent();
-
-            // Aplicar diseño del login
-            diseño.AplicarDiseñoLogin(
-                this,
-                txtUsuario,
-                txtContrasena,
-                chkMostrarContrasena,
-                lblkRecuperarContrasena,
-                btnIniciarSesion
-            );
 
             // Ocultar contraseña
             txtContrasena.UseSystemPasswordChar = true;
@@ -58,6 +41,20 @@ namespace Capa_Vista_Auditoria
 
             // ENTER = iniciar sesión
             this.AcceptButton = btnIniciarSesion;
+        }
+
+
+        // ==========================================
+        // EFECTO HOVER BOTÓN INICIAR SESIÓN
+        // ==========================================
+        private void btnIniciarSesion_MouseEnter(object sender, EventArgs e)
+        {
+            btnIniciarSesion.BackColor = Color.FromArgb(0, 175, 120);
+        }
+
+        private void btnIniciarSesion_MouseLeave(object sender, EventArgs e)
+        {
+            btnIniciarSesion.BackColor = Color.FromArgb(0, 150, 105);
         }
 
 
