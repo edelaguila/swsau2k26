@@ -12,6 +12,9 @@
     <Reference Include="Capa_Vista_Auditoria">
       <HintPath>..\..\..\Sistema_Auditoria\Capa_Vista_Auditoria\bin\Debug\net472\Capa_Vista_Auditoria.dll</HintPath>
     </Reference>
+    <Reference Include="Menu_ejecutable">
+      <HintPath>..\..\..\..\Menu_Opciones\Menu_ejecutable\Menu_ejecutable\bin\Debug\Menu_ejecutable.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

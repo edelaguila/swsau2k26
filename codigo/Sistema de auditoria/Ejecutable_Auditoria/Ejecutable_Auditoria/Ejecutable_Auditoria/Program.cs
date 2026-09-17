@@ -1,6 +1,6 @@
+using Menu_ejecutable;
 using System;
 using System.Windows.Forms;
-using Capa_Vista_Auditoria;
 
 namespace Ejecutable_Auditoria
 {
@@ -14,7 +14,7 @@ namespace Ejecutable_Auditoria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Login_auditoria());
+            Application.Run(new Frm_Splash());
         }
     }
 }
