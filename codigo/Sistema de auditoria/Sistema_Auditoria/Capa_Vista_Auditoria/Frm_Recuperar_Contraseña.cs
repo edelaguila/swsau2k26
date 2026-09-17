@@ -16,26 +16,10 @@ namespace Capa_Vista_Auditoria
     public partial class Frm_Recuperar_Contraseña : Form
     {
         private ClsControladorRecuperarContrasena cls_recuperar = new ClsControladorRecuperarContrasena();
-        private Cls_Diseño_Auditoria diseño = new Cls_Diseño_Auditoria();
 
         public Frm_Recuperar_Contraseña()
         {
             InitializeComponent();
-
-            //Diseño
-            diseño.AplicarDiseñoRecuperarContrasena(
-                this,
-                Txt_usuario,
-                Txt_Mostrar_Token,
-                Txt_Verificar_Token,
-                Txt_nueva_contrasena,
-                Txt_confirmar_contrasena,
-                Btn_Generar_Token,
-                Btn_Verificar_Token,
-                Btn_Guardar,
-                Btn_Regresar,
-                Btn_ayuda
-            );
         }
 
         private void Btn_Generar_Token_Click(object sender, EventArgs e)

@@ -25,6 +25,23 @@ namespace Capa_Vista_Auditoria
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
             this.MinimizeBox = true;
+
+            // Área de trabajo del MDI: WinForms no expone el color del
+            // MdiClient como propiedad del diseñador, así que se ajusta aquí
+            // una sola vez para que combine con el encabezado, sin ser oscuro.
+            AplicarColorAreaMdi();
+        }
+
+        private void AplicarColorAreaMdi()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is MdiClient areaMdi)
+                {
+                    areaMdi.BackColor = Color.FromArgb(235, 240, 248);
+                    break;
+                }
+            }
         }
 
         private void ShowNewForm(object sender, EventArgs e)

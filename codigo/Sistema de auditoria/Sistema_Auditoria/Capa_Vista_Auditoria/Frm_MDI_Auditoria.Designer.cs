@@ -34,6 +34,11 @@ namespace Capa_Vista_Auditoria
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MDI_Auditoria));
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.lblTituloMDI = new System.Windows.Forms.Label();
+            this.lblSubtituloMDI = new System.Windows.Forms.Label();
+            this.pnlLineaHeader = new System.Windows.Forms.Panel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,13 +87,19 @@ namespace Capa_Vista_Auditoria
             this.grupo2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupo3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupo4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(27)))), ((int)(((byte)(52)))));
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.menuStrip.ForeColor = System.Drawing.Color.White;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Renderer = new System.Windows.Forms.ToolStripProfessionalRenderer(new Cls_TemaMenuAuditoria());
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.editMenu,
@@ -118,6 +129,7 @@ namespace Capa_Vista_Auditoria
             this.printSetupToolStripMenuItem,
             this.toolStripSeparator5,
             this.exitToolStripMenuItem});
+            this.fileMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(73, 24);
@@ -211,6 +223,7 @@ namespace Capa_Vista_Auditoria
             this.pasteToolStripMenuItem,
             this.toolStripSeparator7,
             this.selectAllToolStripMenuItem});
+            this.editMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(62, 24);
             this.editMenu.Text = "&Editar";
@@ -282,6 +295,7 @@ namespace Capa_Vista_Auditoria
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolBarToolStripMenuItem,
             this.statusBarToolStripMenuItem});
+            this.viewMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(44, 24);
             this.viewMenu.Text = "&Ver";
@@ -308,6 +322,7 @@ namespace Capa_Vista_Auditoria
             // 
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
+            this.toolsMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(112, 24);
             this.toolsMenu.Text = "&Herramientas";
@@ -327,6 +342,7 @@ namespace Capa_Vista_Auditoria
             this.tileHorizontalToolStripMenuItem,
             this.closeAllToolStripMenuItem,
             this.arrangeIconsToolStripMenuItem});
+            this.windowsMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.windowsMenu.Name = "windowsMenu";
             this.windowsMenu.Size = new System.Drawing.Size(82, 24);
             this.windowsMenu.Text = "&Ventanas";
@@ -375,6 +391,7 @@ namespace Capa_Vista_Auditoria
             this.searchToolStripMenuItem,
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
+            this.helpMenu.DropDown.ForeColor = System.Drawing.Color.White;
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(65, 24);
             this.helpMenu.Text = "Ay&uda";
@@ -415,6 +432,8 @@ namespace Capa_Vista_Auditoria
             // 
             // statusStrip
             // 
+            this.statusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.statusStrip.ForeColor = System.Drawing.Color.White;
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
@@ -438,6 +457,7 @@ namespace Capa_Vista_Auditoria
             this.grupo2ToolStripMenuItem,
             this.grupo3ToolStripMenuItem,
             this.grupo4ToolStripMenuItem});
+            this.gruposToolStripMenuItem.DropDown.ForeColor = System.Drawing.Color.White;
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
             this.gruposToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.gruposToolStripMenuItem.Text = "Grupos";
@@ -466,6 +486,60 @@ namespace Capa_Vista_Auditoria
             this.grupo4ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupo4ToolStripMenuItem.Text = "Grupo 4";
             // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.pnlHeader.Controls.Add(this.picLogo);
+            this.pnlHeader.Controls.Add(this.lblTituloMDI);
+            this.pnlHeader.Controls.Add(this.lblSubtituloMDI);
+            this.pnlHeader.Controls.Add(this.pnlLineaHeader);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(842, 90);
+            this.pnlHeader.TabIndex = 100;
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::Capa_Vista_Auditoria.Properties.Resources.logo_auditores;
+            this.picLogo.Location = new System.Drawing.Point(18, 13);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(64, 64);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 101;
+            this.picLogo.TabStop = false;
+            // 
+            // lblTituloMDI
+            // 
+            this.lblTituloMDI.AutoSize = true;
+            this.lblTituloMDI.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTituloMDI.ForeColor = System.Drawing.Color.White;
+            this.lblTituloMDI.Location = new System.Drawing.Point(100, 16);
+            this.lblTituloMDI.Name = "lblTituloMDI";
+            this.lblTituloMDI.Size = new System.Drawing.Size(283, 30);
+            this.lblTituloMDI.TabIndex = 102;
+            this.lblTituloMDI.Text = "SISTEMA DE AUDITORÍA";
+            // 
+            // lblSubtituloMDI
+            // 
+            this.lblSubtituloMDI.AutoSize = true;
+            this.lblSubtituloMDI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblSubtituloMDI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(190)))), ((int)(((byte)(220)))));
+            this.lblSubtituloMDI.Location = new System.Drawing.Point(102, 50);
+            this.lblSubtituloMDI.Name = "lblSubtituloMDI";
+            this.lblSubtituloMDI.Size = new System.Drawing.Size(345, 15);
+            this.lblSubtituloMDI.TabIndex = 103;
+            this.lblSubtituloMDI.Text = "Control Interno   •   Seguridad   •   Cumplimiento Normativo";
+            // 
+            // pnlLineaHeader
+            // 
+            this.pnlLineaHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(105)))));
+            this.pnlLineaHeader.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlLineaHeader.Location = new System.Drawing.Point(0, 87);
+            this.pnlLineaHeader.Name = "pnlLineaHeader";
+            this.pnlLineaHeader.Size = new System.Drawing.Size(842, 3);
+            this.pnlLineaHeader.TabIndex = 104;
+            // 
             // Frm_MDI_Auditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -473,11 +547,15 @@ namespace Capa_Vista_Auditoria
             this.ClientSize = new System.Drawing.Size(842, 558);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.pnlHeader);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Name = "Frm_MDI_Auditoria";
             this.Text = "Frm_MDI_Auditoria";
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -491,6 +569,11 @@ namespace Capa_Vista_Auditoria
 
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Label lblTituloMDI;
+        private System.Windows.Forms.Label lblSubtituloMDI;
+        private System.Windows.Forms.Panel pnlLineaHeader;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
