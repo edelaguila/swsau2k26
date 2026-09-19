@@ -1,37 +1,39 @@
 :: ============================================================================
 :: BUILD GLOBAL - SISTEMA AUDITORIA - VISUAL STUDIO 2019 o 2022 (a elegir)
-:: ORDEN DE COMPILACION:
-::   1) Componente Consultas Simples
-::   2) Componente Consultas
-::   3) Reporteador
-::   4) Navegador
-::   5) Seguridad
-:: ============================================================================
 ::
-:: QUE HACE ESTE SCRIPT:
-:: 1. Pregunta si quieres compilar con Visual Studio 2019 o 2022, y usa el
-::    MSBuild correspondiente para compilar los proyectos C#.
-:: 2. Compila cada componente en el orden solicitado, capa por capa
-::    (Modelo -> Controlador -> Vista) usando /t:Rebuild /p:Configuration=Debug.
-:: 3. Copia las DLLs generadas de Debug a Release para que los componentes
-::    queden disponibles como referencias para el resto del sistema.
-:: 4. Verifica que existan las DLLs finales de cada componente.
-:: 5. Guarda toda la salida de MSBuild en logs\build_log.txt.
+:: BUSQUEDA AUTOMATICA DE PROYECTOS:
+:: Este script YA NO tiene una lista fija de componentes escrita a mano.
+:: Busca TODOS los archivos .csproj dentro de la carpeta "codigo" y todas
+:: sus subcarpetas, sin importar el nombre que le pongas. Ejemplo: si creas
+:: una carpeta nueva "Ventas" dentro de "codigo" con sus propias capas
+:: Modelo/Controlador/Vista, y esa Vista referencia Capa_Vista_Seguridad y
+:: Capa_Vista_Auditoria, este script la va a encontrar y compilar sola, en
+:: el orden correcto, la proxima vez que lo corras. No hay que editar nada
+:: aqui cuando agregues un componente nuevo.
 ::
-:: PARA USARLO CON OTRO PROYECTO, NORMALMENTE SOLO DEBES CAMBIAR:
-::   MSBUILD_PATH    -> Si tu Visual Studio 2019/2022 no es Community o esta en otra ruta.
-::   COMPONENTES_DIR -> Carpeta donde estan los componentes (se calcula sola abajo).
+:: COMO RESUELVE EL ORDEN SIN CONOCER LAS DEPENDENCIAS DE ANTEMANO:
+:: En vez de adivinar que proyecto depende de cual, el script intenta
+:: compilar TODOS los .csproj pendientes en una "pasada". Los que fallen
+:: porque todavia les falta la DLL de otro proyecto quedan "pendientes"
+:: para la siguiente pasada. Despues de cada pasada se copian las DLLs
+:: nuevas (Debug -> Release) por si algun proyecto las busca ahi. Esto se
+:: repite (hasta 8 veces) hasta que ya no quede nada pendiente, o hasta que
+:: una pasada completa no logre compilar nada nuevo (eso ya seria un error
+:: real -referencia rota, typo, etc- y se reporta al final con su ruta para
+:: que revises logs\build_log.txt).
 ::
-:: IMPORTANTE:
-:: Las rutas que contienen espacios siempre deben ir entre comillas.
+:: PROYECTOS "MUERTOS" O DE PRUEBA:
+:: Si tienes algun .csproj viejo que ya no usas y falla al compilar, no
+:: rompe nada mas: cada proyecto se intenta de forma independiente. Solo
+:: apareceria como [FALTA] al final. Si quieres, puedes borrarlo o moverlo
+:: fuera de "codigo" para que ni se intente.
 ::
 :: VENTANA QUE NO SE CIERRA:
 :: Al hacer doble clic, Windows abre una ventana "cmd /c" que se cierra sola
 :: en cuanto el script termina (o si falla antes de llegar al menu final).
 :: Para evitarlo, este .bat se relanza a si mismo dentro de una ventana
-:: "cmd /k", la cual NUNCA se cierra sola (ni aunque el script truene a la
-:: mitad). Asi puedes leer con calma toda la salida de la compilacion y
-:: cerrarla tu mismo cuando termines (escribiendo "exit" o con la X).
+:: "cmd /k", la cual NUNCA se cierra sola. Asi puedes leer con calma toda la
+:: salida de la compilacion y cerrarla tu mismo (escribiendo "exit" o con la X).
 :: ============================================================================
 
 @echo off
@@ -45,7 +47,7 @@ setlocal enabledelayedexpansion
 color 0A
 
 echo ============================================
-echo COMPILACION SISTEMA AUDITORIA
+echo COMPILACION SISTEMA AUDITORIA (AUTO-DESCUBRIMIENTO)
 echo ============================================
 echo.
 echo Selecciona la version de Visual Studio para compilar:
@@ -57,14 +59,12 @@ choice /c 12 /n /m "Version (1/2): "
 set "VS_CHOICE=%errorlevel%"
 
 :: --------------------------------------------------------------------------
-:: 1) RUTA DE MSBUILD SEGUN LA VERSION ELEGIDA
+:: RUTA DE MSBUILD SEGUN LA VERSION ELEGIDA
 :: --------------------------------------------------------------------------
-:: IMPORTANTE: estas dos rutas tienen parentesis ("Program Files (x86)")
-:: o podrian tenerlos en otra instalacion. Por eso los "set" van en lineas
-:: sueltas, SIN meterlos dentro de un bloque if(...) multilinea: cmd.exe
-:: cuenta mal los parentesis de una ruta cuando estan dentro de un bloque
-:: de varias lineas, y el script se rompe con un error como
-:: "No se esperaba \Microsoft en este momento."
+:: IMPORTANTE: estas rutas tienen parentesis ("Program Files (x86)"). Por
+:: eso los "set" van en lineas sueltas, fuera de cualquier bloque if(...)
+:: multilinea: cmd.exe cuenta mal los parentesis de una ruta cuando estan
+:: dentro de un bloque de varias lineas.
 :: --------------------------------------------------------------------------
 set "VS_LABEL=2019"
 if "%VS_CHOICE%"=="2" set "VS_LABEL=2022"
@@ -88,243 +88,154 @@ if not exist "!MSBUILD_PATH!" (
     exit /b 1
 )
 
-:: --------------------------------------------------------------------------
-:: 2) CARPETA DE COMPONENTES DEL PROYECTO
-:: --------------------------------------------------------------------------
-:: %~dp0 obtiene automaticamente la carpeta donde esta guardado este .bat
-:: (la raiz del proyecto swsau2k26). Los componentes viven en codigo\componentes.
-:: --------------------------------------------------------------------------
 set "ROOT_DIR=%~dp0"
-set "COMPONENTES_DIR=%ROOT_DIR%codigo\componentes"
+set "CODIGO_DIR=%ROOT_DIR%codigo"
 
 cd /d "%ROOT_DIR%"
 if not exist "logs" mkdir logs
 
-:: Log limpio en cada corrida
 echo ============================================ > logs\build_log.txt
 echo COMPILACION INICIADA: %DATE% %TIME% >> logs\build_log.txt
 echo ============================================ >> logs\build_log.txt
 
-:: ==========================================================
-:: CICLO DE COMPILACION EN EL ORDEN SOLICITADO
-:: ==========================================================
+if not exist "!CODIGO_DIR!" (
+    echo.
+    echo [ERROR] No se encontro la carpeta de codigo en: !CODIGO_DIR!
+    pause
+    exit /b 1
+)
+
+:: --------------------------------------------------------------------------
+:: 1) BUSCAR TODOS LOS .csproj DENTRO DE "codigo" (cualquier carpeta nueva
+::    que crees, con cualquier nombre, se incluye automaticamente aqui).
+:: --------------------------------------------------------------------------
 echo.
 echo ============================================
-echo INICIANDO COMPILACION EN ORDEN
+echo BUSCANDO PROYECTOS (.csproj) EN codigo\...
 echo ============================================
 
-:: --------------------------------------------------------------------------
-:: NOTA: el codigo de cada componente va DIRECTO aqui (sin "call :Etiqueta").
-:: cmd.exe tiene un bug conocido donde la PRIMERA vez que se llama una
-:: etiqueta definida al final del archivo, a veces no la encuentra
-:: ("El sistema no encuentra la etiqueta por lotes especificada"), aunque
-:: las llamadas siguientes si funcionen. Poniendo el codigo en linea se
-:: elimina ese riesgo por completo.
-:: --------------------------------------------------------------------------
+if exist "logs\pendientes.txt" del /f /q "logs\pendientes.txt"
+if exist "logs\pendientes_nuevo.txt" del /f /q "logs\pendientes_nuevo.txt"
+if exist "logs\ok.txt" del /f /q "logs\ok.txt"
 
-echo ============================================
-echo COMPILANDO COMPONENTE: Consultas Simples
-echo ============================================
+dir /s /b /a-d "!CODIGO_DIR!\*.csproj" > "logs\pendientes.txt" 2>nul
 
-for %%p in ("!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Modelo_Componente_Consultas\*.csproj") do (
-    "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
+set /a TOTAL_PROYECTOS=0
+for /f "usebackq delims=" %%c in ("logs\pendientes.txt") do set /a TOTAL_PROYECTOS+=1
+
+echo Proyectos encontrados: !TOTAL_PROYECTOS!
+echo Proyectos encontrados: !TOTAL_PROYECTOS! >> logs\build_log.txt
+
+if !TOTAL_PROYECTOS! EQU 0 (
+    echo.
+    echo [ERROR] No se encontro ningun .csproj dentro de !CODIGO_DIR!
+    pause
+    exit /b 1
 )
 
-for %%p in ("!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Controlador_Componente_Consultas\*.csproj") do (
-    "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-)
+:: --------------------------------------------------------------------------
+:: 2) COMPILAR EN "PASADAS" HASTA QUE NO QUEDEN PENDIENTES
+:: --------------------------------------------------------------------------
+set /a MAX_PASADAS=8
+set /a PASADA=0
 
-for /d %%d in ("!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Vista_Componente_Consultas_*") do (
-    for %%p in ("%%~fd\*.csproj") do (
-        "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
+:PASADA_LOOP
+set /a PASADA+=1
+set /a COMPILADOS_EN_PASADA=0
+set /a PENDIENTES_EN_PASADA=0
+
+echo.
+echo ============================================
+echo PASADA !PASADA! DE COMPILACION
+echo ============================================
+
+if exist "logs\pendientes_nuevo.txt" del /f /q "logs\pendientes_nuevo.txt"
+
+for /f "usebackq delims=" %%p in ("logs\pendientes.txt") do (
+    set "PROYECTO=%%p"
+    set "ES_SDK=NO"
+    findstr /I /C:"Microsoft.NET.Sdk" "!PROYECTO!" >nul 2>&1
+    if !errorlevel! EQU 0 set "ES_SDK=SI"
+
+    echo. >> logs\build_log.txt
+    echo -------------------------------------------- >> logs\build_log.txt
+    echo PASADA !PASADA! - Compilando: !PROYECTO! >> logs\build_log.txt
+    echo -------------------------------------------- >> logs\build_log.txt
+
+    if "!ES_SDK!"=="SI" (
+        "!MSBUILD_PATH!" "!PROYECTO!" /t:Restore /p:Configuration=Debug >> logs\build_log.txt 2>&1
+    )
+
+    "!MSBUILD_PATH!" "!PROYECTO!" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
+
+    if !errorlevel! EQU 0 (
+        echo   [OK] !PROYECTO!
+        echo !PROYECTO! >> logs\ok.txt
+        set /a COMPILADOS_EN_PASADA+=1
+    ) else (
+        echo   [pendiente] !PROYECTO!
+        echo !PROYECTO! >> logs\pendientes_nuevo.txt
+        set /a PENDIENTES_EN_PASADA+=1
     )
 )
 
-echo ============================================
-echo COMPILANDO COMPONENTE: Consultas
-echo ============================================
-
-for %%p in ("!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Modelo_Componente_Consultas\*.csproj") do (
-    "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-)
-
-for %%p in ("!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Controlador_Componente_Consultas\*.csproj") do (
-    "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-)
-
-for %%p in ("!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Vista_Componente_Consultas\*.csproj") do (
-    "!MSBUILD_PATH!" "%%~fp" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-)
-
-echo ============================================
-echo COMPILANDO COMPONENTE: Reporteador
-echo ============================================
-
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Modelo_Reporteador\Capa_Modelo_Reporteador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Controlador_Reporteador\Capa_Controlador_Reporteador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Vista_Reporteador\Capa_Vista_Reporteador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-
-echo ============================================
-echo COMPILANDO COMPONENTE: Navegador
-echo ============================================
-
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaModeloNavegador\Capa_Modelo_Navegador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaControladorNavegador\Capa_Controlador_Navegador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaVistaNavegador\Capa_Vista_Navegador.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-
-echo ============================================
-echo COMPILANDO COMPONENTE: Seguridad
-echo ============================================
-
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaModelo\Capa_Modelo_Seguridad.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\Capa_Controlador_Seguridad.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-"!MSBUILD_PATH!" "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaVista\Capa_Vista_Seguridad.csproj" /t:Rebuild /p:Configuration=Debug >> logs\build_log.txt 2>&1
-
-echo.
-echo ============================================
-echo COMPILACION DE COMPONENTES FINALIZADA
-echo ============================================
-
-
-:: ==========================================================
-:: COPIAR DLLs DE COMPONENTES (Debug -> Release)
-:: ==========================================================
-echo.
-echo ============================================
-echo COPIANDO DLLs DE DEBUG A RELEASE
-echo ============================================
-
-for /r "!COMPONENTES_DIR!" %%d in (*.dll) do (
+:: Reflejar DLLs nuevas de Debug a Release antes de la siguiente pasada,
+:: por si algun proyecto busca la referencia en la carpeta Release.
+for /r "!CODIGO_DIR!" %%d in (*.dll) do (
     if exist "%%d" (
-        if not exist "%%~dpd..\Release" mkdir "%%~dpd..\Release"
-        copy /Y "%%d" "%%~dpd..\Release\" >nul
+        if not exist "%%~dpd..\Release" mkdir "%%~dpd..\Release" >nul 2>&1
+        copy /Y "%%d" "%%~dpd..\Release\" >nul 2>&1
     )
 )
 
-echo DLLs copiadas correctamente.
+echo.
+echo Pasada !PASADA!: !COMPILADOS_EN_PASADA! compilados, !PENDIENTES_EN_PASADA! pendientes.
 
+if exist "logs\pendientes_nuevo.txt" (
+    move /y "logs\pendientes_nuevo.txt" "logs\pendientes.txt" >nul
+) else (
+    if exist "logs\pendientes.txt" del /f /q "logs\pendientes.txt"
+)
+
+if !PENDIENTES_EN_PASADA! EQU 0 goto PASADAS_FIN
+if !COMPILADOS_EN_PASADA! EQU 0 goto PASADAS_FIN
+if !PASADA! GEQ !MAX_PASADAS! goto PASADAS_FIN
+goto PASADA_LOOP
+
+:PASADAS_FIN
+
+echo.
+echo ============================================
+echo COMPILACION FINALIZADA TRAS !PASADA! PASADA-S
+echo ============================================
 
 :: ==========================================================
-:: VERIFICAR DLLs DE CADA COMPONENTE
+:: RESUMEN FINAL - lo que SI compilo y lo que quedo pendiente
 :: ==========================================================
 echo.
 echo ============================================
-echo VERIFICANDO DLLs DE COMPONENTE CONSULTAS SIMPLES
+echo RESUMEN FINAL DE COMPILACION
 echo ============================================
+echo.
 
-if exist "!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Modelo_Componente_Consultas\bin\Debug\*.dll" (
-    echo [OK] ComponenteConsultasSimples - Capa Modelo
-) else (
-    echo [FALTA] ComponenteConsultasSimples - Capa Modelo
+if exist "logs\ok.txt" (
+    for /f "usebackq delims=" %%o in ("logs\ok.txt") do echo [OK] %%o
 )
 
-if exist "!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Controlador_Componente_Consultas\bin\Debug\*.dll" (
-    echo [OK] ComponenteConsultasSimples - Capa Controlador
-) else (
-    echo [FALTA] ComponenteConsultasSimples - Capa Controlador
-)
+echo.
 
-if exist "!COMPONENTES_DIR!\consultas\ComponenteConsultasSimples\Capa_Vista_Componente_Consultas_simples\bin\Debug\*.dll" (
-    echo [OK] ComponenteConsultasSimples - Capa Vista
+if exist "logs\pendientes.txt" (
+    echo Los siguientes proyectos NO se lograron compilar:
+    echo.
+    for /f "usebackq delims=" %%f in ("logs\pendientes.txt") do echo [FALTA] %%f
+    echo.
+    echo Revisa logs\build_log.txt para ver el error exacto de cada uno.
 ) else (
-    echo [FALTA] ComponenteConsultasSimples - Capa Vista
+    echo Todos los proyectos encontrados en codigo\ se compilaron correctamente.
 )
 
 echo.
 echo ============================================
-echo VERIFICANDO DLLs DE COMPONENTE CONSULTAS
-echo ============================================
-
-if exist "!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Modelo_Componente_Consultas\bin\Debug\*.dll" (
-    echo [OK] Componente_Consultas - Capa Modelo
-) else (
-    echo [FALTA] Componente_Consultas - Capa Modelo
-)
-
-if exist "!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Controlador_Componente_Consultas\bin\Debug\*.dll" (
-    echo [OK] Componente_Consultas - Capa Controlador
-) else (
-    echo [FALTA] Componente_Consultas - Capa Controlador
-)
-
-if exist "!COMPONENTES_DIR!\consultas\Componente_Consultas\Capa_Vista_Componente_Consultas\bin\Debug\*.dll" (
-    echo [OK] Componente_Consultas - Capa Vista
-) else (
-    echo [FALTA] Componente_Consultas - Capa Vista
-)
-
-echo.
-echo ============================================
-echo VERIFICANDO DLLs DE REPORTEADOR
-echo ============================================
-
-if exist "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Modelo_Reporteador\bin\Debug\Capa_Modelo_Reporteador.dll" (
-    echo [OK] Reporteador - Capa Modelo
-) else (
-    echo [FALTA] Reporteador - Capa Modelo
-)
-
-if exist "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Controlador_Reporteador\bin\Debug\Capa_Controlador_Reporteador.dll" (
-    echo [OK] Reporteador - Capa Controlador
-) else (
-    echo [FALTA] Reporteador - Capa Controlador
-)
-
-if exist "!COMPONENTES_DIR!\reporteador\reporteador\Capa_Vista_Reporteador\bin\Debug\Capa_Vista_Reporteador.dll" (
-    echo [OK] Reporteador - Capa Vista
-) else (
-    echo [FALTA] Reporteador - Capa Vista
-)
-
-echo.
-echo ============================================
-echo VERIFICANDO DLLs DE NAVEGADOR
-echo ============================================
-
-if exist "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaModeloNavegador\bin\Debug\Capa_Modelo_Navegador.dll" (
-    echo [OK] Navegador - Capa Modelo
-) else (
-    echo [FALTA] Navegador - Capa Modelo
-)
-
-if exist "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaControladorNavegador\bin\Debug\Capa_Controlador_Navegador.dll" (
-    echo [OK] Navegador - Capa Controlador
-) else (
-    echo [FALTA] Navegador - Capa Controlador
-)
-
-if exist "!COMPONENTES_DIR!\navegador\NavegadorMVC\CapaVistaNavegador\bin\Debug\Capa_Vista_Navegador.dll" (
-    echo [OK] Navegador - Capa Vista
-) else (
-    echo [FALTA] Navegador - Capa Vista
-)
-
-echo.
-echo ============================================
-echo VERIFICANDO DLLs DE SEGURIDAD
-echo ============================================
-
-if exist "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaModelo\bin\Debug\Capa_Modelo_Seguridad.dll" (
-    echo [OK] Seguridad - Capa Modelo
-) else (
-    echo [FALTA] Seguridad - Capa Modelo
-)
-
-if exist "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll" (
-    echo [OK] Seguridad - Capa Controlador
-) else (
-    echo [FALTA] Seguridad - Capa Controlador
-)
-
-if exist "!COMPONENTES_DIR!\seguridad\SeguridadMVC\SeguridadMVC\CapaVista\bin\Debug\Capa_Vista_Seguridad.dll" (
-    echo [OK] Seguridad - Capa Vista
-) else (
-    echo [FALTA] Seguridad - Capa Vista
-)
-
-echo.
-echo ============================================
-echo COMPILACION FINALIZADA COMPLETAMENTE
 echo Log detallado en: logs\build_log.txt
 echo ============================================
 echo.
