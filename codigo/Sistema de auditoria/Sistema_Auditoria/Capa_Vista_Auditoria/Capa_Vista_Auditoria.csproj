@@ -11,6 +11,18 @@
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_actividades_pro">
+      <HintPath>..\..\..\Grupo1_Mantenimientos\Mantenimientos_Actividades_Proyectos\MVC_Mantenimiento_Actividades_Proyecto\Capa_Vista_actividades_pro\bin\Debug\Capa_Vista_actividades_pro.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_PE">
+      <HintPath>..\..\..\Grupo1_Mantenimientos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_PY">
+      <HintPath>..\..\..\Grupo1_Mantenimientos\DLLs\DLL_Proyecto\Capa_Vista_PY\bin\Debug\Capa_Vista_PY.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Recursos">
+      <HintPath>..\..\..\Grupo1_Mantenimientos\DLLs\Mantenimiento_Recursos\Capa_Vista_Recursos\bin\Debug\Capa_Vista_Recursos.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

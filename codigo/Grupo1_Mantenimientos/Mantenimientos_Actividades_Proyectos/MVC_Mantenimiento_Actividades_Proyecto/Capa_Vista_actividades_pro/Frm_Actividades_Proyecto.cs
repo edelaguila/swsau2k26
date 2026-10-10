@@ -109,19 +109,6 @@ namespace Capa_Vista_actividades_pro
 
             Btn_Refrescar.Click +=
                 (s, e) => pro_refrescar();
-
-            Btn_Inicio.Click +=
-                (s, e) => pro_navegar(0);
-
-            Btn_Anterior.Click +=
-                (s, e) => pro_navegar(-1);
-
-            Btn_Siguiente.Click +=
-                (s, e) => pro_navegar(1);
-
-            Btn_Fin.Click +=
-                (s, e) => pro_navegar(2);
-
             Btn_Ayuda.Click +=
                 (s, e) => pro_ayuda();
 
@@ -199,11 +186,6 @@ namespace Capa_Vista_actividades_pro
             Btn_Consultar.Enabled = !bEdicion;
             Btn_Refrescar.Enabled = !bEdicion;
             Btn_Imprimir.Enabled = !bEdicion && bSeleccion;
-
-            Btn_Inicio.Enabled = !bEdicion;
-            Btn_Anterior.Enabled = !bEdicion;
-            Btn_Siguiente.Enabled = !bEdicion;
-            Btn_Fin.Enabled = !bEdicion;
 
             Btn_Ayuda.Enabled = true;
             Btn_Salir.Enabled = true;
