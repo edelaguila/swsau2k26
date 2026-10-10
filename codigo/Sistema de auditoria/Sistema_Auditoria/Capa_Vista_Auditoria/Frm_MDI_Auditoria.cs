@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Capa_Vista_PY;
 using Capa_Vista_PE;
 using Capa_Vista_actividades_pro;
+using Capa_Vista_Areas;
 using Capa_Vista_Recursos;
 
 namespace Capa_Vista_Auditoria

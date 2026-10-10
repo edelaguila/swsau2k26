@@ -6,7 +6,7 @@ namespace Capa_Modelo_Areas
 {
     public class Cls_Dao_Areas
     {
-        private string conexion = "DSN=Auditores;";
+        private string conexion = "DSN=bd_auditoria;";
 
         public DataTable funcObtenerAreas()
         {
