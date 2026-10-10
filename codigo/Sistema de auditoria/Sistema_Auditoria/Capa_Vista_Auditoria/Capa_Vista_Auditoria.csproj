@@ -11,6 +11,15 @@
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Criterios">
+      <HintPath>..\..\..\Grupo_3\Mantenimientos\Criterios\Capa_Vista_Criterios\bin\Debug\Capa_Vista_Criterios.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Escalas">
+      <HintPath>..\..\..\Grupo_3\Mantenimientos\Mantenimiento_Escalas\Capa_Vista_Escalas\bin\Debug\Capa_Vista_Escalas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Rubrica">
+      <HintPath>..\..\..\Grupo_3\Mantenimientos\Mantenimiento_Rubrica\Capa_Vista_Rubrica\bin\Debug\Capa_Vista_Rubrica.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37502.11 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Vista_Escalas", "Capa_Vista_Escalas\Capa_Vista_Escalas.csproj", "{3C99D045-3CD2-419D-BF83-64207605C846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Controlador_Escalas", "Capa_Controlador_Escalas\Capa_Controlador_Escalas.csproj", "{636DD20D-0FE1-4139-9CCE-9896A3373191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Escalas", "Capa_Modelo_Escalas\Capa_Modelo_Escalas.csproj", "{AEDAE2C6-35AA-4DED-9D73-E56B1D09DD00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C99D045-3CD2-419D-BF83-64207605C846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C99D045-3CD2-419D-BF83-64207605C846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C99D045-3CD2-419D-BF83-64207605C846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C99D045-3CD2-419D-BF83-64207605C846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636DD20D-0FE1-4139-9CCE-9896A3373191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636DD20D-0FE1-4139-9CCE-9896A3373191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636DD20D-0FE1-4139-9CCE-9896A3373191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636DD20D-0FE1-4139-9CCE-9896A3373191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDAE2C6-35AA-4DED-9D73-E56B1D09DD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDAE2C6-35AA-4DED-9D73-E56B1D09DD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDAE2C6-35AA-4DED-9D73-E56B1D09DD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDAE2C6-35AA-4DED-9D73-E56B1D09DD00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACB946AC-4C67-4F19-819F-DDC823C71362}
+	EndGlobalSection
+EndGlobal

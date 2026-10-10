@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Capa_Vista_Escalas;
+using Capa_Vista_Criterios;
+using Capa_Vista_Rubrica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -122,6 +125,29 @@ namespace Capa_Vista_Auditoria
             {
                 childForm.Close();
             }
+        }
+
+        private void escalasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Escalas escalas = new Frm_Escalas();
+            escalas.Show();
+        }
+
+        private void rubricasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Rubrica rubricas = new Frm_Rubrica();
+            rubricas.Show();
+        }
+
+        private void criteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Criterio criterios = new Frm_Criterio();
+            criterios.Show();
+        }
+
+        private void planificacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
