@@ -14,6 +14,9 @@
     <Reference Include="Capa_Vista_actividades_pro">
       <HintPath>..\..\..\Grupo1_Mantenimientos\Mantenimientos_Actividades_Proyectos\MVC_Mantenimiento_Actividades_Proyecto\Capa_Vista_actividades_pro\bin\Debug\Capa_Vista_actividades_pro.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Areas">
+      <HintPath>..\..\..\Grupo1_Mantenimientos\Mant Areas\MVC_MANT_AREAS\Capa_Vista_Areas\bin\Debug\Capa_Vista_Areas.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_PE">
       <HintPath>..\..\..\Grupo1_Mantenimientos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
     </Reference>
