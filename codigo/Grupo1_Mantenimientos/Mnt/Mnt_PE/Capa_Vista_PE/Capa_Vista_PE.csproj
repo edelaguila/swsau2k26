@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45813C07-56E9-4CD3-8CDA-3AFB057A7DB0}</ProjectGuid>
+    <ProjectGuid>{45AD0F2E-6EEA-4B0F-95DC-056C744F61F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Capa_Modelo_Componente_Consultas</RootNamespace>
-    <AssemblyName>Capa_Modelo_Componente_Consultas</AssemblyName>
+    <RootNamespace>Capa_Vista_PE</RootNamespace>
+    <AssemblyName>Capa_Vista_PE</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,12 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Capa_Modelo_Componente_Consultas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Capa_Controlador_Componente_Consultas\bin\Debug\Capa_Modelo_Componente_Consultas.dll</HintPath>
+    <Reference Include="Capa_Controlador_Navegador">
+      <HintPath>..\..\..\..\componentes\navegador\NavegadorMVC\CapaVistaNavegador\bin\Debug\Capa_Controlador_Navegador.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Navegador">
+      <HintPath>..\..\..\..\componentes\navegador\NavegadorMVC\CapaVistaNavegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,9 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexion.cs" />
+    <Compile Include="Frm_PE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PE.Designer.cs">
+      <DependentUpon>Frm_PE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sentencias.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm_PE.resx">
+      <DependentUpon>Frm_PE.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

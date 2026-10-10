@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_PY;
+using Capa_Vista_PE;
+using Capa_Vista_actividades_pro;
+using Capa_Vista_Areas;
+using Capa_Vista_Recursos;
 
 namespace Capa_Vista_Auditoria
 {
@@ -122,6 +127,36 @@ namespace Capa_Vista_Auditoria
             {
                 childForm.Close();
             }
+        }
+
+        private void proyectoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PY FrmProyecto = new Frm_PY();
+            FrmProyecto.Show();
+
+        }
+
+        private void proyectoEstadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PE FrmProyectoEstado = new Frm_PE();
+            FrmProyectoEstado.Show();
+        }
+
+        private void actividadesDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Actividades_Proyecto FrmActividadesProyecto = new Frm_Actividades_Proyecto();
+            FrmActividadesProyecto.Show();
+        }
+
+        private void áreasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //pendiente
+        }
+
+        private void recursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Recursos FrmRecursos = new Frm_Recursos();
+            FrmRecursos.Show();
         }
     }
 }
