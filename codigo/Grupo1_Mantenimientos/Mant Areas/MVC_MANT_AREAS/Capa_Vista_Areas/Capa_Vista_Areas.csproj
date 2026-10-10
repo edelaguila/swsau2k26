@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5D98F96D-F33F-40A7-BC90-2B919FB743AF}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Capa_Vista_Areas</RootNamespace>
     <AssemblyName>Capa_Vista_Areas</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,10 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MVC_MANT_AREAS">
-      <HintPath>..\MVC_MANT_AREAS\bin\Debug\MVC_MANT_AREAS.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,7 +55,6 @@
     <Compile Include="Frm_Areas.Designer.cs">
       <DependentUpon>Frm_Areas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm_Areas.resx">
       <DependentUpon>Frm_Areas.cs</DependentUpon>
@@ -81,6 +80,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Modelo_Areas\Capa_Modelo_Areas.csproj">
+      <Project>{aafa1639-dc94-47ab-a92c-5779d113a5d0}</Project>
+      <Name>Capa_Modelo_Areas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVC_MANT_AREAS\Capa_Controlador_Areas.csproj">
+      <Project>{898289ee-5f5b-4e15-b97c-297ae53747fa}</Project>
+      <Name>Capa_Controlador_Areas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
