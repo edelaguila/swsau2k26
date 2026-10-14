@@ -30,7 +30,7 @@ namespace Mantenimiento_Estado_Informe
                 PosY = 300,
                 ColorFondo = Color.AliceBlue,
                 TipoScrollBars = ScrollBars.Both,
-                Nombre = "dgv_empleados"
+                Nombre = "dgv_Estado_Informe"
             };
 
             string[] columnas = {
