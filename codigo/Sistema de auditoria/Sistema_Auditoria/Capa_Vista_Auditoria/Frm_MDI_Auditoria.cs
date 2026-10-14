@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mantenimiento_Estado_Informe;
 
 namespace Capa_Vista_Auditoria
 {
@@ -122,6 +123,13 @@ namespace Capa_Vista_Auditoria
             {
                 childForm.Close();
             }
+        }
+
+        private void estadoInformeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_MEI frm = new Frm_MEI();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
