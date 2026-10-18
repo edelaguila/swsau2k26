@@ -23,19 +23,19 @@ namespace Capa_Modelo_Informes
                 a.Cmp_Nombre_Auditor,
                 i.fecha_creacion,
                 i.fecha_actualizacion
-            FROM tbl_informes i
-            INNER JOIN tbl_proyectos       p ON p.Pk_id_proyecto       = i.Fk_id_proyecto
-            INNER JOIN tbl_estados_informe e ON e.Pk_id_estado_informe = i.Fk_id_estado_informe
-            INNER JOIN tbl_auditores       a ON a.Pk_id_auditor        = i.Fk_id_auditor
+            FROM tbl_informe i
+            INNER JOIN tbl_proyecto      p ON p.Pk_id_proyecto       = i.Fk_id_proyecto
+            INNER JOIN tbl_estado_informe e ON e.Pk_id_estado_informe = i.Fk_id_estado_informe
+            INNER JOIN tbl_auditor      a ON a.Pk_id_auditor        = i.Fk_id_auditor
             ORDER BY i.Pk_id_informe DESC;";
 
         private const string SQL_INSERT = @"
-            INSERT INTO tbl_informes
+            INSERT INTO tbl_informe
                 (titulo_informe, Fk_id_proyecto, Fk_id_estado_informe, Fk_id_auditor)
             VALUES (?, ?, ?, ?);";
 
         private const string SQL_UPDATE = @"
-            UPDATE tbl_informes SET
+            UPDATE tbl_informe SET
                 titulo_informe = ?,
                 Fk_id_proyecto = ?,
                 Fk_id_estado_informe = ?,
@@ -43,26 +43,26 @@ namespace Capa_Modelo_Informes
             WHERE Pk_id_informe = ?;";
 
         private const string SQL_CAMBIAR_ESTADO = @"
-            UPDATE tbl_informes SET Fk_id_estado_informe = ?
+            UPDATE tbl_informe SET Fk_id_estado_informe = ?
             WHERE Pk_id_informe = ?;";
 
         private const string SQL_PROYECTOS = @"
             SELECT Pk_id_proyecto,
                    CONCAT(Pk_id_proyecto, ' - ', Cmp_Nombre_Proyecto) AS Proyecto
-            FROM tbl_proyectos
-            WHERE Fk_id_estado_proyecto = ?
+            FROM tbl_proyecto
+            WHERE Fk_id_Proyecto_Estado = ?
             ORDER BY Cmp_Nombre_Proyecto;";
 
         private const string SQL_AUDITORES = @"
             SELECT Pk_id_auditor,
                    CONCAT(Cmp_Carnet_Auditor, ' - ', Cmp_Nombre_Auditor) AS Auditor
-            FROM tbl_auditores
+            FROM tbl_auditor
             WHERE Fk_id_estado_auditor = ?
             ORDER BY Cmp_Nombre_Auditor;";
 
         private const string SQL_ESTADOS = @"
             SELECT Pk_id_estado_informe, Cmp_Nombre_Estado_Informe
-            FROM tbl_estados_informe
+            FROM tbl_estado_informe
             ORDER BY Cmp_Nombre_Estado_Informe;";
 
         // ---------- Consultas ----------

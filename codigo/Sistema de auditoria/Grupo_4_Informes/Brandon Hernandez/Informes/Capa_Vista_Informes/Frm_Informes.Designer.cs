@@ -39,16 +39,16 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Cbo_Auditores = new System.Windows.Forms.ComboBox();
             this.Gbp_Campos = new System.Windows.Forms.GroupBox();
+            this.Lbl_Titulo = new System.Windows.Forms.Label();
+            this.Lbl_Proyecto = new System.Windows.Forms.Label();
+            this.Lbl_Estado = new System.Windows.Forms.Label();
             this.Lbl_Auditor = new System.Windows.Forms.Label();
             this.Txt_Titulo = new System.Windows.Forms.TextBox();
             this.Cbo_Proyecto = new System.Windows.Forms.ComboBox();
             this.Cbo_Estado = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Lbl_Estado = new System.Windows.Forms.Label();
-            this.Lbl_Proyecto = new System.Windows.Forms.Label();
-            this.Lbl_Titulo = new System.Windows.Forms.Label();
+            this.Dgv_Informes = new System.Windows.Forms.DataGridView();
             this.Gbp_Campos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Informes)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Ayuda
@@ -64,6 +64,7 @@
             this.Btn_Ayuda.Text = "Ayuda";
             this.Btn_Ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Ayuda.UseVisualStyleBackColor = false;
+            this.Btn_Ayuda.Click += new System.EventHandler(this.Btn_Ayuda_Click);
             // 
             // Btn_Salir
             // 
@@ -78,6 +79,7 @@
             this.Btn_Salir.Text = "Salir";
             this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Salir.UseVisualStyleBackColor = false;
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
             // 
             // Btn_Insertar
             // 
@@ -93,6 +95,7 @@
             this.Btn_Insertar.Text = "Ingresar";
             this.Btn_Insertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Insertar.UseVisualStyleBackColor = false;
+            this.Btn_Insertar.Click += new System.EventHandler(this.Btn_Insertar_Click);
             // 
             // Btn_Modificar
             // 
@@ -107,6 +110,7 @@
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Modificar.UseVisualStyleBackColor = false;
+            this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
             // 
             // Btn_Imprimir
             // 
@@ -121,6 +125,7 @@
             this.Btn_Imprimir.Text = "Imprimir";
             this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Imprimir.UseVisualStyleBackColor = false;
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
             // 
             // Btn_Guardar
             // 
@@ -135,6 +140,7 @@
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Guardar.UseVisualStyleBackColor = false;
+            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
             // Btn_Consultar
             // 
@@ -149,6 +155,7 @@
             this.Btn_Consultar.Text = "Consultar";
             this.Btn_Consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Consultar.UseVisualStyleBackColor = false;
+            this.Btn_Consultar.Click += new System.EventHandler(this.Btn_Consultar_Click);
             // 
             // Btn_Eliminar
             // 
@@ -163,6 +170,7 @@
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Eliminar.UseVisualStyleBackColor = false;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Cbo_Auditores
             // 
@@ -188,6 +196,36 @@
             this.Gbp_Campos.TabIndex = 10;
             this.Gbp_Campos.TabStop = false;
             // 
+            // Lbl_Titulo
+            // 
+            this.Lbl_Titulo.AutoSize = true;
+            this.Lbl_Titulo.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Lbl_Titulo.Location = new System.Drawing.Point(433, 82);
+            this.Lbl_Titulo.Name = "Lbl_Titulo";
+            this.Lbl_Titulo.Size = new System.Drawing.Size(38, 16);
+            this.Lbl_Titulo.TabIndex = 15;
+            this.Lbl_Titulo.Text = "Titulo";
+            // 
+            // Lbl_Proyecto
+            // 
+            this.Lbl_Proyecto.AutoSize = true;
+            this.Lbl_Proyecto.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Lbl_Proyecto.Location = new System.Drawing.Point(25, 85);
+            this.Lbl_Proyecto.Name = "Lbl_Proyecto";
+            this.Lbl_Proyecto.Size = new System.Drawing.Size(58, 16);
+            this.Lbl_Proyecto.TabIndex = 14;
+            this.Lbl_Proyecto.Text = "Proyecto";
+            // 
+            // Lbl_Estado
+            // 
+            this.Lbl_Estado.AutoSize = true;
+            this.Lbl_Estado.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Lbl_Estado.Location = new System.Drawing.Point(433, 33);
+            this.Lbl_Estado.Name = "Lbl_Estado";
+            this.Lbl_Estado.Size = new System.Drawing.Size(47, 16);
+            this.Lbl_Estado.TabIndex = 13;
+            this.Lbl_Estado.Text = "Estado";
+            // 
             // Lbl_Auditor
             // 
             this.Lbl_Auditor.AutoSize = true;
@@ -197,7 +235,6 @@
             this.Lbl_Auditor.Size = new System.Drawing.Size(50, 16);
             this.Lbl_Auditor.TabIndex = 12;
             this.Lbl_Auditor.Text = "Auditor";
-            this.Lbl_Auditor.Click += new System.EventHandler(this.label1_Click);
             // 
             // Txt_Titulo
             // 
@@ -222,43 +259,14 @@
             this.Cbo_Estado.Size = new System.Drawing.Size(363, 21);
             this.Cbo_Estado.TabIndex = 9;
             // 
-            // dataGridView1
+            // Dgv_Informes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 314);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(809, 256);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // Lbl_Estado
-            // 
-            this.Lbl_Estado.AutoSize = true;
-            this.Lbl_Estado.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.Lbl_Estado.Location = new System.Drawing.Point(433, 33);
-            this.Lbl_Estado.Name = "Lbl_Estado";
-            this.Lbl_Estado.Size = new System.Drawing.Size(47, 16);
-            this.Lbl_Estado.TabIndex = 13;
-            this.Lbl_Estado.Text = "Estado";
-            // 
-            // Lbl_Proyecto
-            // 
-            this.Lbl_Proyecto.AutoSize = true;
-            this.Lbl_Proyecto.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.Lbl_Proyecto.Location = new System.Drawing.Point(25, 85);
-            this.Lbl_Proyecto.Name = "Lbl_Proyecto";
-            this.Lbl_Proyecto.Size = new System.Drawing.Size(58, 16);
-            this.Lbl_Proyecto.TabIndex = 14;
-            this.Lbl_Proyecto.Text = "Proyecto";
-            // 
-            // Lbl_Titulo
-            // 
-            this.Lbl_Titulo.AutoSize = true;
-            this.Lbl_Titulo.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.Lbl_Titulo.Location = new System.Drawing.Point(433, 82);
-            this.Lbl_Titulo.Name = "Lbl_Titulo";
-            this.Lbl_Titulo.Size = new System.Drawing.Size(38, 16);
-            this.Lbl_Titulo.TabIndex = 15;
-            this.Lbl_Titulo.Text = "Titulo";
+            this.Dgv_Informes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Informes.Location = new System.Drawing.Point(12, 314);
+            this.Dgv_Informes.Name = "Dgv_Informes";
+            this.Dgv_Informes.Size = new System.Drawing.Size(809, 256);
+            this.Dgv_Informes.TabIndex = 11;
+            this.Dgv_Informes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Informes_CellClick);
             // 
             // Frm_Informes
             // 
@@ -266,7 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(194)))), ((int)(((byte)(99)))));
             this.ClientSize = new System.Drawing.Size(843, 582);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Dgv_Informes);
             this.Controls.Add(this.Gbp_Campos);
             this.Controls.Add(this.Btn_Salir);
             this.Controls.Add(this.Btn_Insertar);
@@ -276,11 +284,13 @@
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Btn_Consultar);
             this.Controls.Add(this.Btn_Eliminar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Informes";
-            this.Text = "Frm_Informes";
+            this.Text = "Informes";
+            this.Load += new System.EventHandler(this.e);
             this.Gbp_Campos.ResumeLayout(false);
             this.Gbp_Campos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Informes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,7 +311,7 @@
         private System.Windows.Forms.TextBox Txt_Titulo;
         private System.Windows.Forms.ComboBox Cbo_Proyecto;
         private System.Windows.Forms.ComboBox Cbo_Estado;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dgv_Informes;
         private System.Windows.Forms.Label Lbl_Titulo;
         private System.Windows.Forms.Label Lbl_Proyecto;
         private System.Windows.Forms.Label Lbl_Estado;

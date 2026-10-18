@@ -10,6 +10,13 @@ namespace Capa_Controlador_Informes
     public class Cls_InformesControlador
     {
         private readonly Cls_InformesDAO dao = new Cls_InformesDAO();
+        public static class Cls_CamposInforme
+        {
+            public const string sTitulo = nameof(Cls_Informes.Cmp_titulo_informe);
+            public const string sProyecto = nameof(Cls_Informes.Fk_id_proyecto);
+            public const string sEstado = nameof(Cls_Informes.Fk_id_estado_informe);
+            public const string sAuditor = nameof(Cls_Informes.Fk_id_auditor);
+        }
 
         // =============== CONSULTAS ===============
         public Cls_ResultadoOperacion fun_Obtener_Informes() => fun_Consultar(dao.fun_Obtener_Informes, "informes");
