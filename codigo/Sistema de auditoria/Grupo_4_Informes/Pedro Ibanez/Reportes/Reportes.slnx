@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Capa_Controlador_Reportes/Capa_Controlador_Reportes.csproj" Id="391ddc0d-6ce0-46e6-84e9-a6d85899da3a" />
+  <Project Path="Capa_Modelo_Reportes/Capa_Modelo_Reportes.csproj" Id="c19902cd-5495-4180-97c8-c1180aefe3ea" />
+  <Project Path="Capa_Vista_Reportes/Capa_Vista_Reportes.csproj" Id="bebe1b36-65fc-40d2-bbf0-1383c0291a37" />
+</Solution>
