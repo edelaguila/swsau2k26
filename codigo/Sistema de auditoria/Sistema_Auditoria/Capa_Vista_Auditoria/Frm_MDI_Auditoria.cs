@@ -13,6 +13,26 @@ using Capa_Vista_actividades_pro;
 using Capa_Vista_Areas;
 using Capa_Vista_Recursos;
 
+//Grupo 2
+using Capa_Vista_Auditor;
+using Capa_Vista_Asignacion;
+using mantenimiento_auditores;
+using Capa_Vista_Perfil_Auditor;
+using mantenimiento_auditor_perrfil;
+using Capa_Vista_Estado_Auditor;
+using mantenimiento_estado_auditor;
+using Capavista_pauditado;
+
+//Grupo 3
+using Capa_Vista_Escalas;
+using Capa_Vista_Actividad;
+using Capa_Vista_Criterios;
+using Capa_Vista_Cronograma;
+using Capa_Vista_Desc_Criterio;
+using Capa_Vista_Planificacion;
+using Capa_Vista_Ponderacion;
+using Capa_Vista_Rubrica;
+
 namespace Capa_Vista_Auditoria
 {
     public partial class Frm_MDI_Auditoria : Form
@@ -154,6 +174,97 @@ namespace Capa_Vista_Auditoria
         {
             Frm_PE FrmProyectoEstado = new Frm_PE();
             FrmProyectoEstado.Show();
+        }
+
+        private void auditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Auditor.Frm_Auditor g = new Capa_Vista_Auditor.Frm_Auditor();
+            g.ShowDialog();
+        }
+
+        private void asignaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Asignacion.Frm_Asignacion g = new Capa_Vista_Asignacion.Frm_Asignacion();
+            g.ShowDialog();
+        }
+
+        private void auditadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mantenimiento_auditores.Frm_auditados g = new mantenimiento_auditores.Frm_auditados();
+            g.ShowDialog();
+        }
+
+        private void perfilAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Perfil_Auditor.Frm_Perfil_Auditor g = new Capa_Vista_Perfil_Auditor.Frm_Perfil_Auditor();
+            g.ShowDialog();
+        }
+
+        private void estadoAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Estado_Auditor.Frm_Estado_Auditor g = new Capa_Vista_Estado_Auditor.Frm_Estado_Auditor();
+            g.ShowDialog();
+        }
+
+        private void proyectoAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_ProAuditor.Frm_ProyectoAuditor g = new Capa_Vista_ProAuditor.Frm_ProyectoAuditor();
+            g.ShowDialog();
+        }
+
+        private void proyectoAuditadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capavista_pauditado.Frm_pauditado g = new Capavista_pauditado.Frm_pauditado();
+            g.ShowDialog();
+        }
+
+        private void escalasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Escalas.Frm_Escalas g = new Capa_Vista_Escalas.Frm_Escalas();
+            g.ShowDialog();
+        }
+
+        private void actividadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Actividad.Frm_Actividad_Rubrica g = new Capa_Vista_Actividad.Frm_Actividad_Rubrica();
+            g.ShowDialog();
+
+        }
+
+        private void criteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Criterios.Frm_Criterio g = new Capa_Vista_Criterios.Frm_Criterio();
+            g.ShowDialog();
+        }
+
+        private void cronogramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Cronograma.Frm_Cronograma g = new Capa_Vista_Cronograma.Frm_Cronograma();
+            g.ShowDialog();
+        }
+
+        private void descripciónCriteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Desc_Criterio.Frm_DescripcionCriterio g = new Capa_Vista_Desc_Criterio.Frm_DescripcionCriterio();
+            g.ShowDialog();
+        }
+
+        private void planificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Planificacion.Frm_Planificacion g = new Capa_Vista_Planificacion.Frm_Planificacion();
+            g.ShowDialog();
+        }
+
+        private void ponderaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Ponderacion.Frm_Ponderacion g = new Capa_Vista_Ponderacion.Frm_Ponderacion();
+            g.ShowDialog();
+        }
+
+        private void rúbricaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Rubrica.Frm_Rubrica g = new Capa_Vista_Rubrica.Frm_Rubrica();
+            g.ShowDialog();
         }
     }
 }
