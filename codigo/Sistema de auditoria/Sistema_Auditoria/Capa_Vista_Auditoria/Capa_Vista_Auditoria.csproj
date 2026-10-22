@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -17,6 +17,15 @@
     <Reference Include="Capa_Vista_Areas">
       <HintPath>..\..\..\Grupo1_Mantenimientos\Mant Areas\MVC_MANT_AREAS\Capa_Vista_Areas\bin\Debug\Capa_Vista_Areas.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Checklist">
+      <HintPath>..\..\Grupo_4_Informes\Alejandro Cruz\Transaccional_Checklist\Capa_Vista_Checklist\bin\Debug\Capa_Vista_Checklist.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Graficas_Informes">
+      <HintPath>..\..\Grupo_4_Informes\Fernando Cahuex\Graficas\Capa_Vista_Graficas_Informes\bin\Debug\Capa_Vista_Graficas_Informes.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Informes">
+      <HintPath>..\..\Grupo_4_Informes\Brandon Hernandez\Informes\Capa_Vista_Informes\bin\Debug\Capa_Vista_Informes.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_PE">
       <HintPath>..\..\..\Grupo1_Mantenimientos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
     </Reference>
@@ -25,6 +34,13 @@
     </Reference>
     <Reference Include="Capa_Vista_Recursos">
       <HintPath>..\..\..\Grupo1_Mantenimientos\DLLs\Mantenimiento_Recursos\Capa_Vista_Recursos\bin\Debug\Capa_Vista_Recursos.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Reportes">
+      <HintPath>..\..\Grupo_4_Informes\Pedro Ibanez\Reportes\Capa_Vista_Reportes\bin\Debug\Capa_Vista_Reportes.dll</HintPath>
+    </Reference>
+    <Reference Include="Mantenimiento_Estado_Informe">
+      <HintPath>..\..\Grupo_4_Informes\Fernando Cahuex\Mantenimiento_Estado_Informe\Mantenimiento_Estado_Informe\bin\Debug\Mantenimiento_Estado_Informe.dll</HintPath>
+
     </Reference>
   </ItemGroup>
 

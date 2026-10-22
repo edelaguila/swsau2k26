@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +12,11 @@ using Capa_Vista_PE;
 using Capa_Vista_actividades_pro;
 using Capa_Vista_Areas;
 using Capa_Vista_Recursos;
+using Mantenimiento_Estado_Informe;
+using Capa_Vista_Graficas_Informes;
+using Capa_Vista_Informes;
+using Capa_Vista_Checklist;
+using Capa_Vista_Reportes;
 
 namespace Capa_Vista_Auditoria
 {
@@ -155,5 +160,42 @@ namespace Capa_Vista_Auditoria
             Frm_PE FrmProyectoEstado = new Frm_PE();
             FrmProyectoEstado.Show();
         }
+
+        private void estadoInformeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Frm_MEI frm = new Frm_MEI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void informeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Informes frm = new Frm_Informes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           FrmReportes frm = new FrmReportes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void checklistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Checklist frm = new Frm_Checklist();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void graficasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraficasI frm = new FrmGraficasI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        
     }
 }
