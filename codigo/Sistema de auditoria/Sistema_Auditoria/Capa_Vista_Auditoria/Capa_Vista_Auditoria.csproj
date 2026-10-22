@@ -11,6 +11,18 @@
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Checklist">
+      <HintPath>..\..\Grupo_4_Informes\Alejandro Cruz\Transaccional_Checklist\Capa_Vista_Checklist\bin\Debug\Capa_Vista_Checklist.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Graficas_Informes">
+      <HintPath>..\..\Grupo_4_Informes\Fernando Cahuex\Graficas\Capa_Vista_Graficas_Informes\bin\Debug\Capa_Vista_Graficas_Informes.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Informes">
+      <HintPath>..\..\Grupo_4_Informes\Brandon Hernandez\Informes\Capa_Vista_Informes\bin\Debug\Capa_Vista_Informes.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Reportes">
+      <HintPath>..\..\Grupo_4_Informes\Pedro Ibanez\Reportes\Capa_Vista_Reportes\bin\Debug\Capa_Vista_Reportes.dll</HintPath>
+    </Reference>
     <Reference Include="Mantenimiento_Estado_Informe">
       <HintPath>..\..\Grupo_4_Informes\Fernando Cahuex\Mantenimiento_Estado_Informe\Mantenimiento_Estado_Informe\bin\Debug\Mantenimiento_Estado_Informe.dll</HintPath>
     </Reference>
