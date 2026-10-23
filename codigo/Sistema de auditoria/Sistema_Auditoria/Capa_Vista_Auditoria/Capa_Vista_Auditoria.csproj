@@ -29,6 +29,9 @@
     <Reference Include="Capa_Vista_Auditor">
       <HintPath>..\..\..\Grupo 2 Gestión de auditores\Formulario-Auditor\Auditor\Capa_Vista_Auditor\bin\Debug\Capa_Vista_Auditor.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Checklist">
+      <HintPath>..\..\..\Grupo_4_Informes\Alejandro Cruz\Transaccional_Checklist\Capa_Vista_Checklist\bin\Debug\Capa_Vista_Checklist.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Criterios">
       <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Criterios\Capa_Vista_Criterios\bin\Debug\Capa_Vista_Criterios.dll</HintPath>
     </Reference>
@@ -43,6 +46,12 @@
     </Reference>
     <Reference Include="Capa_Vista_Estado_Auditor">
       <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento-estado-auditor\Capa_Vista_Estado_Auditor\bin\Debug\Capa_Vista_Estado_Auditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Graficas_Informes">
+      <HintPath>..\..\..\Grupo_4_Informes\Fernando Cahuex\Graficas\Capa_Vista_Graficas_Informes\bin\Debug\Capa_Vista_Graficas_Informes.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Informes">
+      <HintPath>..\..\..\Grupo_4_Informes\Brandon Hernandez\Informes\Capa_Vista_Informes\bin\Debug\Capa_Vista_Informes.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_PE">
       <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
@@ -62,6 +71,9 @@
     <Reference Include="Capa_Vista_Recursos">
       <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\DLLs\Mantenimiento_Recursos\Capa_Vista_Recursos\bin\Debug\Capa_Vista_Recursos.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Reportes">
+      <HintPath>..\..\..\Grupo_4_Informes\Pedro Ibanez\Reportes\Capa_Vista_Reportes\bin\Debug\Capa_Vista_Reportes.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Rubrica">
       <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Rubrica\Capa_Vista_Rubrica\bin\Debug\Capa_Vista_Rubrica.dll</HintPath>
     </Reference>
@@ -73,6 +85,9 @@
     </Reference>
     <Reference Include="mantenimiento_auditores">
       <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento auditado\mantenimiento_auditores\mantenimiento_auditores\bin\Debug\mantenimiento_auditores.dll</HintPath>
+    </Reference>
+    <Reference Include="Mantenimiento_Estado_Informe">
+      <HintPath>..\..\..\Grupo_4_Informes\Fernando Cahuex\Mantenimiento_Estado_Informe\Mantenimiento_Estado_Informe\bin\Debug\Mantenimiento_Estado_Informe.dll</HintPath>
     </Reference>
     <Reference Include="ProyectoAuditor">
       <HintPath>..\..\..\Grupo 2 Gestión de auditores\Proyecto Auditor\ProyectoAuditor\bin\Debug\ProyectoAuditor.dll</HintPath>

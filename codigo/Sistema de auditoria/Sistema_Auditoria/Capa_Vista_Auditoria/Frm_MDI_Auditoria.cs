@@ -33,6 +33,13 @@ using Capa_Vista_Planificacion;
 using Capa_Vista_Ponderacion;
 using Capa_Vista_Rubrica;
 
+//Grupo 4
+using Mantenimiento_Estado_Informe;
+using Capa_Vista_Informes;
+using Capa_Vista_Reportes;
+using Capa_Vista_Checklist;
+using Capa_Vista_Graficas_Informes;
+
 namespace Capa_Vista_Auditoria
 {
     public partial class Frm_MDI_Auditoria : Form
@@ -265,6 +272,41 @@ namespace Capa_Vista_Auditoria
         {
             Capa_Vista_Rubrica.Frm_Rubrica g = new Capa_Vista_Rubrica.Frm_Rubrica();
             g.ShowDialog();
+        }
+
+        private void estadoInformeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_MEI frm = new Frm_MEI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void cheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Informes frm = new Frm_Informes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportes frm = new FrmReportes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void checklistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Checklist frm = new Frm_Checklist();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmGraficasI frm = new FrmGraficasI();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
