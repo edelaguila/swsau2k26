@@ -8,11 +8,74 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Capavista_pauditado">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\proyecto_auditado\proyecto_auditado\Capavista_pauditado\bin\Debug\Capavista_pauditado.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
-    <Reference Include="Mantenimiento_Estado_Informe">
-      <HintPath>..\..\Grupo_4_Informes\Fernando Cahuex\Mantenimiento_Estado_Informe\Mantenimiento_Estado_Informe\bin\Debug\Mantenimiento_Estado_Informe.dll</HintPath>
+    <Reference Include="Capa_Vista_Actividad">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Actividad Rubrica\Actividad_Rubrica\Capa_Vista_Actividad\bin\Debug\Capa_Vista_Actividad.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_actividades_pro">
+      <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\Mantenimientos_Actividades_Proyectos\MVC_Mantenimiento_Actividades_Proyecto\Capa_Vista_actividades_pro\bin\Debug\Capa_Vista_actividades_pro.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Areas">
+      <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\Mant Areas\MVC_MANT_AREAS\Capa_Vista_Areas\bin\Debug\Capa_Vista_Areas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Asignacion">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\KenphLuna\Asignaciones\Capa_Vista_Asignacion\bin\Debug\Capa_Vista_Asignacion.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Auditor">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\Formulario-Auditor\Auditor\Capa_Vista_Auditor\bin\Debug\Capa_Vista_Auditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Criterios">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Criterios\Capa_Vista_Criterios\bin\Debug\Capa_Vista_Criterios.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Cronograma">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Cronograma\Cronograma\Capa_Vista_Cronograma\bin\Debug\Capa_Vista_Cronograma.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Desc_Criterio">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Desc_Criterio\Descripcion_Criterio\Capa_Vista_Desc_Criterio\bin\Debug\Capa_Vista_Desc_Criterio.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Escalas">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Mantenimientos\Mantenimiento_Escalas\Capa_Vista_Escalas\bin\Debug\Capa_Vista_Escalas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Estado_Auditor">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento-estado-auditor\Capa_Vista_Estado_Auditor\bin\Debug\Capa_Vista_Estado_Auditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_PE">
+      <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Perfil_Auditor">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento-auditor-perrfil\Capa_Vista_Perfil_Auditor\bin\Debug\Capa_Vista_Perfil_Auditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Planificacion">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Planificacion\Capa_Vista_Planificacion\bin\Debug\Capa_Vista_Planificacion.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Ponderacion">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Ponderacion\Capa_Vista_Ponderacion\bin\Debug\Capa_Vista_Ponderacion.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_PY">
+      <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\DLLs\DLL_Proyecto\Capa_Vista_PY\bin\Debug\Capa_Vista_PY.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Recursos">
+      <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\DLLs\Mantenimiento_Recursos\Capa_Vista_Recursos\bin\Debug\Capa_Vista_Recursos.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Rubrica">
+      <HintPath>..\..\..\Grupo 3 Planificación y evaluación\Transacciones\Rubrica\Capa_Vista_Rubrica\bin\Debug\Capa_Vista_Rubrica.dll</HintPath>
+    </Reference>
+    <Reference Include="mantenimiento-auditor-perrfil">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento-auditor-perrfil\mantenimiento-auditor-perrfil\bin\Debug\mantenimiento-auditor-perrfil.dll</HintPath>
+    </Reference>
+    <Reference Include="mantenimiento-estado-auditor">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento-estado-auditor\mantenimiento-estado-auditor\bin\Debug\mantenimiento-estado-auditor.dll</HintPath>
+    </Reference>
+    <Reference Include="mantenimiento_auditores">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\mantenimiento auditado\mantenimiento_auditores\mantenimiento_auditores\bin\Debug\mantenimiento_auditores.dll</HintPath>
+    </Reference>
+    <Reference Include="ProyectoAuditor">
+      <HintPath>..\..\..\Grupo 2 Gestión de auditores\Proyecto Auditor\ProyectoAuditor\bin\Debug\ProyectoAuditor.dll</HintPath>
     </Reference>
   </ItemGroup>
 

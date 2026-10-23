@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Capa_Controlador_actividades_pro">
+      <HintPath>..\..\MVC_Mantenimiento_Actividades_Proyecto\Capa_Controlador_actividades_pro\bin\Debug\Capa_Controlador_actividades_pro.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Modelo_actividades_pro">
+      <HintPath>..\..\MVC_Mantenimiento_Actividades_Proyecto\Capa_Modelo_actividades_pro\bin\Debug\Capa_Modelo_actividades_pro.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_actividades_pro">
+      <HintPath>..\..\MVC_Mantenimiento_Actividades_Proyecto\Capa_Vista_actividades_pro\bin\Debug\Capa_Vista_actividades_pro.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
