@@ -1,4 +1,34 @@
-﻿using System;
+﻿using Capa_Controlador_Seguridad;
+using Capa_Vista_Actividad;
+using Capa_Vista_actividades_pro;
+using Capa_Vista_Areas;
+using Capa_Vista_Asignacion;
+//Grupo 2
+using Capa_Vista_Auditor;
+using Capa_Vista_Checklist;
+using Capa_Vista_Criterios;
+using Capa_Vista_Cronograma;
+using Capa_Vista_Desc_Criterio;
+//Grupo 3
+using Capa_Vista_Escalas;
+using Capa_Vista_Estado_Auditor;
+using Capa_Vista_Graficas_Informes;
+using Capa_Vista_Informes;
+using Capa_Vista_PE;
+using Capa_Vista_Perfil_Auditor;
+using Capa_Vista_Planificacion;
+using Capa_Vista_Ponderacion;
+using Capa_Vista_PY;
+using Capa_Vista_Recursos;
+using Capa_Vista_Reportes;
+using Capa_Vista_Rubrica;
+using Capavista_pauditado;
+using mantenimiento_auditor_perrfil;
+using mantenimiento_auditores;
+using mantenimiento_estado_auditor;
+//Grupo 4
+using Mantenimiento_Estado_Informe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,38 +37,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista_PY;
-using Capa_Vista_PE;
-using Capa_Vista_actividades_pro;
-using Capa_Vista_Areas;
-using Capa_Vista_Recursos;
-
-//Grupo 2
-using Capa_Vista_Auditor;
-using Capa_Vista_Asignacion;
-using mantenimiento_auditores;
-using Capa_Vista_Perfil_Auditor;
-using mantenimiento_auditor_perrfil;
-using Capa_Vista_Estado_Auditor;
-using mantenimiento_estado_auditor;
-using Capavista_pauditado;
-
-//Grupo 3
-using Capa_Vista_Escalas;
-using Capa_Vista_Actividad;
-using Capa_Vista_Criterios;
-using Capa_Vista_Cronograma;
-using Capa_Vista_Desc_Criterio;
-using Capa_Vista_Planificacion;
-using Capa_Vista_Ponderacion;
-using Capa_Vista_Rubrica;
-
-//Grupo 4
-using Mantenimiento_Estado_Informe;
-using Capa_Vista_Informes;
-using Capa_Vista_Reportes;
-using Capa_Vista_Checklist;
-using Capa_Vista_Graficas_Informes;
 
 namespace Capa_Vista_Auditoria
 {
@@ -307,6 +305,16 @@ namespace Capa_Vista_Auditoria
             FrmGraficasI frm = new FrmGraficasI();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ctrlBitacora.RegistrarCierreSesion(Cls_Usuario_Conectado.iIdUsuario);
+
+            this.Hide();
+            Frm_Login_auditoria formLogin = new Frm_Login_auditoria();
+            formLogin.ShowDialog();
+            this.Close();
         }
     }
 }
