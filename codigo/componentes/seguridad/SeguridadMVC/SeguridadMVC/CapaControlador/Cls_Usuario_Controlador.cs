@@ -16,17 +16,17 @@ namespace Capa_Controlador_Seguridad
         }
 
         public (bool bExito, string sMensaje) InsertarUsuario(
-            int iFkIdEmpleado,
+            int? iFkIdAuditor,
             string sNombreUsuario,
             string sContrasena,
             string sConfirmarContrasena)
         {
-            var vValidar = ValidarCamposUsuario(0, iFkIdEmpleado, sNombreUsuario, sContrasena, sConfirmarContrasena);
+            var vValidar = ValidarCamposUsuario(0, iFkIdAuditor, sNombreUsuario, sContrasena, sConfirmarContrasena);
             if (!vValidar.bExito) return vValidar;
 
             Cls_Usuario gNuevoUsuario = new Cls_Usuario
             {
-                iFkIdEmpleado = iFkIdEmpleado,
+                iFkIdAuditor = iFkIdAuditor,
                 sNombreUsuario = sNombreUsuario,
                 sContrasenaUsuario = Cls_Seguridad_Hash_Controlador.HashearSHA256(sContrasena),
                 iContadorIntentosFallidos = 0,
@@ -57,18 +57,18 @@ namespace Capa_Controlador_Seguridad
 
         public (bool bExito, string sMensaje) ActualizarUsuario(
             int iIdUsuario,
-            int iFkIdEmpleado,
+            int? iFkIdAuditor,
             string sNombreUsuario,
             string sContrasena,
             string sConfirmarContrasena)
         {
-            var vValidar = ValidarCamposUsuario(iIdUsuario, iFkIdEmpleado, sNombreUsuario, sContrasena, sConfirmarContrasena);
+            var vValidar = ValidarCamposUsuario(iIdUsuario, iFkIdAuditor, sNombreUsuario, sContrasena, sConfirmarContrasena);
             if (!vValidar.bExito) return vValidar;
 
             Cls_Usuario gUsuarioActualizado = new Cls_Usuario
             {
                 iPkIdUsuario = iIdUsuario,
-                iFkIdEmpleado = iFkIdEmpleado,
+                iFkIdAuditor = iFkIdAuditor,
                 sNombreUsuario = sNombreUsuario,
                 sContrasenaUsuario = Cls_Seguridad_Hash_Controlador.HashearSHA256(sContrasena),
                 iContadorIntentosFallidos = 0,
@@ -130,13 +130,13 @@ namespace Capa_Controlador_Seguridad
 
         private (bool bExito, string sMensaje) ValidarCamposUsuario(
             int iIdUsuario,
-            int iFkIdEmpleado,
+            int? iFkIdAuditor,
             string sNombreUsuario,
             string sContrasena,
             string sConfirmarContrasena)
         {
-            if (iFkIdEmpleado <= 0)
-                return (false, "Debe seleccionar un empleado válido.");
+            if (iFkIdAuditor.HasValue && iFkIdAuditor.Value <= 0)
+                return (false, "Debe seleccionar un auditor válido.");
 
             if (string.IsNullOrWhiteSpace(sNombreUsuario))
                 return (false, "El nombre de usuario no puede estar vacío.");
@@ -163,9 +163,9 @@ namespace Capa_Controlador_Seguridad
         }
 
         // NUEVO MÉTODO PARA VALIDACIÓN DESDE LA VISTA
-        public bool PuedeGuardarUsuario(int iFkIdEmpleado, string sNombreUsuario, string sContrasena, string sConfirmarContrasena)
+        public bool PuedeGuardarUsuario(int? iFkIdAuditor, string sNombreUsuario, string sContrasena, string sConfirmarContrasena)
         {
-            var resultado = ValidarCamposUsuario(0, iFkIdEmpleado, sNombreUsuario, sContrasena, sConfirmarContrasena);
+            var resultado = ValidarCamposUsuario(0, iFkIdAuditor, sNombreUsuario, sContrasena, sConfirmarContrasena);
             return resultado.bExito;
         }
     }

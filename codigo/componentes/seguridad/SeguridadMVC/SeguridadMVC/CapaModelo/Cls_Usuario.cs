@@ -6,7 +6,7 @@ namespace Capa_Modelo_Seguridad
     public class Cls_Usuario
     {
         public int iPkIdUsuario { get; set; }
-        public int iFkIdEmpleado { get; set; }
+        public int? iFkIdAuditor { get; set; }
         public string sNombreUsuario { get; set; }
         public string sContrasenaUsuario { get; set; }
         public int iContadorIntentosFallidos { get; set; }
@@ -19,7 +19,7 @@ namespace Capa_Modelo_Seguridad
 
         public Cls_Usuario(
             int pkIdUsuario,
-            int fkIdEmpleado,
+            int? fkIdAuditor,
             string nombreUsuario,
             string contrasenaUsuario,
             int contadorIntentosFallidos,
@@ -30,7 +30,7 @@ namespace Capa_Modelo_Seguridad
         )
         {
             iPkIdUsuario = pkIdUsuario;
-            iFkIdEmpleado = fkIdEmpleado;
+            iFkIdAuditor = fkIdAuditor;
             sNombreUsuario = nombreUsuario;
             sContrasenaUsuario = contrasenaUsuario;
             iContadorIntentosFallidos = contadorIntentosFallidos;
