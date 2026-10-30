@@ -62,12 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_EmpleadosV2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_EmpleadosV2.Designer.cs">
-      <DependentUpon>Frm_EmpleadosV2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_Modulo_V2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,12 +91,6 @@
     </Compile>
     <Compile Include="Frm_Reporte_Bitacoras.Designer.cs">
       <DependentUpon>Frm_Reporte_Bitacoras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Reporte_Empleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Reporte_Empleado.Designer.cs">
-      <DependentUpon>Frm_Reporte_Empleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Reporte_modulos.cs">
       <SubType>Form</SubType>
@@ -139,12 +127,6 @@
     </Compile>
     <Compile Include="Frm_asignacion_perfil_usuario.designer.cs">
       <DependentUpon>Frm_asignacion_perfil_usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Empleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Empleados.Designer.cs">
-      <DependentUpon>Frm_Empleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
@@ -218,12 +200,6 @@
       <DependentUpon>Reporte_bitacoras.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reporte_empleado.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reporte_empleado.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reporte_modulo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,9 +220,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Frm_EmpleadosV2.resx">
-      <DependentUpon>Frm_EmpleadosV2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Modulo_V2.resx">
       <DependentUpon>Frm_Modulo_V2.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,9 +234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Reporte_Bitacoras.resx">
       <DependentUpon>Frm_Reporte_Bitacoras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Reporte_Empleado.resx">
-      <DependentUpon>Frm_Reporte_Empleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Reporte_modulos.resx">
       <DependentUpon>Frm_Reporte_modulos.cs</DependentUpon>
@@ -282,9 +252,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_asignacion_perfil_usuario.resx">
       <DependentUpon>Frm_asignacion_perfil_usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Empleados.resx">
-      <DependentUpon>Frm_Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
@@ -324,10 +291,6 @@
     <EmbeddedResource Include="Reporte_bitacoras.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Reporte_bitacoras.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte_empleado.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Reporte_empleado.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte_modulo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

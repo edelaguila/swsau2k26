@@ -10,7 +10,7 @@ namespace Capa_Modelo_Seguridad
         private Cls_Conexion conexion = new Cls_Conexion();
 
         private static readonly string SQL_SELECT = @"
-            SELECT Pk_Id_Usuario, Fk_Id_Empleado, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
+            SELECT Pk_Id_Usuario, Fk_Id_Auditor, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
                    Cmp_Intentos_Fallidos_Usuario, Cmp_Estado_Usuario, 
                    Cmp_FechaCreacion_Usuario, Cmp_Ultimo_Cambio_Contrasenea,
                    Cmp_Pidio_Cambio_Contrasenea
@@ -18,7 +18,7 @@ namespace Capa_Modelo_Seguridad
 
         private static readonly string SQL_INSERT = @"
             INSERT INTO Tbl_Usuario
-                (Fk_Id_Empleado, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
+                (Fk_Id_Auditor, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
                  Cmp_Intentos_Fallidos_Usuario, Cmp_Estado_Usuario,
                  Cmp_FechaCreacion_Usuario, Cmp_Ultimo_Cambio_Contrasenea,
                  Cmp_Pidio_Cambio_Contrasenea)
@@ -26,7 +26,7 @@ namespace Capa_Modelo_Seguridad
 
         private static readonly string SQL_UPDATE = @"
             UPDATE Tbl_Usuario SET
-                Fk_Id_Empleado = ?,
+                Fk_Id_Auditor = ?,
                 Cmp_Nombre_Usuario = ?,
                 Cmp_Contrasena_Usuario = ?,
                 Cmp_Intentos_Fallidos_Usuario = ?,
@@ -39,7 +39,7 @@ namespace Capa_Modelo_Seguridad
         private static readonly string SQL_DELETE = "DELETE FROM Tbl_Usuario WHERE Pk_Id_Usuario = ?";
 
         private static readonly string SQL_QUERY = @"
-            SELECT Pk_Id_Usuario, Fk_Id_Empleado, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
+            SELECT Pk_Id_Usuario, Fk_Id_Auditor, Cmp_Nombre_Usuario, Cmp_Contrasena_Usuario,
                    Cmp_Intentos_Fallidos_Usuario, Cmp_Estado_Usuario, 
                    Cmp_FechaCreacion_Usuario, Cmp_Ultimo_Cambio_Contrasenea,
                    Cmp_Pidio_Cambio_Contrasenea
@@ -59,7 +59,7 @@ namespace Capa_Modelo_Seguridad
                     Cls_Usuario usr = new Cls_Usuario
                     {
                         iPkIdUsuario = reader.GetInt32(0),
-                        iFkIdEmpleado = reader.GetInt32(1),
+                        iFkIdAuditor = reader.IsDBNull(1) ? (int?)null : reader.GetInt32(1),
                         sNombreUsuario = reader.GetString(2),
                         sContrasenaUsuario = reader.GetString(3),
                         iContadorIntentosFallidos = reader.GetInt32(4),
@@ -80,7 +80,7 @@ namespace Capa_Modelo_Seguridad
             {
                 OdbcCommand cmd = new OdbcCommand(SQL_INSERT, conn);
 
-                cmd.Parameters.AddWithValue("@Fk_Id_Empleado", usr.iFkIdEmpleado);
+                cmd.Parameters.AddWithValue("@Fk_Id_Auditor", (object)usr.iFkIdAuditor ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Cmp_Nombre_Usuario", usr.sNombreUsuario);
                 cmd.Parameters.AddWithValue("@Cmp_Contrasena_Usuario", usr.sContrasenaUsuario);
                 cmd.Parameters.AddWithValue("@Cmp_Intentos_Fallidos_Usuario", usr.iContadorIntentosFallidos);
@@ -99,7 +99,7 @@ namespace Capa_Modelo_Seguridad
             {
                 OdbcCommand cmd = new OdbcCommand(SQL_UPDATE, conn);
 
-                cmd.Parameters.AddWithValue("@Fk_Id_Empleado", usr.iFkIdEmpleado);
+                cmd.Parameters.AddWithValue("@Fk_Id_Auditor", (object)usr.iFkIdAuditor ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Cmp_Nombre_Usuario", usr.sNombreUsuario);
                 cmd.Parameters.AddWithValue("@Cmp_Contrasena_Usuario", usr.sContrasenaUsuario);
                 cmd.Parameters.AddWithValue("@Cmp_Intentos_Fallidos_Usuario", usr.iContadorIntentosFallidos);
@@ -137,7 +137,7 @@ namespace Capa_Modelo_Seguridad
                     usr = new Cls_Usuario
                     {
                         iPkIdUsuario = reader.GetInt32(0),
-                        iFkIdEmpleado = reader.GetInt32(1),
+                        iFkIdAuditor = reader.IsDBNull(1) ? (int?)null : reader.GetInt32(1),
                         sNombreUsuario = reader.GetString(2),
                         sContrasenaUsuario = reader.GetString(3),
                         iContadorIntentosFallidos = reader.GetInt32(4),
