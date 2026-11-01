@@ -100,6 +100,15 @@ namespace Capa_Modelo_ProAuditor
             return fun_ejecutar(sSql, iProyecto, iAuditor, iPerfil, dFecha.Date);
         }
 
+        // Catálogo de aplicaciones
+        public DataTable fun_combo_aplicaciones()
+        {
+            return fun_catalogo("SELECT Pk_Id_Aplicacion AS Id, " +
+                                "CONCAT(Pk_Id_Aplicacion,' - ',Cmp_Nombre_Aplicacion) AS Nombre " +
+                                "FROM tbl_aplicacion WHERE Cmp_Estado_Aplicacion = 1 " +
+                                "ORDER BY Pk_Id_Aplicacion");
+        }
+
         // Modifica una asignación 
         public int fun_modificar(int iId, int iProyecto, int iAuditor, int iPerfil, DateTime dFecha)
         {

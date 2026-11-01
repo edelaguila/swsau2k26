@@ -37,15 +37,13 @@ namespace Capa_Vista_ProAuditor
             Pnl_Encabezado.BackColor = gColorArea;
             Lbl_Titulo.Font = gFuenteTitulo; Lbl_Titulo.ForeColor = Color.Black;
             Lbl_Subtitulo.Font = gFuenteSubtitulo; Lbl_Subtitulo.ForeColor = Color.Black;
-            Gpb_Datos.Font = gFuenteSubtitulo;
-
-            foreach (Control Ctrl in Gpb_Datos.Controls)
-                if (!(Ctrl is Button)) Ctrl.Font = gFuenteTexto;
             Txt_Buscar.Font = gFuenteTexto;
             Cbo_Proyecto.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_Auditor.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_Perfil.DropDownStyle = ComboBoxStyle.DropDownList;
             Dtp_Fecha.Format = DateTimePickerFormat.Short;
+
+            Cbo_CodApl.DropDownStyle = ComboBoxStyle.DropDownList;
 
             foreach (Button Btn in new[] { Btn_Nuevo, Btn_Guardar, Btn_Modificar, Btn_Eliminar, Btn_Cancelar, Btn_Buscar })
             {
@@ -53,7 +51,7 @@ namespace Capa_Vista_ProAuditor
                 Btn.FlatStyle = FlatStyle.Flat;
                 Btn.FlatAppearance.BorderSize = 0;
                 Btn.BackColor = gColorArea;
-                Btn.ForeColor = Color.White;
+                Btn.ForeColor = Color.Black;
                 Btn.Cursor = Cursors.Hand;
             }
 
@@ -93,6 +91,7 @@ namespace Capa_Vista_ProAuditor
                 pro_cargar_tabla("");
                 gCargando = false;
                 pro_modo_nuevo();
+                pro_cargar_combo(Cbo_CodApl, gControlador.fun_combo_aplicaciones());
             }
             catch (Exception Ex)
             {
@@ -128,6 +127,7 @@ namespace Capa_Vista_ProAuditor
             Btn_Guardar.Enabled = true;
             Btn_Modificar.Enabled = false;
             Btn_Eliminar.Enabled = false;
+            Cbo_CodApl.SelectedIndex = -1;
         }
 
         private void pro_modo_seleccion()
@@ -155,6 +155,7 @@ namespace Capa_Vista_ProAuditor
         private int fun_valor_combo(ComboBox Cbo)
         {
             return Cbo.SelectedValue == null ? 0 : Convert.ToInt32(Cbo.SelectedValue);
+            int iCodApl = fun_valor_combo(Cbo_CodApl);
         }
 
         private void pro_resultado(bool bExito, string sMensaje)
@@ -206,6 +207,17 @@ namespace Capa_Vista_ProAuditor
         {
 
         }
+
+        private void Cbo_Auditor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Nuevo_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 //fin del código de "Barbara Saldaña" con carné: "0901-22-9136" en la fecha de : "16/10/26"
