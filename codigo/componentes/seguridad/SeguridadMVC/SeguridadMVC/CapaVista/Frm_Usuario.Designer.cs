@@ -31,12 +31,12 @@ namespace Capa_Vista_Seguridad
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Usuario));
             this.lbl_Crear_Usuario = new System.Windows.Forms.Label();
-            this.lbl_Id_Empleado = new System.Windows.Forms.Label();
+            this.lbl_Id_Auditor = new System.Windows.Forms.Label();
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_Contraseña = new System.Windows.Forms.Label();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
             this.Txt_Contraseña = new System.Windows.Forms.TextBox();
-            this.Cbo_Empleado = new System.Windows.Forms.ComboBox();
+            this.Cbo_Auditor = new System.Windows.Forms.ComboBox();
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.Btn_Limpiar = new System.Windows.Forms.Button();
             this.Btn_Salir = new System.Windows.Forms.Button();
@@ -62,16 +62,16 @@ namespace Capa_Vista_Seguridad
             this.lbl_Crear_Usuario.TabIndex = 0;
             this.lbl_Crear_Usuario.Text = "Crear Usuario:";
             // 
-            // lbl_Id_Empleado
+            // lbl_Id_Auditor
             // 
-            this.lbl_Id_Empleado.AutoSize = true;
-            this.lbl_Id_Empleado.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.lbl_Id_Empleado.Location = new System.Drawing.Point(46, 178);
-            this.lbl_Id_Empleado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_Id_Empleado.Name = "lbl_Id_Empleado";
-            this.lbl_Id_Empleado.Size = new System.Drawing.Size(118, 20);
-            this.lbl_Id_Empleado.TabIndex = 1;
-            this.lbl_Id_Empleado.Text = "iId Empleado:";
+            this.lbl_Id_Auditor.AutoSize = true;
+            this.lbl_Id_Auditor.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.lbl_Id_Auditor.Location = new System.Drawing.Point(46, 178);
+            this.lbl_Id_Auditor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Id_Auditor.Name = "lbl_Id_Auditor";
+            this.lbl_Id_Auditor.Size = new System.Drawing.Size(118, 20);
+            this.lbl_Id_Auditor.TabIndex = 1;
+            this.lbl_Id_Auditor.Text = "Id Auditor:";
             // 
             // lbl_Nombre
             // 
@@ -115,16 +115,16 @@ namespace Capa_Vista_Seguridad
             this.Txt_Contraseña.TabIndex = 5;
             this.Txt_Contraseña.TextChanged += new System.EventHandler(this.Txt_Contraseña_TextChanged);
             // 
-            // Cbo_Empleado
+            // Cbo_Auditor
             // 
-            this.Cbo_Empleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
-            this.Cbo_Empleado.FormattingEnabled = true;
-            this.Cbo_Empleado.Location = new System.Drawing.Point(167, 178);
-            this.Cbo_Empleado.Margin = new System.Windows.Forms.Padding(4);
-            this.Cbo_Empleado.Name = "Cbo_Empleado";
-            this.Cbo_Empleado.Size = new System.Drawing.Size(309, 28);
-            this.Cbo_Empleado.TabIndex = 6;
-            this.Cbo_Empleado.SelectedIndexChanged += new System.EventHandler(this.Cbo_Empleado_SelectedIndexChanged);
+            this.Cbo_Auditor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.Cbo_Auditor.FormattingEnabled = true;
+            this.Cbo_Auditor.Location = new System.Drawing.Point(167, 178);
+            this.Cbo_Auditor.Margin = new System.Windows.Forms.Padding(4);
+            this.Cbo_Auditor.Name = "Cbo_Auditor";
+            this.Cbo_Auditor.Size = new System.Drawing.Size(309, 28);
+            this.Cbo_Auditor.TabIndex = 6;
+            this.Cbo_Auditor.SelectedIndexChanged += new System.EventHandler(this.Cbo_Auditor_SelectedIndexChanged);
             // 
             // Btn_Guardar
             // 
@@ -266,12 +266,12 @@ namespace Capa_Vista_Seguridad
             this.Controls.Add(this.Btn_Salir);
             this.Controls.Add(this.Btn_Limpiar);
             this.Controls.Add(this.Btn_Guardar);
-            this.Controls.Add(this.Cbo_Empleado);
+            this.Controls.Add(this.Cbo_Auditor);
             this.Controls.Add(this.Txt_Contraseña);
             this.Controls.Add(this.Txt_Nombre);
             this.Controls.Add(this.lbl_Contraseña);
             this.Controls.Add(this.lbl_Nombre);
-            this.Controls.Add(this.lbl_Id_Empleado);
+            this.Controls.Add(this.lbl_Id_Auditor);
             this.Controls.Add(this.lbl_Crear_Usuario);
             this.Font = new System.Drawing.Font("Rockwell", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -289,12 +289,12 @@ namespace Capa_Vista_Seguridad
         #endregion
 
         private System.Windows.Forms.Label lbl_Crear_Usuario;
-        private System.Windows.Forms.Label lbl_Id_Empleado;
+        private System.Windows.Forms.Label lbl_Id_Auditor;
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_Contraseña;
         private System.Windows.Forms.TextBox Txt_Nombre;
         private System.Windows.Forms.TextBox Txt_Contraseña;
-        private System.Windows.Forms.ComboBox Cbo_Empleado;
+        private System.Windows.Forms.ComboBox Cbo_Auditor;
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.Button Btn_Salir;

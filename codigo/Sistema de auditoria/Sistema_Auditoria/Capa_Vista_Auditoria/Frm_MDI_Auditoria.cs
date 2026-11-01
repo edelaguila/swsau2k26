@@ -1,4 +1,34 @@
-﻿using System;
+﻿using Capa_Controlador_Seguridad;
+using Capa_Vista_Actividad;
+using Capa_Vista_actividades_pro;
+using Capa_Vista_Areas;
+using Capa_Vista_Asignacion;
+//Grupo 2
+using Capa_Vista_Auditor;
+using Capa_Vista_Checklist;
+using Capa_Vista_Criterios;
+using Capa_Vista_Cronograma;
+using Capa_Vista_Desc_Criterio;
+//Grupo 3
+using Capa_Vista_Escalas;
+using Capa_Vista_Estado_Auditor;
+using Capa_Vista_Graficas_Informes;
+using Capa_Vista_Informes;
+using Capa_Vista_PE;
+using Capa_Vista_Perfil_Auditor;
+using Capa_Vista_Planificacion;
+using Capa_Vista_Ponderacion;
+using Capa_Vista_PY;
+using Capa_Vista_Recursos;
+using Capa_Vista_Reportes;
+using Capa_Vista_Rubrica;
+using Capavista_pauditado;
+using mantenimiento_auditor_perrfil;
+using mantenimiento_auditores;
+using mantenimiento_estado_auditor;
+//Grupo 4
+using Mantenimiento_Estado_Informe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +37,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using mantenimiento_auditores;
-using Capa_Vista_Perfil_Auditor;
-using Capa_Vista_Auditor;
 
 namespace Capa_Vista_Auditoria
 {
@@ -94,10 +121,6 @@ namespace Capa_Vista_Auditoria
         {
         }
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -127,27 +150,171 @@ namespace Capa_Vista_Auditoria
             }
         }
 
-        private void grupo2ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void proyectoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Frm_PY FrmProyecto = new Frm_PY();
+            FrmProyecto.Show();
 
         }
 
-        private void auditadosToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void actividadesDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_auditados auditados = new Frm_auditados();
-            auditados.Show();
+            Frm_Actividades_Proyecto FrmActividadesProyecto = new Frm_Actividades_Proyecto();
+            FrmActividadesProyecto.Show();
         }
 
-        private void perfilAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void áreasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Perfil_Auditor perfil_Auditor = new Frm_Perfil_Auditor();
-            perfil_Auditor.Show();
+            //pendiente
+        }
+
+        private void recursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Recursos FrmRecursos = new Frm_Recursos();
+            FrmRecursos.Show();
+        }
+
+        private void proyectoEstadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PE FrmProyectoEstado = new Frm_PE();
+            FrmProyectoEstado.Show();
         }
 
         private void auditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Auditor auditor = new Frm_Auditor();
-            auditor.Show();
+            Capa_Vista_Auditor.Frm_Auditor g = new Capa_Vista_Auditor.Frm_Auditor();
+            g.ShowDialog();
+        }
+
+        private void asignaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Asignacion.Frm_Asignacion g = new Capa_Vista_Asignacion.Frm_Asignacion();
+            g.ShowDialog();
+        }
+
+        private void auditadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mantenimiento_auditores.Frm_auditados g = new mantenimiento_auditores.Frm_auditados();
+            g.ShowDialog();
+        }
+
+        private void perfilAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Perfil_Auditor.Frm_Perfil_Auditor g = new Capa_Vista_Perfil_Auditor.Frm_Perfil_Auditor();
+            g.ShowDialog();
+        }
+
+        private void estadoAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Estado_Auditor.Frm_Estado_Auditor g = new Capa_Vista_Estado_Auditor.Frm_Estado_Auditor();
+            g.ShowDialog();
+        }
+
+        private void proyectoAuditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_ProAuditor.Frm_ProyectoAuditor g = new Capa_Vista_ProAuditor.Frm_ProyectoAuditor();
+            g.ShowDialog();
+        }
+
+        private void proyectoAuditadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capavista_pauditado.Frm_pauditado g = new Capavista_pauditado.Frm_pauditado();
+            g.ShowDialog();
+        }
+
+        private void escalasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Escalas.Frm_Escalas g = new Capa_Vista_Escalas.Frm_Escalas();
+            g.ShowDialog();
+        }
+
+        private void actividadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Actividad.Frm_Actividad_Rubrica g = new Capa_Vista_Actividad.Frm_Actividad_Rubrica();
+            g.ShowDialog();
+
+        }
+
+        private void criteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Criterios.Frm_Criterio g = new Capa_Vista_Criterios.Frm_Criterio();
+            g.ShowDialog();
+        }
+
+        private void cronogramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Cronograma.Frm_Cronograma g = new Capa_Vista_Cronograma.Frm_Cronograma();
+            g.ShowDialog();
+        }
+
+        private void descripciónCriteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Desc_Criterio.Frm_DescripcionCriterio g = new Capa_Vista_Desc_Criterio.Frm_DescripcionCriterio();
+            g.ShowDialog();
+        }
+
+        private void planificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Planificacion.Frm_Planificacion g = new Capa_Vista_Planificacion.Frm_Planificacion();
+            g.ShowDialog();
+        }
+
+        private void ponderaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Ponderacion.Frm_Ponderacion g = new Capa_Vista_Ponderacion.Frm_Ponderacion();
+            g.ShowDialog();
+        }
+
+        private void rúbricaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Rubrica.Frm_Rubrica g = new Capa_Vista_Rubrica.Frm_Rubrica();
+            g.ShowDialog();
+        }
+
+        private void estadoInformeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_MEI frm = new Frm_MEI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void cheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Informes frm = new Frm_Informes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportes frm = new FrmReportes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void checklistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Checklist frm = new Frm_Checklist();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmGraficasI frm = new FrmGraficasI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ctrlBitacora.RegistrarCierreSesion(Cls_Usuario_Conectado.iIdUsuario);
+
+            this.Hide();
+            Frm_Login_auditoria formLogin = new Frm_Login_auditoria();
+            formLogin.ShowDialog();
+            this.Close();
         }
     }
 }

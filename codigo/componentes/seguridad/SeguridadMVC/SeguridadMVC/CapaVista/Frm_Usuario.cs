@@ -12,10 +12,11 @@ namespace Capa_Vista_Seguridad
     {
         // VARIABLES GLOBALES
         private Cls_Usuario_Controlador gClsUsuarioControlador = new Cls_Usuario_Controlador();
-        private Cls_EmpleadoControlador gClsEmpleadoControlador = new Cls_EmpleadoControlador();
+        //Aron Esqut
+        private Cls_AuditorControlador gClsAuditorControlador = new Cls_AuditorControlador();
 
-        private List<string> gLstEmpleadosDisplay = new List<string>();
-        private List<int> gLstEmpleadosIds = new List<int>();
+        private List<string> gLstAuditoresDisplay = new List<string>();
+        private List<int> gLstAuditoresIds = new List<int>();
 
         private int idUsuarioSeleccionado = 0;
 
@@ -28,8 +29,8 @@ namespace Capa_Vista_Seguridad
             Txt_Contraseña.UseSystemPasswordChar = true;
             Txt_ConfirmarContraseña.UseSystemPasswordChar = true;
 
-            CargarEmpleados();
-            ConfigurarComboBoxEmpleados();
+            CargarAuditores();
+            ConfigurarComboBoxAuditores();
 
             ConfiguracionInicial();
         }
@@ -42,27 +43,28 @@ namespace Capa_Vista_Seguridad
 
         // CARGA DE DATOS
         //cambios cesar estrada
-        private void CargarEmpleados()
+        private void CargarAuditores()
         {
-            // El Controlador SÍ usa el Modelo, pero la Vista NO
-            var empleadosData = gClsEmpleadoControlador.fun_ObtenerEmpleadosParaComboBox();
-            gLstEmpleadosDisplay.Clear();
-            gLstEmpleadosIds.Clear();
+            var gDatosAuditores = gClsAuditorControlador.fun_ObtenerAuditoresParaComboBox();
 
-            foreach (var empData in empleadosData)
+            gLstAuditoresDisplay.Clear();
+            gLstAuditoresIds.Clear();
+
+            foreach (var gAuditor in gDatosAuditores)
             {
-                gLstEmpleadosDisplay.Add(empData.Display);
-                gLstEmpleadosIds.Add(empData.Id);
+                gLstAuditoresDisplay.Add(gAuditor.Display);
+                gLstAuditoresIds.Add(gAuditor.Id);
             }
         }
 
         //cambios cesar estrada
-        private void ConfigurarComboBoxEmpleados()
+        private void ConfigurarComboBoxAuditores()
         {
-            Cbo_Empleado.Items.Clear();
-            foreach (var display in gLstEmpleadosDisplay)
+            Cbo_Auditor.Items.Clear();
+
+            foreach (var sNombreAuditor in gLstAuditoresDisplay)
             {
-                Cbo_Empleado.Items.Add(display);
+                Cbo_Auditor.Items.Add(sNombreAuditor);
             }
         }
 
@@ -70,17 +72,15 @@ namespace Capa_Vista_Seguridad
         //cambios cesar estrada
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (Cbo_Empleado.SelectedIndex < 0)
+            int? iFkIdAuditor = null;
+
+            if (Cbo_Auditor.SelectedIndex >= 0)
             {
-                MessageBox.Show("Debe seleccionar un empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                iFkIdAuditor = gLstAuditoresIds[Cbo_Auditor.SelectedIndex];
             }
 
-            int iFkIdEmpleado = gLstEmpleadosIds[Cbo_Empleado.SelectedIndex];
-
-            // El Controlador recibe los datos y usa el Modelo internamente
             var gResultado = gClsUsuarioControlador.InsertarUsuario(
-                iFkIdEmpleado,
+                iFkIdAuditor,
                 Txt_Nombre.Text,
                 Txt_Contraseña.Text,
                 Txt_ConfirmarContraseña.Text
@@ -118,7 +118,7 @@ namespace Capa_Vista_Seguridad
         // FUNCIONES DE APOYO
         private void LimpiarCampos()
         {
-            Cbo_Empleado.SelectedIndex = -1;
+            Cbo_Auditor.SelectedIndex = -1;
             Txt_Nombre.Clear();
             Txt_Contraseña.Clear();
             Txt_ConfirmarContraseña.Clear();
@@ -154,13 +154,12 @@ namespace Capa_Vista_Seguridad
         private void Txt_Nombre_TextChanged(object sender, EventArgs e) => ValidarCampos();
         private void Txt_Contraseña_TextChanged(object sender, EventArgs e) => ValidarCampos();
         private void Txt_ConfirmarContraseña_TextChanged(object sender, EventArgs e) => ValidarCampos();
-        private void Cbo_Empleado_SelectedIndexChanged(object sender, EventArgs e) => ValidarCampos();
+        private void Cbo_Auditor_SelectedIndexChanged(object sender, EventArgs e) => ValidarCampos();
 
         // VALIDACIÓN VISUAL ACTUALIZADA
         private void ValidarCampos()
         {
             bool bCamposLlenos =
-                Cbo_Empleado.SelectedIndex >= 0 &&
                 !string.IsNullOrWhiteSpace(Txt_Nombre.Text) &&
                 !string.IsNullOrWhiteSpace(Txt_Contraseña.Text) &&
                 !string.IsNullOrWhiteSpace(Txt_ConfirmarContraseña.Text);
@@ -169,9 +168,15 @@ namespace Capa_Vista_Seguridad
 
             if (bCamposLlenos)
             {
-                int iFkIdEmpleado = gLstEmpleadosIds[Cbo_Empleado.SelectedIndex];
+                int? iFkIdAuditor = null;
+
+                if (Cbo_Auditor.SelectedIndex >= 0)
+                {
+                    iFkIdAuditor = gLstAuditoresIds[Cbo_Auditor.SelectedIndex];
+                }
+
                 bPuedeGuardar = gClsUsuarioControlador.PuedeGuardarUsuario(
-                    iFkIdEmpleado,
+                    iFkIdAuditor,
                     Txt_Nombre.Text,
                     Txt_Contraseña.Text,
                     Txt_ConfirmarContraseña.Text

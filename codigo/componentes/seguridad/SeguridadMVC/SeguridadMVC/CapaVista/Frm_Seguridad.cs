@@ -113,8 +113,7 @@ namespace Capa_Vista_Seguridad
             // Diccionarios de idAplicacion -> submenú
             Dictionary<int, ToolStripMenuItem> mapaCatalogos = new Dictionary<int, ToolStripMenuItem>
             {
-                {301, empleadosToolStripMenuItem1},
-             
+       
                 {303, perfilesToolStripMenuItem},
                 {304, modulosToolStripMenuItem},
                 
@@ -198,20 +197,7 @@ namespace Capa_Vista_Seguridad
             childForm.Text = "Ventana " + iIChildFormNumber++;
             childForm.Show();
         }
-        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CerrarFormulariosHijos();
-            Frm_EmpleadosV2 formEmpleado = new Frm_EmpleadosV2();
-            formEmpleado.MdiParent = this;
-            formEmpleado.Show();
-        }
-        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CerrarFormulariosHijos();
-            Frm_EmpleadosV2 formEmpleado = new Frm_EmpleadosV2();
-            formEmpleado.MdiParent = this;
-            formEmpleado.Show();
-        }
+
         private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CerrarFormulariosHijos();
