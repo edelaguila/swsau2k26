@@ -65,5 +65,10 @@ namespace mantenimiento_auditores
             navegador1.mostrarDatos();
         
     }
+
+        private void navegador1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
