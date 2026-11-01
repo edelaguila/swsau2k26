@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using Capa_Controlador_ProAuditor;
+using ProyectoAuditor;
 
 namespace Capa_Vista_ProAuditor
 {
@@ -218,6 +219,13 @@ namespace Capa_Vista_ProAuditor
 
         }
 
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+            using (Reporte Frm_Reporte = new Reporte())
+            {
+                Frm_Reporte.ShowDialog();
+            }
+        }
     }
 }
 //fin del código de "Barbara Saldaña" con carné: "0901-22-9136" en la fecha de : "16/10/26"

@@ -22,14 +22,14 @@ namespace Capa_Modelo_ProAuditor
             string sSql =
                 "SELECT pa.Pk_Id_Proyecto_Auditor, pa.Fk_Id_Proyecto, p.Cmp_Nombre_Proyecto AS Proyecto, " +
                 "pa.Fk_Id_Auditor, CONCAT(IFNULL(a.Cmp_Nombre_Auditor,'Sin nombre'),' (',a.Cmp_Carnet_Auditor,')') AS Auditor, " +
-                "pa.Fk_Id_Perfil_Auditor, pf.Cmp_Nombre_Perfil_Auditor AS Perfil, " +
+                "pa.Fk_Id_Perfil_Auditor, pf.Cmp_Nombre_Perfil AS Perfil, " +
                 "pa.Cmp_Fecha_Asignacion_Proyecto AS Fecha_Asignacion " +
                 "FROM tbl_proyecto_auditor pa " +
                 "INNER JOIN tbl_proyecto p ON p.Pk_Id_Proyecto = pa.Fk_Id_Proyecto " +
                 "INNER JOIN tbl_auditor a ON a.Pk_Id_Auditor = pa.Fk_Id_Auditor " +
                 "INNER JOIN tbl_perfil_auditor pf ON pf.Pk_Id_Perfil_Auditor = pa.Fk_Id_Perfil_Auditor " +
                 "WHERE p.Cmp_Nombre_Proyecto LIKE ? OR a.Cmp_Nombre_Auditor LIKE ? " +
-                "OR a.Cmp_Carnet_Auditor LIKE ? OR pf.Cmp_Nombre_Perfil_Auditor LIKE ? " +
+                "OR a.Cmp_Carnet_Auditor LIKE ? OR pf.Cmp_Nombre_Perfil LIKE ? " +
                 "ORDER BY pa.Pk_Id_Proyecto_Auditor DESC";
 
             string sLike = "%" + sFiltro + "%";
@@ -61,8 +61,8 @@ namespace Capa_Modelo_ProAuditor
         // Catálogo de perfiles 
         public DataTable fun_combo_perfiles()
         {
-            return fun_catalogo("SELECT Pk_Id_Perfil_Auditor AS Id, Cmp_Nombre_Perfil_Auditor AS Nombre " +
-                    "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil_Auditor");
+            return fun_catalogo("SELECT Pk_Id_Perfil_Auditor AS Id, Cmp_Nombre_Perfil AS Nombre " +
+                    "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil");
         }
 
         private DataTable fun_catalogo(string sSql)
