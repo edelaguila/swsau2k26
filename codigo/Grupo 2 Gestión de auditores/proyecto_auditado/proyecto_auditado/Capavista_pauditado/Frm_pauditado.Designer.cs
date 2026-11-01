@@ -52,9 +52,9 @@ namespace Capavista_pauditado
             this.lbl_titulo.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_titulo.Location = new System.Drawing.Point(335, 50);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(207, 27);
+            this.lbl_titulo.Size = new System.Drawing.Size(280, 27);
             this.lbl_titulo.TabIndex = 0;
-            this.lbl_titulo.Text = "Proyeto Auditado";
+            this.lbl_titulo.Text = "510 - Proyceto Auditado";
             // 
             // lbl_proyecto
             // 
