@@ -43,6 +43,7 @@ namespace Capavista_pauditado
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_reporte = new System.Windows.Forms.Button();
+            this.btn_ayuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pauditado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@ namespace Capavista_pauditado
             this.lbl_titulo.Name = "lbl_titulo";
             this.lbl_titulo.Size = new System.Drawing.Size(280, 27);
             this.lbl_titulo.TabIndex = 0;
-            this.lbl_titulo.Text = "510 - Proyceto Auditado";
+            this.lbl_titulo.Text = "510 - Proyecto Auditado";
             // 
             // lbl_proyecto
             // 
@@ -170,12 +171,22 @@ namespace Capavista_pauditado
             this.btn_reporte.UseVisualStyleBackColor = true;
             this.btn_reporte.Click += new System.EventHandler(this.btn_nuevo_Click_1);
             // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("btn_ayuda.Image")));
+            this.btn_ayuda.Location = new System.Drawing.Point(837, 21);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(70, 56);
+            this.btn_ayuda.TabIndex = 14;
+            this.btn_ayuda.UseVisualStyleBackColor = true;
+            // 
             // Frm_pauditado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(949, 529);
+            this.Controls.Add(this.btn_ayuda);
             this.Controls.Add(this.btn_reporte);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_modificar);
@@ -212,5 +223,6 @@ namespace Capavista_pauditado
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_reporte;
+        private System.Windows.Forms.Button btn_ayuda;
     }
 }
