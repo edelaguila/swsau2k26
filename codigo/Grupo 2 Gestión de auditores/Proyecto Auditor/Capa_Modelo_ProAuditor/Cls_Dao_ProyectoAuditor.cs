@@ -22,7 +22,7 @@ namespace Capa_Modelo_ProAuditor
             string sSql =
                 "SELECT pa.Pk_Id_Proyecto_Auditor, pa.Fk_Id_Proyecto, p.Cmp_Nombre_Proyecto AS Proyecto, " +
                 "pa.Fk_Id_Auditor, CONCAT(IFNULL(a.Cmp_Nombre_Auditor,'Sin nombre'),' (',a.Cmp_Carnet_Auditor,')') AS Auditor, " +
-                "pa.Fk_Id_Perfil_Auditor, pf.Cmp_Nombre_Perfil AS Perfil, " +
+                "pa.Fk_Id_Perfil_Auditor, pf.Cmp_Nombre_Perfil_Auditor AS Perfil, " +
                 "pa.Cmp_Fecha_Asignacion_Proyecto AS Fecha_Asignacion " +
                 "FROM tbl_proyecto_auditor pa " +
                 "INNER JOIN tbl_proyecto p ON p.Pk_Id_Proyecto = pa.Fk_Id_Proyecto " +
