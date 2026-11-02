@@ -29,7 +29,7 @@ namespace Capa_Modelo_ProAuditor
                 "INNER JOIN tbl_auditor a ON a.Pk_Id_Auditor = pa.Fk_Id_Auditor " +
                 "INNER JOIN tbl_perfil_auditor pf ON pf.Pk_Id_Perfil_Auditor = pa.Fk_Id_Perfil_Auditor " +
                 "WHERE p.Cmp_Nombre_Proyecto LIKE ? OR a.Cmp_Nombre_Auditor LIKE ? " +
-                "OR a.Cmp_Carnet_Auditor LIKE ? OR pf.Cmp_Nombre_Perfil LIKE ? " +
+                "OR a.Cmp_Carnet_Auditor LIKE ? OR pf.Cmp_Nombre_Perfil_Auditor LIKE ? " +
                 "ORDER BY pa.Pk_Id_Proyecto_Auditor DESC";
 
             string sLike = "%" + sFiltro + "%";
@@ -47,7 +47,7 @@ namespace Capa_Modelo_ProAuditor
         public DataTable fun_combo_proyectos()
         {
             return fun_catalogo("SELECT Pk_Id_Proyecto AS Id, Cmp_Nombre_Proyecto AS Nombre " +
-                                "FROM tbl_proyecto ORDER BY Cmp_Nombre_Proyecto");
+                       "FROM tbl_proyecto ORDER BY Cmp_Nombre_Proyecto");
         }
 
         // Catálogo de auditores 
@@ -61,8 +61,8 @@ namespace Capa_Modelo_ProAuditor
         // Catálogo de perfiles 
         public DataTable fun_combo_perfiles()
         {
-            return fun_catalogo("SELECT Pk_Id_Perfil_Auditor AS Id, Cmp_Nombre_Perfil AS Nombre " +
-                    "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil");
+            return fun_catalogo("SELECT Pk_Id_Perfil_Auditor AS Id, Cmp_Nombre_Perfil_Auditor AS Nombre " +
+                        "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil_Auditor");
         }
 
         private DataTable fun_catalogo(string sSql)
