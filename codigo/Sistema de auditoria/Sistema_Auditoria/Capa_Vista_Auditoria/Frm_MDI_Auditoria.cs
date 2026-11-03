@@ -167,6 +167,8 @@ namespace Capa_Vista_Auditoria
         private void áreasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //pendiente
+            Frm_Areas frmAreas = new Frm_Areas();
+            frmAreas.Show();
         }
 
         private void recursosToolStripMenuItem_Click(object sender, EventArgs e)
