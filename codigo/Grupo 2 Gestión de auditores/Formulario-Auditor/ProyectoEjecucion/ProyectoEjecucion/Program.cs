@@ -17,6 +17,10 @@ namespace ProyectoEjecucion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // SOLO PARA PRUEBAS: simula el inicio de sesion (usuario 23 = admin).
+            // En el sistema completo esto lo hace el Login.
+            Capa_Controlador_Seguridad.Cls_Usuario_Conectado.IniciarSesion(23, "admin", 0);
+
             Application.Run(new Capa_Vista_Auditor.Frm_Auditor());
         }
     }

@@ -8,7 +8,7 @@ namespace Capavista_pauditado
     public partial class Frm_pauditado : Form
     {
         private readonly Cls_Controlador_pauditado controlador = new Cls_Controlador_pauditado();
-        private int idSeleccionado = 0; // Pk del registro elegido en el DataGridView
+        private int idSeleccionado = 0; 
 
         public Frm_pauditado()
         {

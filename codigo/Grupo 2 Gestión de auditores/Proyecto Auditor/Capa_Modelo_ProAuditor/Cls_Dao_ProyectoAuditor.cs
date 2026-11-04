@@ -47,7 +47,7 @@ namespace Capa_Modelo_ProAuditor
         public DataTable fun_combo_proyectos()
         {
             return fun_catalogo("SELECT Pk_Id_Proyecto AS Id, Cmp_Nombre_Proyecto AS Nombre " +
-                                "FROM tbl_proyecto ORDER BY Cmp_Nombre_Proyecto");
+                       "FROM tbl_proyecto ORDER BY Cmp_Nombre_Proyecto");
         }
 
         // Catálogo de auditores 
@@ -62,7 +62,7 @@ namespace Capa_Modelo_ProAuditor
         public DataTable fun_combo_perfiles()
         {
             return fun_catalogo("SELECT Pk_Id_Perfil_Auditor AS Id, Cmp_Nombre_Perfil_Auditor AS Nombre " +
-                    "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil_Auditor");
+                        "FROM tbl_perfil_auditor ORDER BY Cmp_Nombre_Perfil_Auditor");
         }
 
         private DataTable fun_catalogo(string sSql)
@@ -98,6 +98,15 @@ namespace Capa_Modelo_ProAuditor
                           "(Fk_Id_Proyecto, Fk_Id_Auditor, Fk_Id_Perfil_Auditor, Cmp_Fecha_Asignacion_Proyecto) " +
                           "VALUES (?, ?, ?, ?)";
             return fun_ejecutar(sSql, iProyecto, iAuditor, iPerfil, dFecha.Date);
+        }
+
+        // Catálogo de aplicaciones
+        public DataTable fun_combo_aplicaciones()
+        {
+            return fun_catalogo("SELECT Pk_Id_Aplicacion AS Id, " +
+                                "CONCAT(Pk_Id_Aplicacion,' - ',Cmp_Nombre_Aplicacion) AS Nombre " +
+                                "FROM tbl_aplicacion WHERE Cmp_Estado_Aplicacion = 1 " +
+                                "ORDER BY Pk_Id_Aplicacion");
         }
 
         // Modifica una asignación 

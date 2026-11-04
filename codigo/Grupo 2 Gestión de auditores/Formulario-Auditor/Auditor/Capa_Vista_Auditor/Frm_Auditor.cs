@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Controlador_Auditor;
+using Capa_Controlador_Seguridad;
+using Capa_Modelo_Seguridad;
+using Capa_Vista_Componente_Consultas;
 //Ernesto David Samayoa Jocol 0901-22-3415
 namespace Capa_Vista_Auditor
 {
@@ -16,6 +19,17 @@ namespace Capa_Vista_Auditor
         Cls_auditor_controlador controlador = new Cls_auditor_controlador();
 
         private string sModo = "CONSULTA";
+
+        // Seguridad: ID de la aplicacion Auditores en tbl_aplicacion
+        private readonly Cls_PermisosControlador gControladorPermisos = new Cls_PermisosControlador();
+        private const int I_ID_APLICACION_AUDITOR = 507;
+
+        // Permisos del usuario conectado
+        private bool bPermisoIngresar = false;
+        private bool bPermisoConsultar = false;
+        private bool bPermisoModificar = false;
+        private bool bPermisoEliminar = false;
+        private bool bPermisoImprimir = false;
         public Frm_Auditor()
         {
             InitializeComponent();
@@ -30,10 +44,68 @@ namespace Capa_Vista_Auditor
         //Al abrir formulario de auditor
         private void Frm_Auditor_Load(object sender, EventArgs e)
         {
+            // Verificar que haya un usuario conectado desde el Login
+            if (!Capa_Controlador_Seguridad.Cls_Usuario_Conectado.bLoginEstado || Capa_Controlador_Seguridad.Cls_Usuario_Conectado.iIdUsuario <= 0)
+            {
+                MessageBox.Show("No hay una sesión activa. Debe ingresar desde el Login.",
+                    "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.BeginInvoke(new Action(() => this.Close()));
+                return;
+            }
+
+            fun_ObtenerPermisos();
             fun_ConfigurarControles();
             fun_CargarEstados();
-            fun_CargarAuditores();
-            fun_EstadoBotones("CONSULTA");   
+
+            if (bPermisoConsultar)
+            {
+                fun_CargarAuditores();
+            }
+            else
+            {
+                MessageBox.Show("Su usuario no tiene permiso para consultar auditores.",
+                    "Permiso Restringido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            fun_EstadoBotones("CONSULTA");
+        }
+
+        // Obtiene los permisos del usuario; si no tiene, usa los de su perfil
+        private void fun_ObtenerPermisos()
+        {
+            try
+            {
+                Cls_Permiso_Aplicacion_Usuario permisosUsuario =
+                    gControladorPermisos.ObtenerPermisosAplicacionUsuarioConectado(I_ID_APLICACION_AUDITOR);
+
+                if (permisosUsuario != null)
+                {
+                    bPermisoIngresar = permisosUsuario.Cmp_Ingresar_Permiso_Aplicacion_Usuario;
+                    bPermisoConsultar = permisosUsuario.Cmp_Consultar_Permiso_Aplicacion_Usuario;
+                    bPermisoModificar = permisosUsuario.Cmp_Modificar_Permiso_Aplicacion_Usuario;
+                    bPermisoEliminar = permisosUsuario.Cmp_Eliminar_Permiso_Aplicacion_Usuario;
+                    bPermisoImprimir = permisosUsuario.Cmp_Imprimir_Permiso_Aplicacion_Usuario;
+                    return;
+                }
+
+                Cls_PermisosControlador.Cls_ControladorAsignacionPerfilAplicacion ctrlPerfil =
+                    new Cls_PermisosControlador.Cls_ControladorAsignacionPerfilAplicacion();
+                Cls_Asignacion_Perrmisos_Perfiles permisosPerfil =
+                    ctrlPerfil.ObtenerPermisosAplicacionPerfil(I_ID_APLICACION_AUDITOR);
+
+                if (permisosPerfil != null)
+                {
+                    bPermisoIngresar = permisosPerfil.bIngresar_permiso_aplicacion_perfil;
+                    bPermisoConsultar = permisosPerfil.bConsultar_permiso_aplicacion_perfil;
+                    bPermisoModificar = permisosPerfil.bModificar_permiso_aplicacion_perfil;
+                    bPermisoEliminar = permisosPerfil.bEliminar_permiso_aplicacion_perfil;
+                    bPermisoImprimir = permisosPerfil.bImprimir_permiso_aplicacion_perfil;
+                }
+            }
+            catch
+            {
+                // Si falla la consulta, todos los permisos quedan en false
+            }
         }
 
         private void fun_ConfigurarControles()
@@ -139,11 +211,11 @@ namespace Capa_Vista_Auditor
             bool bConsulta = (sModo == "CONSULTA");  
 
             // Botones que solo se usan en CONSULTA
-            Btn_ingresar.Enabled = bConsulta;
-            Btn_modificar.Enabled = bConsulta;
-            Btn_eliminar.Enabled = bConsulta;
-            Btn_consultar.Enabled = bConsulta;
-            Btn_reporte.Enabled = bConsulta;
+            Btn_ingresar.Enabled = bConsulta && bPermisoIngresar;
+            Btn_modificar.Enabled = bConsulta && bPermisoModificar;
+            Btn_eliminar.Enabled = bConsulta && bPermisoEliminar;
+            Btn_consultar.Enabled = bConsulta && bPermisoConsultar;
+            Btn_reporte.Enabled = bConsulta && bPermisoImprimir;
             Dgv_auditor.Enabled = bConsulta;
 
             // Botones que solo se usan en NUEVO o EDITAR
@@ -156,6 +228,13 @@ namespace Capa_Vista_Auditor
 
         private void Btn_ingresar_Click(object sender, EventArgs e)
         {
+            if (!bPermisoIngresar)
+            {
+                MessageBox.Show("No tiene permiso para ingresar auditores.", "Acceso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 fun_LimpiarCampos();
@@ -174,6 +253,13 @@ namespace Capa_Vista_Auditor
 
         private void Btn_modificar_Click(object sender, EventArgs e)
         {
+            if (!bPermisoModificar)
+            {
+                MessageBox.Show("No tiene permiso para modificar auditores.", "Acceso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Debe haber un auditor seleccionado en el grid
             if (string.IsNullOrWhiteSpace(Txt_id_auditor.Text))
             {
@@ -286,6 +372,13 @@ namespace Capa_Vista_Auditor
 
         private void Btn_eliminar_Click(object sender, EventArgs e)
         {
+            if (!bPermisoEliminar)
+            {
+                MessageBox.Show("No tiene permiso para eliminar auditores.", "Acceso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Debe haber un auditor seleccionado en el grid
             if (string.IsNullOrWhiteSpace(Txt_id_auditor.Text))
             {
@@ -320,19 +413,24 @@ namespace Capa_Vista_Auditor
             }
         }
 
-        private void Btn_consultar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_reporte_Click(object sender, EventArgs e)
         {
+            if (!bPermisoImprimir)
+            {
+                MessageBox.Show("No tiene permiso para imprimir el reporte.", "Acceso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            using (Frm_Reporte_Auditor frmReporte = new Frm_Reporte_Auditor())
+            {
+                frmReporte.ShowDialog(this);
+            }
         }
 
         private void Btn_ayuda_Click(object sender, EventArgs e)
         {
-
+            Help.ShowHelp(this, "Ayuda_Auditor/Ayuda_Auditor.chm", "Ayuda_Auditor.html");
         }
 
         private void Btn_salir_Click(object sender, EventArgs e)
@@ -351,6 +449,23 @@ namespace Capa_Vista_Auditor
 
             this.Close();
         }
+
+        private void Btn_consultar_Click(object sender, EventArgs e)
+        {
+            if (!bPermisoConsultar)
+            {
+                MessageBox.Show("No tiene permiso para consultar auditores.", "Acceso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string[] arr = { "tbl_auditor" };
+            using (Frm_Consulta_Simple frmConsulta = new Frm_Consulta_Simple(arr))
+            {
+                frmConsulta.ShowDialog(this);
+            }
+        }
+
     }
     //Ernesto David Samayoa Jocol 0901-22-3415 17/10/2026
 }
