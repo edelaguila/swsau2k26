@@ -43,14 +43,26 @@ namespace Capa_Modelo_Reportes
             FROM tbl_informe
             ORDER BY Pk_id_informe;";
 
+        // Solo actividades del mismo proyecto que el informe: el generador del PDF
+        // únicamente incluye reportes cuya actividad pertenece al proyecto del informe.
         private const string SQL_ACTIVIDADES = @"
             SELECT ar.Pk_Id_Actividad_Rubrica,
                    ap.Cmp_Nombre_Actividad_Proyecto,
                    CONCAT(ar.Pk_Id_Actividad_Rubrica, ' - ', ap.Cmp_Nombre_Actividad_Proyecto) AS Actividad
             FROM tbl_actividad_rubrica ar
             INNER JOIN tbl_actividades_proyecto ap ON ap.Pk_Id_Actividad_Proyecto = ar.Fk_Id_Actividad_Proyecto
+            INNER JOIN tbl_informe i ON i.Fk_id_proyecto = ap.Fk_Id_Proyecto
             WHERE ar.Cmp_Estado_Actividad_Rubrica = ?
+              AND i.Pk_id_informe = ?
             ORDER BY ar.Pk_Id_Actividad_Rubrica;";
+
+        private const string SQL_ACTIVIDAD_DE_INFORME = @"
+            SELECT COUNT(*)
+            FROM tbl_actividad_rubrica ar
+            INNER JOIN tbl_actividades_proyecto ap ON ap.Pk_Id_Actividad_Proyecto = ar.Fk_Id_Actividad_Proyecto
+            INNER JOIN tbl_informe i ON i.Fk_id_proyecto = ap.Fk_Id_Proyecto
+            WHERE ar.Pk_Id_Actividad_Rubrica = ?
+              AND i.Pk_id_informe = ?;";
 
         private const string SQL_REPORTES = @"
             SELECT r.Pk_id_reporte,
@@ -110,19 +122,33 @@ namespace Capa_Modelo_Reportes
             return dtResultado;
         }
 
-        public DataTable fun_obtener_actividades()
+        // Actividades activas del proyecto al que pertenece el informe indicado
+        public DataTable fun_obtener_actividades(int iIdInforme)
         {
             DataTable dtResultado = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
             using (OdbcCommand cmd = new OdbcCommand(SQL_ACTIVIDADES, conn))
             {
                 cmd.Parameters.AddWithValue("@Cmp_Estado_Actividad_Rubrica", iESTADO_ACTIVO);
+                cmd.Parameters.AddWithValue("@Pk_id_informe", iIdInforme);
                 using (OdbcDataAdapter da = new OdbcDataAdapter(cmd))
                 {
                     da.Fill(dtResultado);
                 }
             }
             return dtResultado;
+        }
+
+        // true si la actividad pertenece al mismo proyecto que el informe
+        public bool fun_actividad_pertenece_a_informe(int iIdActividad, int iIdInforme)
+        {
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            using (OdbcCommand cmd = new OdbcCommand(SQL_ACTIVIDAD_DE_INFORME, conn))
+            {
+                cmd.Parameters.AddWithValue("@Pk_Id_Actividad_Rubrica", iIdActividad);
+                cmd.Parameters.AddWithValue("@Pk_id_informe", iIdInforme);
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
         }
 
         public DataTable fun_obtener_reportes()

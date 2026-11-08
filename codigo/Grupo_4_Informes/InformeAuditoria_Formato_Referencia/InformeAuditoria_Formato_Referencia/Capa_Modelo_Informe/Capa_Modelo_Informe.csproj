@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- La DLL real viene del módulo Seguridad del sistema; no se incluye una copia ficticia. -->
+    <Reference Include="Capa_Modelo_Seguridad">
+      <HintPath>../Dependencias/Capa_Modelo_Seguridad.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <!-- OdbcConnection/OdbcCommand siguen siendo tipos necesarios porque Seguridad devuelve OdbcConnection. -->
+    <PackageReference Include="System.Data.Odbc" Version="8.0.0" />
+  </ItemGroup>
+</Project>

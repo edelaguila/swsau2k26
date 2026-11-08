@@ -65,7 +65,28 @@ namespace Capa_Modelo_Informes
             FROM tbl_estado_informe
             ORDER BY Cmp_Nombre_Estado_Informe;";
 
+        // Busca el estado por nombre (sin distinguir mayúsculas ni espacios extremos)
+        private const string SQL_ESTADO_POR_NOMBRE = @"
+            SELECT Pk_id_estado_informe
+            FROM tbl_estado_informe
+            WHERE UPPER(TRIM(Cmp_Nombre_Estado_Informe)) = UPPER(TRIM(?))
+            ORDER BY Pk_id_estado_informe
+            LIMIT 1;";
+
         // ---------- Consultas ----------
+        // Devuelve 0 si no existe un estado con ese nombre
+        public int fun_Obtener_Id_Estado_Por_Nombre(string sNombreEstado)
+        {
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            using (OdbcCommand cmd = new OdbcCommand(SQL_ESTADO_POR_NOMBRE, conn))
+            {
+                cmd.Parameters.AddWithValue("@Cmp_Nombre_Estado_Informe", sNombreEstado);
+                object oResultado = cmd.ExecuteScalar();
+                if (oResultado == null || oResultado == System.DBNull.Value) return 0;
+                return System.Convert.ToInt32(oResultado);
+            }
+        }
+
         public DataTable fun_Obtener_Informes()
         {
             DataTable dtResultado = new DataTable();

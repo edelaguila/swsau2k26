@@ -1,0 +1,21 @@
+body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; font-size: 10pt; color: #1f2937; background: #ffffff; margin: 0; padding: 0; }
+.encabezado { background: #15c263; color: #ffffff; padding: 18px 24px; border-bottom: 4px solid #0e8a46; }
+.encabezado h1 { margin: 0; font-size: 20pt; }
+.encabezado p { margin: 4px 0 0 0; font-size: 10pt; }
+.contenido { padding: 10px 24px 30px 24px; }
+h2 { color: #0e8a46; font-size: 14pt; border-bottom: 2px solid #15c263; padding-bottom: 4px; margin-top: 28px; }
+h3 { color: #1f2937; font-size: 11pt; margin-top: 18px; }
+img { border: 1px solid #9ca3af; margin: 8px 0; }
+.pie-img { font-size: 9pt; color: #6b7280; font-style: italic; margin-top: 0; }
+table.tabla { border-collapse: collapse; width: 100%; margin: 8px 0; }
+table.tabla th { background: #15c263; color: #ffffff; text-align: left; padding: 6px; border: 1px solid #0e8a46; }
+table.tabla td { padding: 6px; border: 1px solid #d1d5db; vertical-align: top; }
+table.tabla tr.par td { background: #f0fdf4; }
+.num { display: inline-block; background: #dc2626; color: #ffffff; font-weight: bold; width: 20px; text-align: center; border-radius: 10px; }
+.nota { background: #fef9c3; border-left: 4px solid #eab308; padding: 8px 12px; margin: 10px 0; }
+.info { background: #e0f2fe; border-left: 4px solid #0284c7; padding: 8px 12px; margin: 10px 0; }
+ol li, ul li { margin-bottom: 4px; }
+.indice a { color: #0e8a46; text-decoration: none; }
+.indice a:hover { text-decoration: underline; }
+.arriba { font-size: 8pt; text-align: right; }
+.arriba a { color: #6b7280; }
