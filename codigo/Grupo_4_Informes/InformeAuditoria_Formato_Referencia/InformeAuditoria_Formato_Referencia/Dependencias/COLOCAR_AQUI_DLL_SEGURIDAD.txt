@@ -1,0 +1,3 @@
+Copiar aquí la DLL REAL Capa_Modelo_Seguridad.dll de tu proyecto Seguridad.
+No es posible compilar hasta colocarla y sus dependencias si las tiene.
+El ejemplo Checklist usa: using Capa_Modelo_Seguridad; new Cls_Conexion().AbrirConexion().

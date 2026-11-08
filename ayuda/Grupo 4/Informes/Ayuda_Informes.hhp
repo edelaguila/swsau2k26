@@ -1,0 +1,28 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda_Informes.chm
+Contents file=Ayuda_Informes.hhc
+Index file=Ayuda_Informes.hhk
+Default Window=Principal
+Default topic=Ayuda_Informes.html
+Display compile progress=No
+Full-text search=Yes
+Language=0x100a Spanish (Guatemala)
+Title=Ayuda - Informes
+
+[WINDOWS]
+Principal="Ayuda - Informes","Ayuda_Informes.hhc","Ayuda_Informes.hhk","Ayuda_Informes.html","Ayuda_Informes.html",,,,,0x63520,240,0x10184e,[80,40,1180,760],,,,,,,0
+
+[FILES]
+Ayuda_Informes.html
+ayuda_informes.css
+img_general.png
+img_botones.png
+img_campos.png
+img_ingresar.png
+img_seleccion.png
+img_modificar.png
+img_eliminar.png
+img_validacion.png
+
+[INFOTYPES]

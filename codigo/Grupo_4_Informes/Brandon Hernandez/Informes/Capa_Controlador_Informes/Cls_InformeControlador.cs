@@ -89,6 +89,36 @@ namespace Capa_Controlador_Informes
             catch (Exception ex) { return Cls_ResultadoOperacion.Fallo("Error inesperado: " + ex.Message); }
         }
 
+        // =============== ELIMINAR (lógico) ===============
+        // El id del estado "Eliminado" se busca por nombre en tbl_estado_informe,
+        // para no depender de un id fijo que cambia entre bases de datos.
+        public const string sNOMBRE_ESTADO_ELIMINADO = "Eliminado";
+
+        public Cls_ResultadoOperacion fun_Eliminar(string sId)
+        {
+            if (!int.TryParse(sId, out int iId) || iId <= 0)
+                return Cls_ResultadoOperacion.Fallo("Seleccione un informe de la lista para eliminar.", GravedadMensaje.Advertencia);
+
+            int iEstadoEliminado;
+            try
+            {
+                iEstadoEliminado = dao.fun_Obtener_Id_Estado_Por_Nombre(sNOMBRE_ESTADO_ELIMINADO);
+            }
+            catch (OdbcException ex) { return fun_ErrorBD("eliminar", ex); }
+
+            if (iEstadoEliminado <= 0)
+                return Cls_ResultadoOperacion.Fallo(
+                    $"No existe el estado \"{sNOMBRE_ESTADO_ELIMINADO}\" en tbl_estado_informe. " +
+                    "Regístrelo antes de eliminar informes.", GravedadMensaje.Advertencia);
+
+            Cls_ResultadoOperacion resultado = fun_Cambiar_Estado(iId.ToString(), iEstadoEliminado);
+            if (resultado.bExito)
+                return Cls_ResultadoOperacion.Ok("Informe eliminado correctamente.");
+            if (resultado.Gravedad == GravedadMensaje.Advertencia)
+                return Cls_ResultadoOperacion.Fallo("El informe ya estaba eliminado o no existe.", GravedadMensaje.Advertencia);
+            return resultado;
+        }
+
         // =============== AUXILIARES PRIVADOS ===============
         private Cls_Informes fun_Construir(int iId, string sTitulo, object oProyecto, object oEstado, object oAuditor) //arma un objeto Cls_Informes a partir de los datos recibidos (para insertar o actualizar)
         {
