@@ -14,6 +14,8 @@ namespace Capa_Controlador_ProAuditor
         public DataTable fun_combo_auditores() { return gDao.fun_combo_auditores(); }
         public DataTable fun_combo_perfiles() { return gDao.fun_combo_perfiles(); }
 
+        public DataTable fun_combo_aplicaciones() { return gDao.fun_combo_aplicaciones(); }
+
         // Valida los datos obligatorios y que no exista duplicado
         private string fun_validar(int iProyecto, int iAuditor, int iPerfil, int iIdExcluir)
         {
