@@ -167,16 +167,16 @@
             // 
             // txtRutaImagenPos
             // 
-            this.txtRutaImagenPos.Location = new System.Drawing.Point(30, 178);
+            this.txtRutaImagenPos.Location = new System.Drawing.Point(6, 157);
             this.txtRutaImagenPos.Multiline = true;
             this.txtRutaImagenPos.Name = "txtRutaImagenPos";
-            this.txtRutaImagenPos.Size = new System.Drawing.Size(892, 31);
+            this.txtRutaImagenPos.Size = new System.Drawing.Size(946, 81);
             this.txtRutaImagenPos.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 154);
+            this.label5.Location = new System.Drawing.Point(18, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 25;
@@ -226,16 +226,16 @@
             // 
             // txtRutaImagenCorrecion
             // 
-            this.txtRutaImagenCorrecion.Location = new System.Drawing.Point(30, 187);
+            this.txtRutaImagenCorrecion.Location = new System.Drawing.Point(21, 157);
             this.txtRutaImagenCorrecion.Multiline = true;
             this.txtRutaImagenCorrecion.Name = "txtRutaImagenCorrecion";
-            this.txtRutaImagenCorrecion.Size = new System.Drawing.Size(892, 31);
+            this.txtRutaImagenCorrecion.Size = new System.Drawing.Size(931, 89);
             this.txtRutaImagenCorrecion.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 163);
+            this.label6.Location = new System.Drawing.Point(27, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 13);
             this.label6.TabIndex = 28;
@@ -285,16 +285,16 @@
             // 
             // txtRutaImagenSugerencias
             // 
-            this.txtRutaImagenSugerencias.Location = new System.Drawing.Point(30, 187);
+            this.txtRutaImagenSugerencias.Location = new System.Drawing.Point(6, 157);
             this.txtRutaImagenSugerencias.Multiline = true;
             this.txtRutaImagenSugerencias.Name = "txtRutaImagenSugerencias";
-            this.txtRutaImagenSugerencias.Size = new System.Drawing.Size(892, 31);
+            this.txtRutaImagenSugerencias.Size = new System.Drawing.Size(931, 89);
             this.txtRutaImagenSugerencias.TabIndex = 29;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 163);
+            this.label7.Location = new System.Drawing.Point(27, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 13);
             this.label7.TabIndex = 28;

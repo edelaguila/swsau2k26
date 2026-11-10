@@ -1,0 +1,9 @@
+Carpeta de imagenes de evidencia para los reportes (tbl_reporte).
+
+- El formulario de Reportes (boton "Agregar imagenes") copia aqui automaticamente
+  las imagenes elegidas y guarda solo su nombre en la BD.
+- Cada apartado (positivos, correcciones, sugerencias) admite varias imagenes;
+  en la BD se guardan separadas por '|'  (ej. "captura1.png|captura2.png").
+- El generador de informes (InformeAuditoria_Formato_Referencia) busca aqui las
+  imagenes: por ruta completa, por ruta relativa a esta carpeta o por nombre.
+Formatos soportados: png, jpg, jpeg, bmp, webp.

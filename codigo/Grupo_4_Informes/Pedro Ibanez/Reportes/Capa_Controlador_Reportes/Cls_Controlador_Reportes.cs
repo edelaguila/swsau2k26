@@ -17,9 +17,10 @@ namespace Capa_Controlador_Reportes
             return reporteDAO.fun_obtener_informes();
         }
 
-        public DataTable fun_obtener_actividades()
+        // Solo las actividades del proyecto del informe seleccionado
+        public DataTable fun_obtener_actividades(int iIdInforme)
         {
-            return reporteDAO.fun_obtener_actividades();
+            return reporteDAO.fun_obtener_actividades(iIdInforme);
         }
 
         public DataTable fun_obtener_reportes()
@@ -114,6 +115,19 @@ namespace Capa_Controlador_Reportes
                 sbErrores.AppendLine().Append("- Seleccione un informe.");
             if (reporte.Fk_id_actividad_rubrica <= 0)
                 sbErrores.AppendLine().Append("- Seleccione una actividad.");
+            else if (reporte.Fk_id_informe > 0)
+            {
+                // Si la actividad es de otro proyecto, el reporte no aparecería en el PDF del informe
+                try
+                {
+                    if (!reporteDAO.fun_actividad_pertenece_a_informe(reporte.Fk_id_actividad_rubrica, reporte.Fk_id_informe))
+                        sbErrores.AppendLine().Append("- La actividad no pertenece al proyecto del informe seleccionado.");
+                }
+                catch (Exception ex)
+                {
+                    sbErrores.AppendLine().Append("- No se pudo verificar la actividad: " + ex.Message);
+                }
+            }
 
             pro_Validar_Texto(sbErrores, reporte.aspectos_positivos, "Aspectos positivos");
             pro_Validar_Ruta(sbErrores, reporte.imagen_aspectos_positivos, "Ruta de imagen de aspectos positivos");
@@ -131,18 +145,26 @@ namespace Capa_Controlador_Reportes
                 sbErrores.AppendLine().Append("- " + sCampo + " es obligatorio.");
         }
 
-        // La ruta es opcional (el DAO guarda '' si es nula); si viene, se valida largo y existencia
-        private void pro_Validar_Ruta(StringBuilder sbErrores, string sRuta, string sCampo)
+        // Las imágenes son opcionales (el DAO guarda '' si es nula). Puede haber varias
+        // separadas por '|'; se valida el largo total y que cada archivo exista y sea imagen.
+        private void pro_Validar_Ruta(StringBuilder sbErrores, string sRutas, string sCampo)
         {
-            if (string.IsNullOrWhiteSpace(sRuta))
+            if (string.IsNullOrWhiteSpace(sRutas))
                 return;
-            if (sRuta.Length > iMAX_RUTA)
+            if (sRutas.Length > iMAX_RUTA)
             {
-                sbErrores.AppendLine().Append("- " + sCampo + " no puede tener más de " + iMAX_RUTA + " caracteres.");
+                sbErrores.AppendLine().Append("- " + sCampo + ": las rutas no pueden sumar más de " + iMAX_RUTA +
+                    " caracteres (quite alguna imagen).");
                 return;
             }
-            if (!File.Exists(sRuta))
-                sbErrores.AppendLine().Append("- " + sCampo + ": el archivo no existe.");
+            foreach (string sRuta in Cls_Imagenes_Reporte.fun_Separar(sRutas))
+            {
+                if (!Cls_Imagenes_Reporte.fun_Extension_Valida(sRuta))
+                    sbErrores.AppendLine().Append("- " + sCampo + ": formato no soportado (" + Path.GetFileName(sRuta) +
+                        "). Use png, jpg, jpeg, bmp o webp.");
+                else if (Cls_Imagenes_Reporte.fun_Resolver(sRuta) == null)
+                    sbErrores.AppendLine().Append("- " + sCampo + ": el archivo no existe (" + sRuta + ").");
+            }
         }
     }
 }

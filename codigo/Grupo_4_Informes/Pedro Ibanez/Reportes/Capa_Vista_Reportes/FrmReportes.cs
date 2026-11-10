@@ -20,9 +20,49 @@ namespace Capa_Vista_Reportes
         private int estadoOperacion = 0;
         private int iIdReporteEdicion = 0;
 
+        // Evita recargar actividades mientras se enlaza el combo de informes
+        private bool bCargandoInformes = false;
+
         public FrmReportes()
         {
             InitializeComponent();
+            Cbo_Fk_Informe.SelectedIndexChanged += Cbo_Fk_Informe_SelectedIndexChanged;
+            pro_Configurar_Campos_Imagen();
+        }
+
+        // Al cambiar el informe se cargan solo las actividades de su proyecto
+        private void Cbo_Fk_Informe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (bCargandoInformes) return;
+            pro_Cargar_Actividades(fun_Obtener_Id_Combo(Cbo_Fk_Informe));
+        }
+
+        private void pro_Cargar_Actividades(int iIdInforme)
+        {
+            if (iIdInforme <= 0)
+            {
+                Cbo_Fk_Rubrica.DataSource = null;
+                return;
+            }
+
+            try
+            {
+                DataTable dtActividades = controlador.fun_obtener_actividades(iIdInforme);
+                Cbo_Fk_Rubrica.DataSource = dtActividades;
+                Cbo_Fk_Rubrica.DisplayMember = "Actividad";
+                Cbo_Fk_Rubrica.ValueMember = "Pk_Id_Actividad_Rubrica";
+                Cbo_Fk_Rubrica.SelectedIndex = -1;
+
+                if (dtActividades.Rows.Count == 0)
+                    MessageBox.Show("El proyecto de este informe no tiene actividades de rúbrica activas.",
+                        "Reportes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                Cbo_Fk_Rubrica.DataSource = null;
+                MessageBox.Show("Error al cargar las actividades: " + ex.Message, "Reportes",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void GPB_Aspectos_Positivos_Enter(object sender, EventArgs e)
@@ -57,11 +97,11 @@ namespace Capa_Vista_Reportes
                 }
 
                 TxtAspectosPositivos.Text = reporte.aspectos_positivos;
-                txtRutaImagenPos.Text = reporte.imagen_aspectos_positivos;
+                txtRutaImagenPos.Text = fun_Rutas_A_Lineas(reporte.imagen_aspectos_positivos);
                 txtCorreciones.Text = reporte.correcciones;
-                txtRutaImagenCorrecion.Text = reporte.imagen_correcciones;
+                txtRutaImagenCorrecion.Text = fun_Rutas_A_Lineas(reporte.imagen_correcciones);
                 txtSugerencias.Text = reporte.recomendaciones;
-                txtRutaImagenSugerencias.Text = reporte.imagen_recomendaciones;
+                txtRutaImagenSugerencias.Text = fun_Rutas_A_Lineas(reporte.imagen_recomendaciones);
             }
             catch (Exception ex)
             {
@@ -126,14 +166,16 @@ namespace Capa_Vista_Reportes
                     return;
                 }
 
+                // Al fijar el informe se recargan sus actividades; si la actividad guardada
+                // es de otro proyecto, el combo queda vacío para elegir una válida.
                 Cbo_Fk_Informe.SelectedValue = reporte.Fk_id_informe;
                 Cbo_Fk_Rubrica.SelectedValue = reporte.Fk_id_actividad_rubrica;
                 TxtAspectosPositivos.Text = reporte.aspectos_positivos;
-                txtRutaImagenPos.Text = reporte.imagen_aspectos_positivos;
+                txtRutaImagenPos.Text = fun_Rutas_A_Lineas(reporte.imagen_aspectos_positivos);
                 txtCorreciones.Text = reporte.correcciones;
-                txtRutaImagenCorrecion.Text = reporte.imagen_correcciones;
+                txtRutaImagenCorrecion.Text = fun_Rutas_A_Lineas(reporte.imagen_correcciones);
                 txtSugerencias.Text = reporte.recomendaciones;
-                txtRutaImagenSugerencias.Text = reporte.imagen_recomendaciones;
+                txtRutaImagenSugerencias.Text = fun_Rutas_A_Lineas(reporte.imagen_recomendaciones);
 
                 iIdReporteEdicion = reporte.Pk_id_reporte;
                 pro_Cambiar_Estado(1);
@@ -163,11 +205,11 @@ namespace Capa_Vista_Reportes
                 Fk_id_informe = fun_Obtener_Id_Combo(Cbo_Fk_Informe),
                 Fk_id_actividad_rubrica = fun_Obtener_Id_Combo(Cbo_Fk_Rubrica),
                 aspectos_positivos = TxtAspectosPositivos.Text,
-                imagen_aspectos_positivos = txtRutaImagenPos.Text,
+                imagen_aspectos_positivos = fun_Lineas_A_Rutas(txtRutaImagenPos.Text),
                 correcciones = txtCorreciones.Text,
-                imagen_correcciones = txtRutaImagenCorrecion.Text,
+                imagen_correcciones = fun_Lineas_A_Rutas(txtRutaImagenCorrecion.Text),
                 recomendaciones = txtSugerencias.Text,
-                imagen_recomendaciones = txtRutaImagenSugerencias.Text
+                imagen_recomendaciones = fun_Lineas_A_Rutas(txtRutaImagenSugerencias.Text)
             };
 
             string sMensaje;
@@ -236,16 +278,73 @@ namespace Capa_Vista_Reportes
             pro_Buscar_Ruta(txtRutaImagenSugerencias);
         }
 
-        // Abre el explorador de archivos y coloca la ruta elegida en el textbox recibido
+        // Abre el explorador (permite elegir varias imágenes), copia cada una a la carpeta
+        // Imagenes_Reportes y agrega su ruta como una línea nueva del textbox.
+        // Para quitar una imagen basta con borrar su línea.
         private void pro_Buscar_Ruta(TextBox txtDestino)
         {
             using (OpenFileDialog ofdImagen = new OpenFileDialog())
             {
-                ofdImagen.Title = "Seleccione una imagen";
-                ofdImagen.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                ofdImagen.Title = "Seleccione una o varias imágenes";
+                ofdImagen.Filter = Cls_Imagenes_Reporte.sFILTRO_DIALOGO;
+                ofdImagen.Multiselect = true;
 
-                if (ofdImagen.ShowDialog() == DialogResult.OK)
-                    txtDestino.Text = ofdImagen.FileName;
+                if (ofdImagen.ShowDialog() != DialogResult.OK)
+                    return;
+
+                List<string> lstRutas = Cls_Imagenes_Reporte.fun_Separar(txtDestino.Text);
+                List<string> lstErrores = new List<string>();
+
+                foreach (string sArchivo in ofdImagen.FileNames)
+                {
+                    try
+                    {
+                        string sRuta = Cls_Imagenes_Reporte.fun_Copiar_A_Carpeta(sArchivo);
+                        if (!lstRutas.Any(r => string.Equals(r, sRuta, StringComparison.OrdinalIgnoreCase)))
+                            lstRutas.Add(sRuta);
+                    }
+                    catch (Exception ex)
+                    {
+                        lstErrores.Add(System.IO.Path.GetFileName(sArchivo) + ": " + ex.Message);
+                    }
+                }
+
+                txtDestino.Text = string.Join(Environment.NewLine, lstRutas);
+
+                if (lstErrores.Count > 0)
+                    MessageBox.Show("No se pudieron agregar algunas imágenes:" + Environment.NewLine +
+                        string.Join(Environment.NewLine, lstErrores), "Reportes",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // BD ("a.png|b.png") -> una ruta por línea en el textbox
+        private string fun_Rutas_A_Lineas(string sValor)
+        {
+            return string.Join(Environment.NewLine, Cls_Imagenes_Reporte.fun_Separar(sValor));
+        }
+
+        // Textbox (una ruta por línea) -> formato de la BD separado por '|'
+        private string fun_Lineas_A_Rutas(string sTexto)
+        {
+            return Cls_Imagenes_Reporte.fun_Unir(Cls_Imagenes_Reporte.fun_Separar(sTexto));
+        }
+
+        // Los textbox de rutas muestran una imagen por línea con barra de desplazamiento
+        private void pro_Configurar_Campos_Imagen()
+        {
+            ToolTip ttAyuda = new ToolTip();
+            foreach (TextBox txt in new[] { txtRutaImagenPos, txtRutaImagenCorrecion, txtRutaImagenSugerencias })
+            {
+                txt.Multiline = true;
+                txt.WordWrap = false;
+                txt.ScrollBars = ScrollBars.Both;
+                ttAyuda.SetToolTip(txt, "Una imagen por línea. Borre una línea para quitar esa imagen.");
+            }
+            foreach (Button btn in new[] { btn_Rutas_Positivos, btn_Rutas_Correciones, btn_Rutas_Sugerencias })
+            {
+                btn.Text = "Agregar imágenes";
+                ttAyuda.SetToolTip(btn, "Puede seleccionar varias imágenes a la vez (Ctrl + clic).");
             }
         }
 
@@ -279,15 +378,21 @@ namespace Capa_Vista_Reportes
         {
             try
             {
-                Cbo_Fk_Informe.DataSource = controlador.fun_obtener_informes();
-                Cbo_Fk_Informe.DisplayMember = "Informe";
-                Cbo_Fk_Informe.ValueMember = "Pk_id_informe";
-                Cbo_Fk_Informe.SelectedIndex = -1;
+                bCargandoInformes = true;
+                try
+                {
+                    Cbo_Fk_Informe.DataSource = controlador.fun_obtener_informes();
+                    Cbo_Fk_Informe.DisplayMember = "Informe";
+                    Cbo_Fk_Informe.ValueMember = "Pk_id_informe";
+                    Cbo_Fk_Informe.SelectedIndex = -1;
+                }
+                finally
+                {
+                    bCargandoInformes = false;
+                }
 
-                Cbo_Fk_Rubrica.DataSource = controlador.fun_obtener_actividades();
-                Cbo_Fk_Rubrica.DisplayMember = "Actividad";
-                Cbo_Fk_Rubrica.ValueMember = "Pk_Id_Actividad_Rubrica";
-                Cbo_Fk_Rubrica.SelectedIndex = -1;
+                // Las actividades se cargan al elegir un informe (solo las de su proyecto)
+                Cbo_Fk_Rubrica.DataSource = null;
 
                 Cbo_id_reporte.DataSource = controlador.fun_obtener_reportes();
                 Cbo_id_reporte.DisplayMember = "Reporte";

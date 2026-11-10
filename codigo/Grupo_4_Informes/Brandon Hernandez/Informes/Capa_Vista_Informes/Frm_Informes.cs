@@ -1,6 +1,7 @@
 ﻿// Brandon Hernandez 0901-22-9663 18/10/2026 - Frm_Informes
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using Capa_Controlador_Informes;
 using Capa_Controlador_Seguridad;
@@ -18,7 +19,7 @@ namespace Capa_Vista_Informes
         private const string sNOMBRE_APLICACION = "Informes";
         private const string sNOMBRE_MODULO = "Informes";
         private const int iID_APLICACION_RESPALDO = 522;   // ID fijo si la búsqueda por nombre falla
-        private const int iESTADO_ELIMINADO = 2;         // ID de "Eliminado" en tbl_estado_informe
+        // El estado "Eliminado" se busca por nombre en el controlador (fun_Eliminar)
 
         private bool _canIngresar, _canConsultar, _canModificar, _canEliminar, _canImprimir;
         private int iIdAplicacion;
@@ -171,7 +172,7 @@ namespace Capa_Vista_Informes
                 "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmacion != DialogResult.Yes) return;
 
-            var resultado = Controlador.fun_Cambiar_Estado(iIdInformeSeleccionado.ToString(), iESTADO_ELIMINADO);
+            var resultado = Controlador.fun_Eliminar(iIdInformeSeleccionado.ToString());
             fun_MostrarMensaje(resultado);
 
             if (resultado.bExito)
@@ -256,9 +257,44 @@ namespace Capa_Vista_Informes
 
         }
 
+        // Ruta relativa a la raíz del repositorio (igual que el componente de Seguridad):
+        // se busca subiendo carpetas desde donde se ejecuta la aplicación.
+        private const string sRUTA_AYUDA = @"ayuda\Grupo 4\Informes\Ayuda_Informes.chm";
+        private const string sPAGINA_AYUDA = "Ayuda_Informes.html";
+
         private void Btn_Ayuda_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string sRutaEncontrada = null;
+                DirectoryInfo dir = new DirectoryInfo(Application.StartupPath);
 
+                // Busca la carpeta "ayuda" hacia arriba (hasta 10 niveles)
+                for (int i = 0; i < 10 && dir != null; i++, dir = dir.Parent)
+                {
+                    string sCandidata = Path.Combine(dir.FullName, sRUTA_AYUDA);
+                    if (File.Exists(sCandidata))
+                    {
+                        sRutaEncontrada = sCandidata;
+                        break;
+                    }
+                }
+
+                if (sRutaEncontrada != null)
+                {
+                    Help.ShowHelp(this, sRutaEncontrada, HelpNavigator.Topic, sPAGINA_AYUDA);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo de ayuda:\n" + sRUTA_AYUDA,
+                        "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir la ayuda: " + ex.Message,
+                    "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Dgv_Informes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -306,10 +342,12 @@ namespace Capa_Vista_Informes
         {
             var mapa = new Dictionary<string, Control>
             {
-                { nameof(Cls_InformesControlador.Cls_CamposInforme.sTitulo),     Txt_Titulo },
-                { nameof(Cls_InformesControlador.Cls_CamposInforme.sProyecto),      Cbo_Proyecto },
-                { nameof(Cls_InformesControlador.Cls_CamposInforme.sEstado), Cbo_Estado },
-                { nameof(Cls_InformesControlador.Cls_CamposInforme.sAuditor),       Cbo_Auditores }
+                // Las llaves son el VALOR de la constante (nombre de la propiedad del modelo),
+                // que es como llegan en dicErrores; nameof() devolvería "sTitulo", etc.
+                { Cls_InformesControlador.Cls_CamposInforme.sTitulo,   Txt_Titulo },
+                { Cls_InformesControlador.Cls_CamposInforme.sProyecto, Cbo_Proyecto },
+                { Cls_InformesControlador.Cls_CamposInforme.sEstado,   Cbo_Estado },
+                { Cls_InformesControlador.Cls_CamposInforme.sAuditor,  Cbo_Auditores }
             };
             foreach (var kv in resultado.dicErrores)
                 if (mapa.TryGetValue(kv.Key, out Control ctrl))

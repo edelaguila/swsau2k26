@@ -1,0 +1,22 @@
+-- SOLO ejecutar para retirar los datos de prueba del archivo asociado.
+USE bd_auditoria;
+START TRANSACTION;
+DELETE FROM tbl_grafica WHERE Pk_id_grafica=910001;
+DELETE FROM tbl_tabla_ponderacion WHERE Pk_Id_Ponderacion IN (910001,910002,910003);
+DELETE FROM tbl_reporte WHERE Pk_id_reporte IN (910001,910002,910003);
+DELETE FROM tbl_checklist WHERE Pk_id_checklist IN (910001,910002,910003);
+DELETE FROM tbl_informe WHERE Pk_id_informe=910001;
+DELETE FROM tbl_actividad_rubrica WHERE Pk_Id_Actividad_Rubrica IN (910001,910002,910003);
+DELETE FROM tbl_criterios WHERE Pk_Id_Criterio IN (910001,910002,910003);
+DELETE FROM tbl_escala_descripcion WHERE Pk_Id_Escala=910001;
+DELETE FROM tbl_rubrica WHERE Pk_Id_Rubrica=910001;
+DELETE FROM tbl_cronograma WHERE Pk_Id_Cronograma=910001;
+DELETE FROM tbl_planificacion WHERE Pk_Id_Planificacion=910001;
+DELETE FROM tbl_actividades_proyecto WHERE Pk_Id_Actividad_Proyecto IN (910001,910002,910003);
+DELETE FROM tbl_proyecto WHERE Pk_Id_Proyecto=910001;
+DELETE FROM tbl_auditados WHERE Pk_Id_Auditado=910001;
+DELETE FROM tbl_auditor WHERE Pk_Id_Auditor=910001;
+DELETE FROM tbl_estado_auditor WHERE Pk_Id_Estado_Auditor=910001;
+DELETE FROM tbl_estado_informe WHERE Pk_Id_Estado_Informe=910001;
+DELETE FROM tbl_proyecto_estado WHERE Pk_Id_Proyecto_Estado=910001;
+COMMIT;

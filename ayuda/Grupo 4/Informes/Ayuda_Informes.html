@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Ayuda - Informes</title>
+<link rel="stylesheet" type="text/css" href="ayuda_informes.css">
+</head>
+<body>
+<a name="inicio"></a>
+<div class="encabezado">
+  <h1>Ayuda del formulario de Informes</h1>
+  <p>Sistema de Auditor&iacute;a &middot; Grupo 4 &middot; M&oacute;dulo de Informes</p>
+</div>
+
+<div class="contenido">
+
+<h2>Contenido</h2>
+<ol class="indice">
+  <li><a href="#descripcion">Descripci&oacute;n general</a></li>
+  <li><a href="#botones">Barra de botones</a></li>
+  <li><a href="#campos">Campos del formulario y tabla de informes</a></li>
+  <li><a href="#ingresar">C&oacute;mo ingresar un informe nuevo</a></li>
+  <li><a href="#seleccionar">C&oacute;mo seleccionar un informe</a></li>
+  <li><a href="#modificar">C&oacute;mo modificar un informe</a></li>
+  <li><a href="#eliminar">C&oacute;mo eliminar un informe</a></li>
+  <li><a href="#consultar">Consultar e imprimir</a></li>
+  <li><a href="#validaciones">Validaciones y mensajes de error</a></li>
+  <li><a href="#permisos">Permisos de usuario</a></li>
+  <li><a href="#preguntas">Preguntas frecuentes</a></li>
+</ol>
+
+<!-- ================================================== -->
+<a name="descripcion"></a>
+<h2>1. Descripci&oacute;n general</h2>
+<p>El formulario de <b>Informes</b> permite registrar y administrar los informes de auditor&iacute;a.
+Cada informe tiene un <b>t&iacute;tulo</b> y est&aacute; relacionado con un <b>proyecto</b>, un <b>auditor</b>
+responsable y un <b>estado</b> (por ejemplo: Borrador, En revisi&oacute;n o Aprobado).</p>
+<p>Al abrir el formulario, el sistema verifica los permisos del usuario conectado y carga autom&aacute;ticamente
+la lista de informes registrados en la parte inferior.</p>
+<img src="img_general.png" alt="Vista general del formulario de Informes">
+<p class="pie-img">Figura 1. Vista general del formulario de Informes (los datos mostrados son de ejemplo).</p>
+
+<p>El formulario se divide en tres zonas:</p>
+<ul>
+  <li><b>Barra de botones</b> (parte superior): acciones que puede realizar.</li>
+  <li><b>Campos del informe</b> (parte central): datos del informe que se est&aacute; creando o editando.</li>
+  <li><b>Tabla de informes</b> (parte inferior): listado de todos los informes registrados.</li>
+</ul>
+
+<div class="info"><b>Modos de trabajo:</b> el formulario trabaja en dos modos.
+En <b>modo consulta</b> los campos est&aacute;n bloqueados y solo puede ver informaci&oacute;n.
+En <b>modo edici&oacute;n</b> (al presionar <i>Ingresar</i> o <i>Modificar</i>) los campos se habilitan,
+el bot&oacute;n <i>Guardar</i> se activa y la tabla se bloquea hasta que guarde.</div>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="botones"></a>
+<h2>2. Barra de botones</h2>
+<img src="img_botones.png" alt="Barra de botones numerada">
+<p class="pie-img">Figura 2. Botones del formulario.</p>
+
+<table class="tabla">
+  <tr><th style="width:40px">N.&ordm;</th><th style="width:110px">Bot&oacute;n</th><th>Funci&oacute;n</th></tr>
+  <tr><td><span class="num">1</span></td><td><b>Ingresar</b></td><td>Limpia los campos y habilita el modo edici&oacute;n para registrar un informe nuevo.</td></tr>
+  <tr class="par"><td><span class="num">2</span></td><td><b>Modificar</b></td><td>Habilita la edici&oacute;n del informe seleccionado en la tabla. Solo se activa cuando hay un informe seleccionado.</td></tr>
+  <tr><td><span class="num">3</span></td><td><b>Guardar</b></td><td>Valida los datos y guarda el informe nuevo o los cambios del informe modificado. Solo se activa en modo edici&oacute;n.</td></tr>
+  <tr class="par"><td><span class="num">4</span></td><td><b>Eliminar</b></td><td>Elimina el informe seleccionado (pide confirmaci&oacute;n). El registro se conserva con estado <i>Eliminado</i>.</td></tr>
+  <tr><td><span class="num">5</span></td><td><b>Consultar</b></td><td>Consulta los informes registrados.</td></tr>
+  <tr class="par"><td><span class="num">6</span></td><td><b>Imprimir</b></td><td>Genera el reporte imprimible de los informes.</td></tr>
+  <tr><td><span class="num">7</span></td><td><b>Ayuda</b></td><td>Abre esta ayuda.</td></tr>
+  <tr class="par"><td><span class="num">8</span></td><td><b>Salir</b></td><td>Cierra el formulario de Informes.</td></tr>
+</table>
+
+<div class="nota"><b>Nota:</b> un bot&oacute;n que aparece en gris est&aacute; deshabilitado.
+Esto ocurre porque no corresponde al modo actual (por ejemplo, <i>Guardar</i> en modo consulta),
+porque no hay un informe seleccionado, o porque su usuario no tiene permiso para esa acci&oacute;n.</div>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="campos"></a>
+<h2>3. Campos del formulario y tabla de informes</h2>
+<img src="img_campos.png" alt="Campos del formulario numerados">
+<p class="pie-img">Figura 3. Campos del informe y tabla de registros.</p>
+
+<table class="tabla">
+  <tr><th style="width:40px">N.&ordm;</th><th style="width:110px">Campo</th><th>Descripci&oacute;n</th></tr>
+  <tr><td><span class="num">1</span></td><td><b>Auditor</b></td><td>Lista desplegable con los auditores registrados (carn&eacute; y nombre). Seleccione el auditor responsable del informe. <b>Obligatorio.</b></td></tr>
+  <tr class="par"><td><span class="num">2</span></td><td><b>Estado</b></td><td>Lista desplegable con los estados del informe (Borrador, En revisi&oacute;n, Aprobado, etc.). <b>Obligatorio.</b></td></tr>
+  <tr><td><span class="num">3</span></td><td><b>Proyecto</b></td><td>Lista desplegable con los proyectos de auditor&iacute;a (c&oacute;digo y nombre). Seleccione el proyecto al que pertenece el informe. <b>Obligatorio.</b></td></tr>
+  <tr class="par"><td><span class="num">4</span></td><td><b>T&iacute;tulo</b></td><td>Nombre del informe. <b>Obligatorio</b>, m&aacute;ximo 150 caracteres. Acepta letras, n&uacute;meros, espacios y los signos <code>- _ . , : ; ( ) / # &deg;</code></td></tr>
+  <tr><td><span class="num">5</span></td><td><b>Tabla de informes</b></td><td>Muestra todos los informes registrados, del m&aacute;s reciente al m&aacute;s antiguo, con su c&oacute;digo, t&iacute;tulo, proyecto, estado, auditor, fecha de creaci&oacute;n y fecha de &uacute;ltima actualizaci&oacute;n. Al hacer clic en una fila se cargan sus datos en los campos.</td></tr>
+</table>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="ingresar"></a>
+<h2>4. C&oacute;mo ingresar un informe nuevo</h2>
+<ol>
+  <li>Presione el bot&oacute;n <b>Ingresar</b>. Los campos se limpian y se habilitan.</li>
+  <li>Seleccione el <b>Auditor</b> responsable.</li>
+  <li>Seleccione el <b>Estado</b> inicial del informe (normalmente <i>Borrador</i>).</li>
+  <li>Seleccione el <b>Proyecto</b> al que pertenece.</li>
+  <li>Escriba el <b>T&iacute;tulo</b> del informe.</li>
+  <li>Presione <b>Guardar</b>.</li>
+</ol>
+<img src="img_ingresar.png" alt="Ingreso de un informe nuevo">
+<p class="pie-img">Figura 4. Informe nuevo con los datos llenos <span class="num">1</span>, listo para guardar <span class="num">2</span>.</p>
+<p>Si los datos son correctos aparecer&aacute; el mensaje <i>&quot;Informe guardado correctamente.&quot;</i>,
+el informe se agregar&aacute; a la tabla, la acci&oacute;n quedar&aacute; registrada en la bit&aacute;cora
+y el formulario regresar&aacute; al modo consulta.</p>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="seleccionar"></a>
+<h2>5. C&oacute;mo seleccionar un informe</h2>
+<p>Para modificar o eliminar un informe primero debe seleccionarlo:</p>
+<ol>
+  <li>Haga clic sobre la fila del informe en la <b>tabla de informes</b> <span class="num">1</span>.</li>
+  <li>Los datos del informe se cargan en los campos <span class="num">2</span> (en modo consulta, bloqueados).</li>
+  <li>Los botones <b>Modificar</b> y <b>Eliminar</b> se habilitan.</li>
+</ol>
+<img src="img_seleccion.png" alt="Selecci&oacute;n de un informe en la tabla">
+<p class="pie-img">Figura 5. Informe seleccionado y sus datos cargados en los campos.</p>
+<div class="nota"><b>Nota:</b> mientras est&aacute; ingresando o modificando un informe, la tabla permanece bloqueada.
+Termine con <b>Guardar</b> antes de seleccionar otro registro.</div>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="modificar"></a>
+<h2>6. C&oacute;mo modificar un informe</h2>
+<ol>
+  <li>Seleccione el informe en la tabla (vea la <a href="#seleccionar">secci&oacute;n 5</a>).</li>
+  <li>Presione el bot&oacute;n <b>Modificar</b>. Los campos se habilitan con los datos actuales.</li>
+  <li>Cambie los datos necesarios, por ejemplo el <b>Estado</b> <span class="num">1</span>.</li>
+  <li>Presione <b>Guardar</b> <span class="num">2</span>.</li>
+</ol>
+<img src="img_modificar.png" alt="Modificaci&oacute;n de un informe">
+<p class="pie-img">Figura 6. Cambio del estado de un informe de &quot;Borrador&quot; a &quot;En revisi&oacute;n&quot;.</p>
+<p>Si se guard&oacute; correctamente aparecer&aacute; <i>&quot;Informe modificado correctamente.&quot;</i> y la fecha de
+actualizaci&oacute;n del informe cambiar&aacute; en la tabla. Si no realiz&oacute; ning&uacute;n cambio, el sistema le avisar&aacute;
+que no se modific&oacute; el informe.</p>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="eliminar"></a>
+<h2>7. C&oacute;mo eliminar un informe</h2>
+<ol>
+  <li>Seleccione el informe en la tabla <span class="num">1</span>.</li>
+  <li>Presione el bot&oacute;n <b>Eliminar</b> <span class="num">2</span>.</li>
+  <li>El sistema mostrar&aacute; la pregunta <i>&quot;&iquest;Desea eliminar el informe ...?&quot;</i>. Presione <b>S&iacute;</b> para confirmar o <b>No</b> para cancelar.</li>
+</ol>
+<img src="img_eliminar.png" alt="Eliminaci&oacute;n de un informe">
+<p class="pie-img">Figura 7. Informe seleccionado y bot&oacute;n Eliminar habilitado.</p>
+<div class="info"><b>Eliminaci&oacute;n l&oacute;gica:</b> el informe <u>no se borra</u> de la base de datos.
+Su estado cambia a <i>Eliminado</i> para conservar el historial de auditor&iacute;a. Para que esto funcione debe existir
+el estado &quot;Eliminado&quot; en el cat&aacute;logo de estados de informe.</div>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="consultar"></a>
+<h2>8. Consultar e imprimir</h2>
+<h3>Consultar</h3>
+<p>La lista de informes se carga autom&aacute;ticamente al abrir el formulario y se actualiza cada vez que
+guarda, modifica o elimina un informe. Use el bot&oacute;n <b>Consultar</b> para consultar los informes registrados.</p>
+<h3>Imprimir</h3>
+<p>El bot&oacute;n <b>Imprimir</b> genera el reporte de los informes para visualizarlo o imprimirlo.
+Solo est&aacute; disponible en modo consulta y si su usuario tiene permiso de impresi&oacute;n.</p>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="validaciones"></a>
+<h2>9. Validaciones y mensajes de error</h2>
+<p>Al presionar <b>Guardar</b>, el sistema revisa que todos los campos est&eacute;n correctos.
+Si hay un error, aparece un <b>&iacute;cono rojo</b> junto al campo con problema. Coloque el puntero del
+mouse sobre el &iacute;cono para ver el detalle del error.</p>
+<img src="img_validacion.png" alt="Validaciones en los campos">
+<p class="pie-img">Figura 8. Campos con error al intentar guardar sin datos.</p>
+
+<table class="tabla">
+  <tr><th>Mensaje</th><th>Causa y soluci&oacute;n</th></tr>
+  <tr><td>El campo nombre del informe es obligatorio.</td><td>No escribi&oacute; el t&iacute;tulo. Escriba un t&iacute;tulo para el informe.</td></tr>
+  <tr class="par"><td>El nombre del informe no puede tener m&aacute;s de 150 caracteres.</td><td>El t&iacute;tulo es demasiado largo. Res&uacute;malo.</td></tr>
+  <tr><td>El nombre del informe solo puede contener letras, n&uacute;meros, espacios y los signos ...</td><td>El t&iacute;tulo tiene caracteres no permitidos (por ejemplo <code>@ $ % &amp; * !</code>). Qu&iacute;telos.</td></tr>
+  <tr class="par"><td>Seleccione un auditor. / Seleccione un estado del informe. / Seleccione un proyecto.</td><td>Falta seleccionar un valor en la lista desplegable indicada.</td></tr>
+  <tr><td>Seleccione un informe de la lista para modificar / eliminar.</td><td>Presion&oacute; Modificar o Eliminar sin seleccionar un informe. Haga clic en una fila de la tabla.</td></tr>
+  <tr class="par"><td>El proyecto, estado o auditor seleccionado ya no existe.</td><td>El registro fue eliminado por otro usuario. Cierre y vuelva a abrir el formulario para recargar las listas.</td></tr>
+  <tr><td>Ya existe un informe con esos datos.</td><td>Est&aacute; intentando registrar un informe duplicado.</td></tr>
+  <tr class="par"><td>El informe ya estaba eliminado o no existe.</td><td>El informe ya ten&iacute;a estado Eliminado.</td></tr>
+  <tr><td>No existe el estado &quot;Eliminado&quot; en tbl_estado_informe.</td><td>Falta registrar el estado <i>Eliminado</i> en el cat&aacute;logo. Contacte al administrador.</td></tr>
+  <tr class="par"><td>Error al cargar proyectos / auditores / estados de informe.</td><td>No hay conexi&oacute;n con la base de datos. Verifique la conexi&oacute;n e intente de nuevo.</td></tr>
+</table>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="permisos"></a>
+<h2>10. Permisos de usuario</h2>
+<p>Las acciones disponibles dependen de los permisos asignados a su usuario o perfil en el componente de
+<b>Seguridad</b> para la aplicaci&oacute;n <i>Informes</i>:</p>
+<table class="tabla">
+  <tr><th style="width:120px">Permiso</th><th>Habilita</th></tr>
+  <tr><td>Ingresar</td><td>Bot&oacute;n <b>Ingresar</b></td></tr>
+  <tr class="par"><td>Consultar</td><td>Bot&oacute;n <b>Consultar</b> y la carga de la tabla de informes</td></tr>
+  <tr><td>Modificar</td><td>Bot&oacute;n <b>Modificar</b></td></tr>
+  <tr class="par"><td>Eliminar</td><td>Bot&oacute;n <b>Eliminar</b></td></tr>
+  <tr><td>Imprimir</td><td>Bot&oacute;n <b>Imprimir</b></td></tr>
+</table>
+<p>Si su usuario no tiene ning&uacute;n permiso para esta aplicaci&oacute;n, aparecer&aacute; el mensaje
+<i>&quot;El usuario no tiene permisos asignados para esta aplicaci&oacute;n.&quot;</i> y el formulario no se abrir&aacute;.</p>
+<p>Todas las operaciones de guardar, modificar y eliminar quedan registradas en la <b>bit&aacute;cora</b> con el usuario que las realiz&oacute;.</p>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+<!-- ================================================== -->
+<a name="preguntas"></a>
+<h2>11. Preguntas frecuentes</h2>
+<h3>&iquest;Por qu&eacute; no puedo escribir en los campos?</h3>
+<p>El formulario est&aacute; en modo consulta. Presione <b>Ingresar</b> para crear un informe o seleccione uno y presione <b>Modificar</b>.</p>
+<h3>&iquest;Por qu&eacute; los botones Modificar y Eliminar est&aacute;n en gris?</h3>
+<p>No hay un informe seleccionado o su usuario no tiene ese permiso. Haga clic en una fila de la tabla.</p>
+<h3>&iquest;Por qu&eacute; no puedo hacer clic en la tabla?</h3>
+<p>Est&aacute; ingresando o modificando un informe. Presione <b>Guardar</b> para terminar.</p>
+<h3>&iquest;C&oacute;mo cancelo un ingreso o modificaci&oacute;n?</h3>
+<p>Cierre el formulario con <b>Salir</b> sin guardar; los cambios no guardados se descartan.</p>
+<h3>&iquest;Puedo recuperar un informe eliminado?</h3>
+<p>S&iacute;. El informe se conserva en la base de datos con estado <i>Eliminado</i>; un usuario con permiso de modificar puede seleccionarlo y cambiarle el estado.</p>
+<p class="arriba"><a href="#inicio">Volver al inicio</a></p>
+
+</div>
+</body>
+</html>
