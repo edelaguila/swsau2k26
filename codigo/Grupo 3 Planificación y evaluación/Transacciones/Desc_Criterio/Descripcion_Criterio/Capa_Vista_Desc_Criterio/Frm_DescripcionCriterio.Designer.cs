@@ -48,6 +48,7 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_Cancelar = new System.Windows.Forms.Button();
             this.Btn_Salir = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             this.Gpb_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_DescripcionCriterio)).BeginInit();
             this.SuspendLayout();
@@ -245,7 +246,7 @@
             // 
             this.Btn_Salir.Text = "Salir";
             this.Btn_Salir.Name = "Btn_Salir";
-            this.Btn_Salir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Salir.Location = new System.Drawing.Point(553, 15);
             this.Btn_Salir.Size = new System.Drawing.Size(97, 93);
             this.Btn_Salir.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -272,6 +273,19 @@
             this.Controls.Add(this.Chk_FiltrarCriterio);
             this.Controls.Add(this.Dgv_DescripcionCriterio);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_DescripcionCriterio";
             this.Text = "Descripción de Criterios";
             this.Gpb_Datos.ResumeLayout(false);
@@ -302,5 +316,6 @@
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_Cancelar;
         private System.Windows.Forms.Button Btn_Salir;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }

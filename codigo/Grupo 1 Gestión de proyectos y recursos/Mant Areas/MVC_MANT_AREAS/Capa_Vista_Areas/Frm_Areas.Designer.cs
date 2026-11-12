@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gpb = new System.Windows.Forms.GroupBox();
             this.Gpb_Datos = new System.Windows.Forms.GroupBox();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_areas)).BeginInit();
             this.gpb.SuspendLayout();
             this.SuspendLayout();
@@ -181,7 +182,7 @@
             // btn_salir
             // 
             this.btn_salir.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.btn_salir.Location = new System.Drawing.Point(445, 15);
+            this.btn_salir.Location = new System.Drawing.Point(553, 15);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(97, 93);
             this.btn_salir.TabIndex = 12;
@@ -271,6 +272,19 @@
             this.Gpb_Datos.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.dgv_areas);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_Areas";
             this.Text = "Áreas";
             this.Load += new System.EventHandler(this.Frm_Areas_Load);
@@ -301,6 +315,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gpb;
         private System.Windows.Forms.GroupBox Gpb_Datos;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }
 

@@ -229,6 +229,30 @@ namespace Capa_Vista_Planificacion
         {
             this.Close();
         }
+
+        // Boton Imprimir agregado: abre el reporte Crystal (Rpt_Planificacion.rpt dentro de este proyecto)
+        private void Btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            pro_Abrir_Reporte();
+        }
+
+        // Abre el reporte Crystal Rpt_Planificacion.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Planificacion rptReporte = new Rpt_Planificacion();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Planificación"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 // Termina codigo hecho por Pablo Quiroa 0901-22-2929 el dia 09/10/2026

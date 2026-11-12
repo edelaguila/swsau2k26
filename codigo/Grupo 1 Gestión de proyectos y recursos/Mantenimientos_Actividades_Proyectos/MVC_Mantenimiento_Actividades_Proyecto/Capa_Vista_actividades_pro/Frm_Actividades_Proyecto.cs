@@ -662,32 +662,24 @@ namespace Capa_Vista_actividades_pro
 
         private void pro_imprimir()
         {
-            if (iIdSeleccionado <= 0)
-                return;
-
-            // Se protege la impresión para que un error al generar
-            // la vista previa no cierre todo el sistema.
-            // Pendiente: reemplazar por el reporte en Crystal Reports.
+            // Ahora abre el reporte Crystal de actividades (Rpt_Actividades_Proyecto.rpt)
+            pro_Abrir_Reporte();
+        }
+        // Abre el reporte Crystal Rpt_Actividades_Proyecto.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
             try
             {
-                using (PrintPreviewDialog gVista =
-                    new PrintPreviewDialog())
+                Rpt_Actividades_Proyecto rptReporte = new Rpt_Actividades_Proyecto();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Actividades del Proyecto"))
                 {
-                    gVista.Document = gDocumento;
-                    gVista.Width = 900;
-                    gVista.Height = 650;
-
-                    gVista.ShowDialog(this);
+                    frmVisor.ShowDialog(this);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "No fue posible generar la impresión de la actividad.\n" +
-                    "Detalle: " + ex.Message,
-                    "Imprimir",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

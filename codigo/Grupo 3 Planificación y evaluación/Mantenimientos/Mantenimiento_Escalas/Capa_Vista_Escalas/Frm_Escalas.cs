@@ -62,12 +62,31 @@ namespace Capa_Vista_Escalas
 
         private void Btn_Reportes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En este apartado se mostrará el reporte con crystal report", "Reportes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Abre el reporte Crystal de escalas (antes solo mostraba un mensaje)
+            pro_Abrir_Reporte();
         }
 
         private void Btn_Ayudas_Click(object sender, EventArgs e)
         {
             MessageBox.Show("En este apartado se mostrará la ayuda con HTMLHelper", "Ayudas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // Abre el reporte Crystal Rpt_Escalas.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Escalas rptReporte = new Rpt_Escalas();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Escalas de Descripción"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Escalas));
             this.navegador1 = new Capa_Vista_Navegador.Navegador();
             this.Btn_Ayudas = new System.Windows.Forms.Button();
             this.Btn_Reportes = new System.Windows.Forms.Button();
@@ -62,8 +63,11 @@
             this.Btn_Reportes.Name = "Btn_Reportes";
             this.Btn_Reportes.Size = new System.Drawing.Size(98, 115);
             this.Btn_Reportes.TabIndex = 2;
-            this.Btn_Reportes.Text = "Reportes";
+            this.Btn_Reportes.Text = "Imprimir";
             this.Btn_Reportes.UseVisualStyleBackColor = true;
+            this.Btn_Reportes.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Reportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Reportes.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Reportes.Image")));
             this.Btn_Reportes.Click += new System.EventHandler(this.Btn_Reportes_Click);
             // 
             // Frm_Escalas
@@ -80,7 +84,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Escalas";
             this.ResumeLayout(false);
-
         }
 
         #endregion

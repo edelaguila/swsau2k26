@@ -188,6 +188,30 @@ namespace Capa_Vista_Actividad
         {
             this.Close();
         }
+
+        // Boton Imprimir agregado: abre el reporte Crystal (Rpt_Actividad_Rubrica.rpt dentro de este proyecto)
+        private void Btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            pro_Abrir_Reporte();
+        }
+
+        // Abre el reporte Crystal Rpt_Actividad_Rubrica.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Actividad_Rubrica rptReporte = new Rpt_Actividad_Rubrica();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Actividades por Rúbrica"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 // Codigo terminado por: Maria Morales 0901-22-1226 el día 19/10/2026

@@ -219,5 +219,29 @@ namespace Capa_Vista_Ponderacion
         {
             this.Close();
         }
+
+        // Boton Imprimir agregado: abre el reporte Crystal (Rpt_Ponderacion.rpt dentro de este proyecto)
+        private void Btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            pro_Abrir_Reporte();
+        }
+
+        // Abre el reporte Crystal Rpt_Ponderacion.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Ponderacion rptReporte = new Rpt_Ponderacion();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Ponderación"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

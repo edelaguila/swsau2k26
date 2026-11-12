@@ -32,6 +32,7 @@
             this.btnMostrarTodo = new System.Windows.Forms.Button();
             this.dgvActividadRubrica = new System.Windows.Forms.DataGridView();
             this.Gpb_Datos = new System.Windows.Forms.GroupBox();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividadRubrica)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,7 +182,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(445, 15);
+            this.btnSalir.Location = new System.Drawing.Point(553, 15);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(97, 93);
             this.btnSalir.TabIndex = 13;
@@ -269,6 +270,19 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnMostrarTodo);
             this.Controls.Add(this.dgvActividadRubrica);
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_Actividad_Rubrica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actividades por Rúbrica";
@@ -297,5 +311,6 @@
         private System.Windows.Forms.Button btnMostrarTodo;
         private System.Windows.Forms.DataGridView dgvActividadRubrica;
         private System.Windows.Forms.GroupBox Gpb_Datos;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }
