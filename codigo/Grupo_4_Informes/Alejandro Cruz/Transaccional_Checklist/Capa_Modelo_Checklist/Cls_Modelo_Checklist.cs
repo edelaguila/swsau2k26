@@ -31,6 +31,10 @@ namespace Capa_Modelo_Checklist
             get { return Entregado ? "Entregado" : "No entregado"; }
         }
 
+        //Variables para mostrar informes en los ComboBox (agregado)
+        public int Pk_Id_Informe { get; set; }
+        public string Cmp_Titulo_Informe { get; set; }
+
         //Llamar a la conexion
         private readonly Cls_Conexion conexion = new Cls_Conexion();
 
@@ -55,6 +59,34 @@ namespace Capa_Modelo_Checklist
                         {
                             Pk_Id_Rubrica = Convert.ToInt32(dr["Pk_Id_Rubrica"]),
                             Cmp_Nombre_Rubrica = dr["Cmp_Nombre_Rubrica"].ToString()
+                        });
+                    }
+                }
+            }
+            return lista;
+        }
+
+        //Mostrar todos los informes disponibles (agregado para los ComboBox de informe)
+        public List<Cls_Modelo_Checklist> ListarInformes()
+        {
+            List<Cls_Modelo_Checklist> lista = new List<Cls_Modelo_Checklist>();
+
+            using (OdbcConnection cn = conexion.AbrirConexion())
+            {
+                string sql = @"
+                SELECT Pk_Id_Informe, titulo_informe AS Cmp_Titulo_Informe
+                FROM tbl_informe
+                ORDER BY Pk_Id_Informe";
+
+                using (OdbcCommand cmd = new OdbcCommand(sql, cn))
+                using (OdbcDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new Cls_Modelo_Checklist
+                        {
+                            Pk_Id_Informe = Convert.ToInt32(dr["Pk_Id_Informe"]),
+                            Cmp_Titulo_Informe = dr["Cmp_Titulo_Informe"].ToString()
                         });
                     }
                 }
