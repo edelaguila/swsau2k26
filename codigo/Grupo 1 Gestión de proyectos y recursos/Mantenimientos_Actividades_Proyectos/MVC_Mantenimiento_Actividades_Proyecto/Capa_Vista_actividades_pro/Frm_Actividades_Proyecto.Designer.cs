@@ -59,7 +59,7 @@
             this.Btn_Ingresar.BackColor = System.Drawing.Color.White;
             this.Btn_Ingresar.FlatAppearance.BorderSize = 0;
             this.Btn_Ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Ingresar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Ingresar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Ingresar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Ingresar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.add_insert_new_plus_button_icon_142943;
             this.Btn_Ingresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -76,7 +76,7 @@
             this.Btn_Modificar.BackColor = System.Drawing.Color.White;
             this.Btn_Modificar.FlatAppearance.BorderSize = 0;
             this.Btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Modificar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Modificar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Modificar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Modificar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.compose_edit_modify_icon_177770;
             this.Btn_Modificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -93,7 +93,7 @@
             this.Btn_Guardar.BackColor = System.Drawing.Color.White;
             this.Btn_Guardar.FlatAppearance.BorderSize = 0;
             this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Guardar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Guardar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Guardar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Guardar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.savetheapplication_guardar_2958;
             this.Btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -110,7 +110,7 @@
             this.Btn_Cancelar.BackColor = System.Drawing.Color.White;
             this.Btn_Cancelar.FlatAppearance.BorderSize = 0;
             this.Btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Cancelar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Cancelar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Cancelar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Cancelar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.Cancel_icon_icons_com_73703;
             this.Btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -127,7 +127,7 @@
             this.Btn_Imprimir.BackColor = System.Drawing.Color.White;
             this.Btn_Imprimir.FlatAppearance.BorderSize = 0;
             this.Btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Imprimir.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Imprimir.Image = global::Capa_Vista_actividades_pro.Properties.Resources.print_black_printer_tool_symbol_icon_icons_com_54467;
             this.Btn_Imprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -144,7 +144,7 @@
             this.Btn_Refrescar.BackColor = System.Drawing.Color.White;
             this.Btn_Refrescar.FlatAppearance.BorderSize = 0;
             this.Btn_Refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Refrescar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Refrescar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Refrescar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Refrescar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.refresh_page_arrow_button_icon_icons_com_53909;
             this.Btn_Refrescar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -161,7 +161,7 @@
             this.Btn_Consultar.BackColor = System.Drawing.Color.White;
             this.Btn_Consultar.FlatAppearance.BorderSize = 0;
             this.Btn_Consultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Consultar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Consultar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Consultar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Consultar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.android_search_icon_icons_com_50501;
             this.Btn_Consultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -178,7 +178,7 @@
             this.Btn_Eliminar.BackColor = System.Drawing.Color.White;
             this.Btn_Eliminar.FlatAppearance.BorderSize = 0;
             this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Eliminar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Eliminar.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Eliminar.Image = global::Capa_Vista_actividades_pro.Properties.Resources.delete_remove_trash_icon_177304;
             this.Btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -195,7 +195,7 @@
             this.Btn_Ayuda.BackColor = System.Drawing.Color.White;
             this.Btn_Ayuda.FlatAppearance.BorderSize = 0;
             this.Btn_Ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Ayuda.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Ayuda.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Ayuda.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Ayuda.Image = global::Capa_Vista_actividades_pro.Properties.Resources.help_question_16768;
             this.Btn_Ayuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -212,7 +212,7 @@
             this.Btn_Salir.BackColor = System.Drawing.Color.White;
             this.Btn_Salir.FlatAppearance.BorderSize = 0;
             this.Btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Salir.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Salir.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Salir.ForeColor = System.Drawing.Color.DimGray;
             this.Btn_Salir.Image = global::Capa_Vista_actividades_pro.Properties.Resources.sign_emergency_code_sos_61_icon_icons_com_57216;
             this.Btn_Salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -228,11 +228,11 @@
             // 
             this.Lbl_Id_Actividad.AutoSize = true;
             this.Lbl_Id_Actividad.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Id_Actividad.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Id_Actividad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Id_Actividad.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Id_Actividad.Location = new System.Drawing.Point(136, 174);
+            this.Lbl_Id_Actividad.Location = new System.Drawing.Point(92, 182);
             this.Lbl_Id_Actividad.Name = "Lbl_Id_Actividad";
-            this.Lbl_Id_Actividad.Size = new System.Drawing.Size(61, 15);
+            this.Lbl_Id_Actividad.Size = new System.Drawing.Size(83, 16);
             this.Lbl_Id_Actividad.TabIndex = 14;
             this.Lbl_Id_Actividad.Text = "ID Actividad:";
             this.Lbl_Id_Actividad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,11 +241,11 @@
             // 
             this.Lbl_Proyecto.AutoSize = true;
             this.Lbl_Proyecto.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Proyecto.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Proyecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Proyecto.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Proyecto.Location = new System.Drawing.Point(272, 174);
+            this.Lbl_Proyecto.Location = new System.Drawing.Point(250, 182);
             this.Lbl_Proyecto.Name = "Lbl_Proyecto";
-            this.Lbl_Proyecto.Size = new System.Drawing.Size(42, 15);
+            this.Lbl_Proyecto.Size = new System.Drawing.Size(62, 16);
             this.Lbl_Proyecto.TabIndex = 15;
             this.Lbl_Proyecto.Text = "Proyecto:";
             this.Lbl_Proyecto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,11 +254,11 @@
             // 
             this.Lbl_Descripcion.AutoSize = true;
             this.Lbl_Descripcion.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Descripcion.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Descripcion.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Descripcion.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Descripcion.Location = new System.Drawing.Point(142, 262);
+            this.Lbl_Descripcion.Location = new System.Drawing.Point(101, 262);
             this.Lbl_Descripcion.Name = "Lbl_Descripcion";
-            this.Lbl_Descripcion.Size = new System.Drawing.Size(55, 15);
+            this.Lbl_Descripcion.Size = new System.Drawing.Size(80, 16);
             this.Lbl_Descripcion.TabIndex = 16;
             this.Lbl_Descripcion.Text = "Descripción:";
             this.Lbl_Descripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -267,11 +267,11 @@
             // 
             this.Lbl_Observaciones.AutoSize = true;
             this.Lbl_Observaciones.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Observaciones.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Observaciones.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Observaciones.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Observaciones.Location = new System.Drawing.Point(136, 220);
+            this.Lbl_Observaciones.Location = new System.Drawing.Point(89, 223);
             this.Lbl_Observaciones.Name = "Lbl_Observaciones";
-            this.Lbl_Observaciones.Size = new System.Drawing.Size(65, 15);
+            this.Lbl_Observaciones.Size = new System.Drawing.Size(98, 16);
             this.Lbl_Observaciones.TabIndex = 17;
             this.Lbl_Observaciones.Text = "Observaciones:";
             this.Lbl_Observaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,11 +280,11 @@
             // 
             this.Lbl_Nombre_Actividad.AutoSize = true;
             this.Lbl_Nombre_Actividad.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Nombre_Actividad.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Nombre_Actividad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Nombre_Actividad.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Nombre_Actividad.Location = new System.Drawing.Point(515, 176);
+            this.Lbl_Nombre_Actividad.Location = new System.Drawing.Point(521, 182);
             this.Lbl_Nombre_Actividad.Name = "Lbl_Nombre_Actividad";
-            this.Lbl_Nombre_Actividad.Size = new System.Drawing.Size(39, 15);
+            this.Lbl_Nombre_Actividad.Size = new System.Drawing.Size(58, 16);
             this.Lbl_Nombre_Actividad.TabIndex = 18;
             this.Lbl_Nombre_Actividad.Text = "Nombre:";
             this.Lbl_Nombre_Actividad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,22 +293,22 @@
             // 
             this.Lbl_Buscar.AutoSize = true;
             this.Lbl_Buscar.BackColor = System.Drawing.Color.Transparent;
-            this.Lbl_Buscar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Buscar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Buscar.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_Buscar.Location = new System.Drawing.Point(136, 119);
+            this.Lbl_Buscar.Location = new System.Drawing.Point(89, 122);
             this.Lbl_Buscar.Name = "Lbl_Buscar";
-            this.Lbl_Buscar.Size = new System.Drawing.Size(91, 15);
+            this.Lbl_Buscar.Size = new System.Drawing.Size(122, 16);
             this.Lbl_Buscar.TabIndex = 21;
-            this.Lbl_Buscar.Text = "Buscar ID o nombre:";
+            this.Lbl_Buscar.Text = "Buscar por nombre:";
             this.Lbl_Buscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Txt_Buscar
             // 
             this.Txt_Buscar.BackColor = System.Drawing.Color.White;
             this.Txt_Buscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txt_Buscar.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Buscar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Buscar.ForeColor = System.Drawing.Color.Black;
-            this.Txt_Buscar.Location = new System.Drawing.Point(233, 117);
+            this.Txt_Buscar.Location = new System.Drawing.Point(217, 122);
             this.Txt_Buscar.Name = "Txt_Buscar";
             this.Txt_Buscar.Size = new System.Drawing.Size(526, 23);
             this.Txt_Buscar.TabIndex = 22;
@@ -317,9 +317,9 @@
             // 
             this.Txt_Nombre_Actividad.BackColor = System.Drawing.Color.White;
             this.Txt_Nombre_Actividad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txt_Nombre_Actividad.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Nombre_Actividad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Nombre_Actividad.ForeColor = System.Drawing.Color.Black;
-            this.Txt_Nombre_Actividad.Location = new System.Drawing.Point(560, 174);
+            this.Txt_Nombre_Actividad.Location = new System.Drawing.Point(585, 180);
             this.Txt_Nombre_Actividad.Name = "Txt_Nombre_Actividad";
             this.Txt_Nombre_Actividad.Size = new System.Drawing.Size(199, 23);
             this.Txt_Nombre_Actividad.TabIndex = 23;
@@ -328,9 +328,9 @@
             // 
             this.Txt_Id_Actividad.BackColor = System.Drawing.Color.White;
             this.Txt_Id_Actividad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txt_Id_Actividad.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Id_Actividad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Id_Actividad.ForeColor = System.Drawing.Color.Black;
-            this.Txt_Id_Actividad.Location = new System.Drawing.Point(203, 172);
+            this.Txt_Id_Actividad.Location = new System.Drawing.Point(178, 180);
             this.Txt_Id_Actividad.Name = "Txt_Id_Actividad";
             this.Txt_Id_Actividad.Size = new System.Drawing.Size(63, 23);
             this.Txt_Id_Actividad.TabIndex = 24;
@@ -339,33 +339,33 @@
             // 
             this.Txt_Observaciones.BackColor = System.Drawing.Color.White;
             this.Txt_Observaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txt_Observaciones.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Observaciones.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Observaciones.ForeColor = System.Drawing.Color.Black;
-            this.Txt_Observaciones.Location = new System.Drawing.Point(203, 218);
+            this.Txt_Observaciones.Location = new System.Drawing.Point(187, 221);
             this.Txt_Observaciones.Name = "Txt_Observaciones";
-            this.Txt_Observaciones.Size = new System.Drawing.Size(556, 23);
+            this.Txt_Observaciones.Size = new System.Drawing.Size(597, 23);
             this.Txt_Observaciones.TabIndex = 25;
             // 
             // Txt_Descripcion
             // 
             this.Txt_Descripcion.BackColor = System.Drawing.Color.White;
             this.Txt_Descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Txt_Descripcion.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Descripcion.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Descripcion.ForeColor = System.Drawing.Color.Black;
-            this.Txt_Descripcion.Location = new System.Drawing.Point(203, 262);
+            this.Txt_Descripcion.Location = new System.Drawing.Point(187, 260);
             this.Txt_Descripcion.Name = "Txt_Descripcion";
-            this.Txt_Descripcion.Size = new System.Drawing.Size(556, 23);
+            this.Txt_Descripcion.Size = new System.Drawing.Size(600, 23);
             this.Txt_Descripcion.TabIndex = 27;
             // 
             // Cbo_Proyecto
             // 
             this.Cbo_Proyecto.BackColor = System.Drawing.Color.White;
             this.Cbo_Proyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cbo_Proyecto.Font = new System.Drawing.Font("Rockwell Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Proyecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_Proyecto.FormattingEnabled = true;
-            this.Cbo_Proyecto.Location = new System.Drawing.Point(321, 172);
+            this.Cbo_Proyecto.Location = new System.Drawing.Point(318, 179);
             this.Cbo_Proyecto.Name = "Cbo_Proyecto";
-            this.Cbo_Proyecto.Size = new System.Drawing.Size(189, 23);
+            this.Cbo_Proyecto.Size = new System.Drawing.Size(189, 24);
             this.Cbo_Proyecto.TabIndex = 28;
             // 
             // Dgv_Actividades
