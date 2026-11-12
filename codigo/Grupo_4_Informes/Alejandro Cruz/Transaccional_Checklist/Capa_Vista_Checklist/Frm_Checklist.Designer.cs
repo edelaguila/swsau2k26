@@ -40,11 +40,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtIdActividadRubrica = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIdInforme = new System.Windows.Forms.TextBox();
+            this.cmbIdInforme = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtidinformeB = new System.Windows.Forms.TextBox();
+            this.cmbIdInformeB = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.cmbEstadoNuevo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -181,13 +181,15 @@
             this.label4.Text = "ID actividad:";
             this.label4.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
-            // txtIdInforme
+            // cmbIdInforme
             // 
-            this.txtIdInforme.Location = new System.Drawing.Point(275, 341);
-            this.txtIdInforme.Name = "txtIdInforme";
-            this.txtIdInforme.Size = new System.Drawing.Size(184, 27);
-            this.txtIdInforme.TabIndex = 6;
-            this.txtIdInforme.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbIdInforme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIdInforme.FormattingEnabled = true;
+            this.cmbIdInforme.Location = new System.Drawing.Point(275, 341);
+            this.cmbIdInforme.Name = "cmbIdInforme";
+            this.cmbIdInforme.Size = new System.Drawing.Size(184, 28);
+            this.cmbIdInforme.TabIndex = 6;
+            this.cmbIdInforme.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label3
             // 
@@ -222,13 +224,15 @@
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // txtidinformeB
+            // cmbIdInformeB
             // 
-            this.txtidinformeB.Location = new System.Drawing.Point(15, 55);
-            this.txtidinformeB.Name = "txtidinformeB";
-            this.txtidinformeB.Size = new System.Drawing.Size(250, 27);
-            this.txtidinformeB.TabIndex = 12;
-            this.txtidinformeB.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbIdInformeB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIdInformeB.FormattingEnabled = true;
+            this.cmbIdInformeB.Location = new System.Drawing.Point(15, 55);
+            this.cmbIdInformeB.Name = "cmbIdInformeB";
+            this.cmbIdInformeB.Size = new System.Drawing.Size(250, 28);
+            this.cmbIdInformeB.TabIndex = 12;
+            this.cmbIdInformeB.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // btnEditar
             // 
@@ -359,11 +363,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtIdActividadRubrica);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtIdInforme);
+            this.groupBox1.Controls.Add(this.cmbIdInforme);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbEstadoActividad);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtidinformeB);
+            this.groupBox2.Controls.Add(this.cmbIdInformeB);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.dgvChecklist);
@@ -395,7 +399,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtIdActividadRubrica;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIdInforme;
+        private System.Windows.Forms.ComboBox cmbIdInforme;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbRubrica;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -408,7 +412,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtidinformeB;
+        private System.Windows.Forms.ComboBox cmbIdInformeB;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
     }

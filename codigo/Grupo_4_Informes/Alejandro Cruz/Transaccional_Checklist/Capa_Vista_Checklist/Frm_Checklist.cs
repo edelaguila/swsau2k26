@@ -19,6 +19,32 @@ namespace Capa_Vista_Checklist
             dgvActividades.CellClick += dgvActividades_CellClick;
             dgvChecklist.CellClick += dgvChecklist_CellClick;
             CargarRubricas();
+            CargarInformes();
+        }
+
+        //Cargar informes en los dos combobox de informe (agregado)
+        private void CargarInformes()
+        {
+            try
+            {
+                Cls_Controlador_Checklist controlador = new Cls_Controlador_Checklist();
+                List<Cls_Informe_DTO> informes = controlador.ObtenerInformes();
+
+                // Se usan listas separadas para que cada combo tenga su propia selección
+                cmbIdInforme.DataSource = new List<Cls_Informe_DTO>(informes);
+                cmbIdInforme.DisplayMember = "TextoInforme";
+                cmbIdInforme.ValueMember = "Pk_Id_Informe";
+                cmbIdInforme.SelectedIndex = -1;
+
+                cmbIdInformeB.DataSource = new List<Cls_Informe_DTO>(informes);
+                cmbIdInformeB.DisplayMember = "TextoInforme";
+                cmbIdInformeB.ValueMember = "Pk_Id_Informe";
+                cmbIdInformeB.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los informes: " + ex.Message);
+            }
         }
 
         //Cargar rubricas en combobox 
@@ -100,29 +126,58 @@ namespace Capa_Vista_Checklist
         //Insertar en checklist
         private void btn_registrar_Click(object sender, EventArgs e)
         {
-            Cls_Controlador_Checklist controlador = new Cls_Controlador_Checklist();
+            // Validaciones agregadas: antes Convert.ToInt32 con campos vacios cerraba el programa
+            int idActividad;
+            int idInforme;
 
-            Cls_Checklist_DTO datos = new Cls_Checklist_DTO();
-
-            datos.Fk_id_actividad_rubrica = Convert.ToInt32(txtIdActividadRubrica.Text);
-
-            datos.Fk_id_informe = Convert.ToInt32(txtIdInforme.Text);
-
-            datos.Entregado = cmbEstadoActividad.Text == "Entregado";
-
-            bool resultado = controlador.Insertar(datos);
-
-            if (resultado)
+            if (!int.TryParse(txtIdActividadRubrica.Text, out idActividad) || idActividad <= 0)
             {
-                MessageBox.Show("Actividad guardada correctamente.");
-                txtIdActividadRubrica.Clear();
-                txtIdInforme.Clear();
-                cmbEstadoActividad.SelectedIndex = -1;
-                CargarActividades();
+                MessageBox.Show("Seleccione una actividad de la lista.");
+                return;
             }
-            else
+
+            if (cmbIdInforme.SelectedValue == null || !int.TryParse(cmbIdInforme.SelectedValue.ToString(), out idInforme) || idInforme <= 0)
             {
-                MessageBox.Show("No se pudo guardar la actividad.");
+                MessageBox.Show("Seleccione un informe.");
+                return;
+            }
+
+            if (cmbEstadoActividad.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione el estado de la actividad.");
+                return;
+            }
+
+            try
+            {
+                Cls_Controlador_Checklist controlador = new Cls_Controlador_Checklist();
+
+                Cls_Checklist_DTO datos = new Cls_Checklist_DTO();
+
+                datos.Fk_id_actividad_rubrica = idActividad;
+
+                datos.Fk_id_informe = idInforme;
+
+                datos.Entregado = cmbEstadoActividad.Text == "Entregado";
+
+                bool resultado = controlador.Insertar(datos);
+
+                if (resultado)
+                {
+                    MessageBox.Show("Actividad guardada correctamente.");
+                    txtIdActividadRubrica.Clear();
+                    cmbIdInforme.SelectedIndex = -1;
+                    cmbEstadoActividad.SelectedIndex = -1;
+                    CargarActividades();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar la actividad.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la actividad: " + ex.Message);
             }
         }
 
@@ -131,9 +186,9 @@ namespace Capa_Vista_Checklist
         {
             int idInformeB;
 
-            if (!int.TryParse(txtidinformeB.Text, out idInformeB) || idInformeB <= 0)
+            if (cmbIdInformeB.SelectedValue == null || !int.TryParse(cmbIdInformeB.SelectedValue.ToString(), out idInformeB) || idInformeB <= 0)
             {
-                MessageBox.Show("Ingrese un ID de informe válido.");
+                MessageBox.Show("Seleccione un informe.");
                 return;
             }
 

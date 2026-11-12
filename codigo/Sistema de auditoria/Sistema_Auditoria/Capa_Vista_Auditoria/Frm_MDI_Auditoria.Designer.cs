@@ -323,9 +323,9 @@ namespace Capa_Vista_Auditoria
             // 
             this.grupo2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.auditorToolStripMenuItem,
-            this.asignaciónToolStripMenuItem,
             this.proyectoAuditorToolStripMenuItem,
-            this.proyectoAuditadoToolStripMenuItem});
+            this.proyectoAuditadoToolStripMenuItem,
+            this.asignaciónToolStripMenuItem});
             this.grupo2ToolStripMenuItem.Name = "grupo2ToolStripMenuItem";
             this.grupo2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupo2ToolStripMenuItem.Text = "Grupo 2";
@@ -361,13 +361,13 @@ namespace Capa_Vista_Auditoria
             // grupo3ToolStripMenuItem
             // 
             this.grupo3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.actividadToolStripMenuItem,
-            this.criteriosToolStripMenuItem,
-            this.cronogramaToolStripMenuItem,
-            this.descripciónCriteriosToolStripMenuItem,
             this.planificaciónToolStripMenuItem,
-            this.ponderaciónToolStripMenuItem,
-            this.rúbricaToolStripMenuItem});
+            this.cronogramaToolStripMenuItem,
+            this.rúbricaToolStripMenuItem,
+            this.criteriosToolStripMenuItem,
+            this.descripciónCriteriosToolStripMenuItem,
+            this.actividadToolStripMenuItem,
+            this.ponderaciónToolStripMenuItem});
             this.grupo3ToolStripMenuItem.Name = "grupo3ToolStripMenuItem";
             this.grupo3ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupo3ToolStripMenuItem.Text = "Grupo 3";
@@ -425,8 +425,8 @@ namespace Capa_Vista_Auditoria
             // 
             this.grupo4ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cheToolStripMenuItem,
-            this.reportesToolStripMenuItem,
             this.checklistToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.toolStripMenuItem2,
             this.informeFinalToolStripMenuItem});
             this.grupo4ToolStripMenuItem.Name = "grupo4ToolStripMenuItem";

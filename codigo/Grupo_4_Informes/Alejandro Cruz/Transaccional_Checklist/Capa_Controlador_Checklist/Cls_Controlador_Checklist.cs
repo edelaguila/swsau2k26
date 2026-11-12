@@ -33,8 +33,36 @@ namespace Capa_Controlador_Checklist
         }
     }
 
+    //Datos de informes para los ComboBox (agregado; clase aparte para no agregar columnas a los DataGridView)
+    public class Cls_Informe_DTO
+    {
+        public int Pk_Id_Informe { get; set; }
+        public string Cmp_Titulo_Informe { get; set; }
+        public string TextoInforme
+        {
+            get { return Pk_Id_Informe + " - " + Cmp_Titulo_Informe; }
+        }
+    }
+
     public class Cls_Controlador_Checklist
     {
+        //Obtener todos los informes para los ComboBox (agregado)
+        public List<Cls_Informe_DTO> ObtenerInformes()
+        {
+            Cls_Modelo_Checklist modelo = new Cls_Modelo_Checklist();
+            List<Cls_Informe_DTO> lista = new List<Cls_Informe_DTO>();
+
+            foreach (Cls_Modelo_Checklist informe in modelo.ListarInformes())
+            {
+                lista.Add(new Cls_Informe_DTO
+                {
+                    Pk_Id_Informe = informe.Pk_Id_Informe,
+                    Cmp_Titulo_Informe = informe.Cmp_Titulo_Informe
+                });
+            }
+            return lista;
+        }
+
         //Obtener todas las rúbricas para el ComboBox
         public List<Cls_Checklist_DTO> ObtenerRubricas()
         {
