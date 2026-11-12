@@ -28,6 +28,164 @@ namespace Capa_Vista_Reportes
             InitializeComponent();
             Cbo_Fk_Informe.SelectedIndexChanged += Cbo_Fk_Informe_SelectedIndexChanged;
             pro_Configurar_Campos_Imagen();
+
+            // Vista previa (agregado): al cambiar las rutas se muestran las imagenes
+            txtRutaImagenPos.TextChanged += (s, e) => pro_Mostrar_Miniaturas(txtRutaImagenPos, flpImagenesPos);
+            txtRutaImagenCorrecion.TextChanged += (s, e) => pro_Mostrar_Miniaturas(txtRutaImagenCorrecion, flpImagenesCorrecion);
+            txtRutaImagenSugerencias.TextChanged += (s, e) => pro_Mostrar_Miniaturas(txtRutaImagenSugerencias, flpImagenesSugerencias);
+        }
+
+        // ---------------- Vista previa de imagenes (agregado) ----------------
+        private readonly ToolTip ttMiniaturas = new ToolTip();
+
+        // Dibuja una miniatura por cada ruta del textbox; clic en la miniatura abre la imagen
+        private void pro_Mostrar_Miniaturas(TextBox txtRutas, FlowLayoutPanel flpDestino)
+        {
+            flpDestino.SuspendLayout();
+            try
+            {
+                // Liberar las miniaturas anteriores para no dejar archivos ni memoria ocupados
+                while (flpDestino.Controls.Count > 0)
+                {
+                    Control ctlAnterior = flpDestino.Controls[0];
+                    flpDestino.Controls.RemoveAt(0);
+                    if (ctlAnterior is PictureBox pbAnterior && pbAnterior.Image != null)
+                        pbAnterior.Image.Dispose();
+                    ctlAnterior.Dispose();
+                }
+
+                foreach (string sRuta in Cls_Imagenes_Reporte.fun_Separar(txtRutas.Text))
+                {
+                    string sRutaCompleta = Cls_Imagenes_Reporte.fun_Resolver(sRuta);
+                    Image imgMiniatura = sRutaCompleta != null ? fun_Cargar_Imagen(sRutaCompleta) : null;
+
+                    if (imgMiniatura == null)
+                    {
+                        // No se encontro o no se puede mostrar (ej. .webp): se indica con un recuadro
+                        Label lblFalta = new Label
+                        {
+                            Size = new Size(130, 92),
+                            Margin = new Padding(3),
+                            BackColor = Color.Gainsboro,
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Font = new Font("Rockwell", 8F),
+                            Text = (sRutaCompleta == null ? "No encontrada:" : "Sin vista previa:")
+                                   + Environment.NewLine + System.IO.Path.GetFileName(sRuta)
+                        };
+                        ttMiniaturas.SetToolTip(lblFalta, sRuta);
+                        flpDestino.Controls.Add(lblFalta);
+                        continue;
+                    }
+
+                    PictureBox pbImagen = new PictureBox
+                    {
+                        Size = new Size(130, 92),
+                        Margin = new Padding(3),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        BackColor = Color.White,
+                        Cursor = Cursors.Hand,
+                        Image = imgMiniatura,
+                        Tag = sRutaCompleta
+                    };
+                    pbImagen.Click += (s, e) => pro_Abrir_Imagen((string)pbImagen.Tag);
+                    ttMiniaturas.SetToolTip(pbImagen, System.IO.Path.GetFileName(sRuta) + " (clic para abrir)");
+                    flpDestino.Controls.Add(pbImagen);
+                }
+            }
+            finally
+            {
+                flpDestino.ResumeLayout();
+            }
+        }
+
+        // Carga una copia de la imagen para no dejar bloqueado el archivo
+        private Image fun_Cargar_Imagen(string sRutaCompleta)
+        {
+            try
+            {
+                using (System.IO.FileStream fsImagen = new System.IO.FileStream(sRutaCompleta, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                using (Image imgOriginal = Image.FromStream(fsImagen))
+                {
+                    return new Bitmap(imgOriginal);
+                }
+            }
+            catch (Exception)
+            {
+                // GDI+ no reconoce el formato (ej. webp o un .jpeg que en realidad es webp):
+                // se pide la miniatura a Windows
+                return fun_Cargar_Imagen_Windows(sRutaCompleta);
+            }
+        }
+
+        // Pide a Windows la miniatura del archivo (la misma que muestra el Explorador),
+        // asi se ven formatos que GDI+ no soporta (webp, etc.). No usa WPF para no
+        // cambiar la escala (DPI) de las ventanas del sistema.
+        private Image fun_Cargar_Imagen_Windows(string sRutaCompleta)
+        {
+            IntPtr hBitmap = IntPtr.Zero;
+            try
+            {
+                Guid guidFabrica = typeof(IShellItemImageFactory).GUID;
+                IShellItemImageFactory fabrica;
+                SHCreateItemFromParsingName(sRutaCompleta, IntPtr.Zero, guidFabrica, out fabrica);
+
+                TamanoNativo tamano = new TamanoNativo { cx = 256, cy = 256 };
+                if (fabrica.GetImage(tamano, 0, out hBitmap) != 0 || hBitmap == IntPtr.Zero)
+                    return null;
+
+                using (Image imgShell = Image.FromHbitmap(hBitmap))
+                {
+                    return new Bitmap(imgShell);
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                if (hBitmap != IntPtr.Zero) DeleteObject(hBitmap);
+            }
+        }
+
+        [System.Runtime.InteropServices.ComImport]
+        [System.Runtime.InteropServices.Guid("bcc18b79-ba16-442f-80c4-8a59c30c463b")]
+        [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)]
+        private interface IShellItemImageFactory
+        {
+            [System.Runtime.InteropServices.PreserveSig]
+            int GetImage(TamanoNativo size, int flags, out IntPtr phbm);
+        }
+
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+        private struct TamanoNativo
+        {
+            public int cx;
+            public int cy;
+        }
+
+        [System.Runtime.InteropServices.DllImport("shell32.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode, PreserveSig = false)]
+        private static extern void SHCreateItemFromParsingName(
+            string pszPath, IntPtr pbc,
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPStruct)] Guid riid,
+            [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Interface)] out IShellItemImageFactory ppv);
+
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern bool DeleteObject(IntPtr hObject);
+
+        // Abre la imagen con el visor predeterminado de Windows
+        private void pro_Abrir_Imagen(string sRutaCompleta)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(sRutaCompleta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir la imagen: " + ex.Message, "Reportes",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // Al cambiar el informe se cargan solo las actividades de su proyecto
