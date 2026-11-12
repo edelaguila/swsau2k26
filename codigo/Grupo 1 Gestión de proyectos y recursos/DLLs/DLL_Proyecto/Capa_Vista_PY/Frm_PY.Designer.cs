@@ -41,6 +41,7 @@ namespace Capa_Vista_PY
             this.Btn_Ayuda_PY = new System.Windows.Forms.Button();
             this.Dgv_PY = new System.Windows.Forms.DataGridView();
             this.Btn_Salir_PY = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             this.Gpb_Datos_PY.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_PY)).BeginInit();
             this.SuspendLayout();
@@ -263,7 +264,7 @@ namespace Capa_Vista_PY
             // 
             this.Btn_Ayuda_PY.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_Ayuda_PY.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ayuda_PY.Image")));
-            this.Btn_Ayuda_PY.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Ayuda_PY.Location = new System.Drawing.Point(553, 15);
             this.Btn_Ayuda_PY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Btn_Ayuda_PY.Name = "Btn_Ayuda_PY";
             this.Btn_Ayuda_PY.Size = new System.Drawing.Size(97, 93);
@@ -308,7 +309,7 @@ namespace Capa_Vista_PY
             // 
             this.Btn_Salir_PY.Text = "Salir";
             this.Btn_Salir_PY.Name = "Btn_Salir_PY";
-            this.Btn_Salir_PY.Location = new System.Drawing.Point(553, 15);
+            this.Btn_Salir_PY.Location = new System.Drawing.Point(661, 15);
             this.Btn_Salir_PY.Size = new System.Drawing.Size(97, 93);
             this.Btn_Salir_PY.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_Salir_PY.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -337,6 +338,19 @@ namespace Capa_Vista_PY
             this.Gpb_Datos_PY.Controls.Add(this.Lbl_Objetivo_PY);
             this.Gpb_Datos_PY.Controls.Add(this.Txt_Objetivo_PY);
             this.Controls.Add(this.Dgv_PY);
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_PY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proyectos";
@@ -372,6 +386,7 @@ namespace Capa_Vista_PY
         private System.Windows.Forms.Button Btn_Ayuda_PY;
         private System.Windows.Forms.DataGridView Dgv_PY;
         private System.Windows.Forms.Button Btn_Salir_PY;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }
 //Fin de código de Paula Daniela Leonardo Paredes carné 0901-22-9580 en la fecha de: "20/10/2026"

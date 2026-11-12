@@ -84,11 +84,5 @@ namespace Capa_Vista_Informe
                 btnGenerar.Enabled = cmbInformes.SelectedItem is Cls_Informe_Resumen_DTO;
             }
         }
-
-        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

@@ -350,6 +350,30 @@ namespace Capa_Vista_Cronograma
         {
             this.Close();
         }
+
+        // Boton Imprimir agregado: abre el reporte Crystal (Rpt_Cronograma.rpt dentro de este proyecto)
+        private void Btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            pro_Abrir_Reporte();
+        }
+
+        // Abre el reporte Crystal Rpt_Cronograma.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Cronograma rptReporte = new Rpt_Cronograma();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Cronograma"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 //Fin del código de "Pablo José Quiroa Martínez" con carné: "0901-22-2929" en la fecha de: "20/10/2026"

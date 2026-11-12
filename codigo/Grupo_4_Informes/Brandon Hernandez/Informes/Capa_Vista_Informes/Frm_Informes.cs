@@ -252,9 +252,10 @@ namespace Capa_Vista_Informes
             Erp_Informe.Clear();
         }
 
+        // Imprimir: abre el reporte Crystal de todos los informes (Rpt_Informe.rpt)
         private void Btn_Imprimir_Click(object sender, EventArgs e)
         {
-
+            pro_Abrir_Reporte();
         }
 
         // Ruta relativa a la raíz del repositorio (igual que el componente de Seguridad):
@@ -362,6 +363,25 @@ namespace Capa_Vista_Informes
                                                                     MessageBoxIcon.Error;
             MessageBox.Show(resultado.sMensaje, resultado.bExito ? "Éxito" : "Aviso",
                 MessageBoxButtons.OK, icono);
+        }
+
+        // Abre el reporte Crystal Rpt_Informe.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                // Imprime todos los informes de la tabla
+                Rpt_Informe rptReporte = new Rpt_Informe();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Informes"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

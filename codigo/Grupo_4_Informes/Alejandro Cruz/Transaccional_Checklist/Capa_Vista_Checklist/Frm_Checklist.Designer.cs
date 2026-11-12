@@ -55,6 +55,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -342,7 +343,7 @@
             // 
             this.btnSalir.Text = "Salir";
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Location = new System.Drawing.Point(337, 15);
+            this.btnSalir.Location = new System.Drawing.Point(445, 15);
             this.btnSalir.Size = new System.Drawing.Size(97, 93);
             this.btnSalir.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -376,6 +377,19 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cmbEstadoNuevo);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(337, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_Checklist";
             this.Text = "Checklist";
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).EndInit();
@@ -415,5 +429,6 @@
         private System.Windows.Forms.ComboBox cmbIdInformeB;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }

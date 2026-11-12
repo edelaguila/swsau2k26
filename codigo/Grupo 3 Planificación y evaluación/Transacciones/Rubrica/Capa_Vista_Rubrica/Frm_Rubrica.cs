@@ -187,6 +187,30 @@ namespace Capa_Vista_Rubrica
         {
             this.Close();
         }
+
+        // Boton Imprimir agregado: abre el reporte Crystal (Rpt_Rubrica.rpt dentro de este proyecto)
+        private void Btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            pro_Abrir_Reporte();
+        }
+
+        // Abre el reporte Crystal Rpt_Rubrica.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Rubrica rptReporte = new Rpt_Rubrica();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Rúbricas"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 // Termina codigo hecho por Maria Morales 0901-22-1226 el dia 07/10/2026

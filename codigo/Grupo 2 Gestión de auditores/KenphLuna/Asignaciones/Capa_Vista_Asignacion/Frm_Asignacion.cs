@@ -438,7 +438,8 @@ namespace Capa_Vista_Asignacion
                 MessageBox.Show("No cuenta con permisos de impresión o generación de reportes.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            MessageBox.Show("Módulo de Reporteador / Crystal Reports preparado para enlace posterior.", "Impresión de Reportes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Abre el reporte Crystal de asignaciones (antes solo mostraba un mensaje)
+            pro_Abrir_Reporte();
         }
 
         //Navegacion Botones
@@ -617,5 +618,23 @@ namespace Capa_Vista_Asignacion
             }
         }
         //Fin del código de Kenph Luna 9959-22-6326 en la fecha 16/10/2026
+
+        // Abre el reporte Crystal Rpt_Asignaciones.rpt (incrustado en este proyecto)
+        private void pro_Abrir_Reporte()
+        {
+            try
+            {
+                Rpt_Asignaciones rptReporte = new Rpt_Asignaciones();
+                using (Frm_Visor_Reporte frmVisor = new Frm_Visor_Reporte(rptReporte, "Reporte de Asignaciones"))
+                {
+                    frmVisor.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el reporte: " + ex.Message, "Imprimir",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

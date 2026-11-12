@@ -50,6 +50,7 @@ namespace Capa_Vista_Ponderacion
             this.Btn_Limpiar = new System.Windows.Forms.Button();
             this.Dgv_Ponderacion = new System.Windows.Forms.DataGridView();
             this.Btn_Salir = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Ponderacion)).BeginInit();
             this.Gpb_Datos.SuspendLayout();
             this.SuspendLayout();
@@ -354,7 +355,7 @@ namespace Capa_Vista_Ponderacion
             // 
             this.Btn_Salir.Text = "Salir";
             this.Btn_Salir.Name = "Btn_Salir";
-            this.Btn_Salir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Salir.Location = new System.Drawing.Point(553, 15);
             this.Btn_Salir.Size = new System.Drawing.Size(97, 93);
             this.Btn_Salir.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -368,6 +369,19 @@ namespace Capa_Vista_Ponderacion
             this.Controls.Add(this.Btn_Eliminar);
             this.Controls.Add(this.Gpb_Datos);
             this.Controls.Add(this.Dgv_Ponderacion);
+            // 
+            // Btn_Imprimir
+            // 
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Location = new System.Drawing.Point(445, 15);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.Click += new System.EventHandler(this.Btn_Imprimir_Click);
+            this.Controls.Add(this.Btn_Imprimir);
             this.Name = "Frm_Ponderacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ponderación";
@@ -408,6 +422,7 @@ namespace Capa_Vista_Ponderacion
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.DataGridView Dgv_Ponderacion;
         private System.Windows.Forms.Button Btn_Salir;
+        private System.Windows.Forms.Button Btn_Imprimir;
     }
 }
 //Fin del código de "NOMBRE_COMPLETO" con carné: "CARNE" en la fecha de : "20/10/2026"
