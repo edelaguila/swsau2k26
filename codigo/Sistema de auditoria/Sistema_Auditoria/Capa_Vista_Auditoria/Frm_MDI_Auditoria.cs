@@ -318,5 +318,13 @@ namespace Capa_Vista_Auditoria
             formLogin.ShowDialog();
             this.Close();
         }
+
+        private void informeFinalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Generador del informe final en PDF (Grupo 4 - InformeAuditoria_Formato_Referencia)
+            Capa_Vista_Informe.Frm_Informe frm = new Capa_Vista_Informe.Frm_Informe();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

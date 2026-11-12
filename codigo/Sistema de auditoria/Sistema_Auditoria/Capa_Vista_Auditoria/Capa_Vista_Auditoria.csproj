@@ -53,6 +53,9 @@
     <Reference Include="Capa_Vista_Informes">
       <HintPath>..\..\..\Grupo_4_Informes\Brandon Hernandez\Informes\Capa_Vista_Informes\bin\Debug\Capa_Vista_Informes.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Informe">
+      <HintPath>..\..\..\Grupo_4_Informes\InformeAuditoria_Formato_Referencia\InformeAuditoria_Formato_Referencia\Capa_Vista_Informe\bin\Debug\Capa_Vista_Informe.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_PE">
       <HintPath>..\..\..\Grupo 1 Gestión de proyectos y recursos\Mnt\Mnt_PE\Capa_Vista_PE\bin\Debug\Capa_Vista_PE.dll</HintPath>
     </Reference>

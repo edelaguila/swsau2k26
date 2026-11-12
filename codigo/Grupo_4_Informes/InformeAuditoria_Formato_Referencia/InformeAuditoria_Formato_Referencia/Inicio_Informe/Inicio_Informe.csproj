@@ -1,13 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <!-- EXE de pruebas, convertido a .NET Framework 4.7.2 igual que sus DLL. -->
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../Capa_Vista_Informe/Capa_Vista_Informe.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- En .NET Framework las DLL nativas y la fuente de QuestPDF solo se copian al proyecto que tiene el paquete. -->
+    <PackageReference Include="QuestPDF" Version="2026.9.1" />
   </ItemGroup>
 </Project>

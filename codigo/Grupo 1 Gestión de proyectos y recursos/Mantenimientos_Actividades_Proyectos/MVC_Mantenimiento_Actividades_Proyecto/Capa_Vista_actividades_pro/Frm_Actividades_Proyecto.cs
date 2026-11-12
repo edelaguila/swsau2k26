@@ -665,14 +665,29 @@ namespace Capa_Vista_actividades_pro
             if (iIdSeleccionado <= 0)
                 return;
 
-            using (PrintPreviewDialog gVista =
-                new PrintPreviewDialog())
+            // Se protege la impresión para que un error al generar
+            // la vista previa no cierre todo el sistema.
+            // Pendiente: reemplazar por el reporte en Crystal Reports.
+            try
             {
-                gVista.Document = gDocumento;
-                gVista.Width = 900;
-                gVista.Height = 650;
+                using (PrintPreviewDialog gVista =
+                    new PrintPreviewDialog())
+                {
+                    gVista.Document = gDocumento;
+                    gVista.Width = 900;
+                    gVista.Height = 650;
 
-                gVista.ShowDialog(this);
+                    gVista.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No fue posible generar la impresión de la actividad.\n" +
+                    "Detalle: " + ex.Message,
+                    "Imprimir",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 
