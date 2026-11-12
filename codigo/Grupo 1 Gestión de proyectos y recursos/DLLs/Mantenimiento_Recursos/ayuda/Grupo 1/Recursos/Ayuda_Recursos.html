@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Ayuda - Transaccional de Recursos</title>
+<link rel="stylesheet" type="text/css" href="ayuda_recursos.css">
+</head>
+<body>
+
+<h1>Transaccional de Recursos</h1>
+<p>Sistema de Auditores &middot; Grupo 1 &ndash; Gesti&oacute;n de proyectos y recursos &middot; Aplicaci&oacute;n 504, m&oacute;dulo 10.</p>
+
+<h2><a name="descripcion"></a>1. Descripci&oacute;n general</h2>
+<p>Esta pantalla registra los recursos que se usan o asignan en un proyecto de auditor&iacute;a:
+materiales, herramientas y equipo. Cada recurso pertenece a un proyecto, tiene un nombre, un tipo,
+una cantidad y una fecha de registro que el sistema coloca autom&aacute;ticamente.</p>
+<div class="nota">Antes de registrar recursos debe existir al menos un proyecto en el sistema.</div>
+
+<h2><a name="botones"></a>2. Barra de botones</h2>
+<table>
+<tr><th>Bot&oacute;n</th><th>Qu&eacute; hace</th></tr>
+<tr><td>Ingresar</td><td>Limpia los campos y los habilita para registrar un recurso nuevo.</td></tr>
+<tr><td>Modificar</td><td>Habilita los campos del recurso seleccionado en la tabla para cambiarlos.</td></tr>
+<tr><td>Guardar</td><td>Guarda el recurso nuevo o los cambios del recurso que se est&aacute; modificando.</td></tr>
+<tr><td>Cancelar</td><td>Descarta lo que se estaba escribiendo y vuelve al modo de consulta.</td></tr>
+<tr><td>Eliminar</td><td>Elimina el recurso seleccionado, despu&eacute;s de pedir confirmaci&oacute;n.</td></tr>
+<tr><td>Consultar</td><td>Filtra la tabla con el texto escrito en <b>Buscar</b>.</td></tr>
+<tr><td>Imprimir</td><td>Abre el reporte de recursos, desde donde se puede imprimir o exportar.</td></tr>
+<tr><td>Refrescar</td><td>Quita el filtro y vuelve a leer los datos de la base de datos.</td></tr>
+<tr><td>Ayuda</td><td>Abre esta ayuda.</td></tr>
+<tr><td>Salir</td><td>Cierra la pantalla.</td></tr>
+</table>
+<p>Mientras se ingresa o modifica un recurso, solo est&aacute;n disponibles <b>Guardar</b>, <b>Cancelar</b>,
+<b>Ayuda</b> y <b>Salir</b>. <b>Modificar</b> y <b>Eliminar</b> se activan al seleccionar una fila de la tabla.</p>
+
+<h2><a name="campos"></a>3. Campos del recurso</h2>
+<table>
+<tr><th>Campo</th><th>Descripci&oacute;n</th></tr>
+<tr><td>Id recurso</td><td>N&uacute;mero del recurso. Lo asigna el sistema al guardar; no se puede editar.</td></tr>
+<tr><td>Proyecto</td><td>Proyecto al que pertenece el recurso. Se elige de la lista. Obligatorio.</td></tr>
+<tr><td>Nombre</td><td>Nombre del recurso, hasta 100 caracteres. Obligatorio.</td></tr>
+<tr><td>Tipo</td><td>Material, Herramienta, Equipo u otro tipo que se escriba, hasta 100 caracteres. Obligatorio.</td></tr>
+<tr><td>Cantidad</td><td>Cantidad del recurso, mayor que 0.</td></tr>
+</table>
+<p>La tabla inferior muestra todos los recursos con su proyecto y la fecha en que se registraron.</p>
+
+<h2><a name="ingresar"></a>4. Ingresar un recurso</h2>
+<ol>
+<li>Presione <b>Ingresar</b>.</li>
+<li>Elija el <b>Proyecto</b>, escriba el <b>Nombre</b>, elija o escriba el <b>Tipo</b> e indique la <b>Cantidad</b>.</li>
+<li>Presione <b>Guardar</b>. El recurso aparece en la tabla con su id y fecha de registro.</li>
+</ol>
+
+<h2><a name="modificar"></a>5. Modificar un recurso</h2>
+<ol>
+<li>Haga clic en el recurso dentro de la tabla. Sus datos se cargan en los campos.</li>
+<li>Presione <b>Modificar</b> y cambie los datos necesarios.</li>
+<li>Presione <b>Guardar</b> para aplicar los cambios o <b>Cancelar</b> para descartarlos.</li>
+</ol>
+
+<h2><a name="eliminar"></a>6. Eliminar un recurso</h2>
+<ol>
+<li>Haga clic en el recurso dentro de la tabla.</li>
+<li>Presione <b>Eliminar</b> y confirme con <b>S&iacute;</b>.</li>
+</ol>
+<div class="nota">La eliminaci&oacute;n no se puede deshacer.</div>
+
+<h2><a name="consultar"></a>7. Consultar y refrescar</h2>
+<p>Escriba parte del nombre del proyecto, del recurso o del tipo en <b>Buscar</b> y presione <b>Consultar</b>
+o la tecla Enter. La tabla muestra solo las coincidencias. Para ver todo de nuevo, presione <b>Refrescar</b>.</p>
+
+<h2><a name="reporte"></a>8. Imprimir el reporte</h2>
+<p>Presione <b>Imprimir</b> para abrir el reporte de recursos agrupado por proyecto. Desde la barra del
+visor puede imprimirlo o exportarlo a PDF, Excel o Word.</p>
+
+<h2><a name="validaciones"></a>9. Validaciones y mensajes</h2>
+<table>
+<tr><th>Mensaje</th><th>Causa</th></tr>
+<tr><td>Seleccione un proyecto.</td><td>No se eligi&oacute; un proyecto en la lista.</td></tr>
+<tr><td>Ingrese el nombre del recurso.</td><td>El nombre est&aacute; vac&iacute;o.</td></tr>
+<tr><td>Ingrese el tipo de recurso.</td><td>El tipo est&aacute; vac&iacute;o.</td></tr>
+<tr><td>La cantidad debe ser mayor que 0.</td><td>La cantidad no es v&aacute;lida.</td></tr>
+<tr><td>El recurso ya no existe.</td><td>Otro usuario lo elimin&oacute; mientras se trabajaba con &eacute;l.</td></tr>
+<tr><td>No se pudo guardar / modificar / eliminar el recurso.</td><td>Error de conexi&oacute;n con la base de datos. Verifique el DSN <b>bd_auditoria</b>.</td></tr>
+</table>
+
+</body>
+</html>

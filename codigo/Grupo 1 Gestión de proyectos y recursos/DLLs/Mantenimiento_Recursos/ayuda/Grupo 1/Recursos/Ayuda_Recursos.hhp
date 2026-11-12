@@ -1,0 +1,20 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda_Recursos.chm
+Contents file=Ayuda_Recursos.hhc
+Index file=Ayuda_Recursos.hhk
+Default Window=Principal
+Default topic=Ayuda_Recursos.html
+Display compile progress=No
+Full-text search=Yes
+Language=0x100a Spanish (Guatemala)
+Title=Ayuda - Transaccional de Recursos
+
+[WINDOWS]
+Principal="Ayuda - Transaccional de Recursos","Ayuda_Recursos.hhc","Ayuda_Recursos.hhk","Ayuda_Recursos.html","Ayuda_Recursos.html",,,,,0x63520,240,0x10184e,[80,40,1180,760],,,,,,,0
+
+[FILES]
+Ayuda_Recursos.html
+ayuda_recursos.css
+
+[INFOTYPES]

@@ -460,8 +460,10 @@ namespace Capa_Vista_actividades_pro
                 if (!gResultado.bExito)
                     return;
 
-                pro_estado(Enm_Estado.Consulta);
+                Txt_Buscar.Clear();
+                gFuente.RemoveFilter();
 
+                pro_estado(Enm_Estado.Consulta);
                 pro_cargar_actividades(iIdActividad);
             }
             catch (Exception gEx)
@@ -557,22 +559,15 @@ namespace Capa_Vista_actividades_pro
                 {
                     gFuente.RemoveFilter();
                 }
-                else if (int.TryParse(sTexto, out int iId))
-                {
-                    gFuente.Filter =
-                        "Pk_Id_Actividad_Proyecto = " + iId;
-                }
                 else
                 {
-                    string sBusqueda = sTexto
-                        .Replace("'", "''")
-                        .Replace("[", "[[]")
-                        .Replace("%", "[%]")
-                        .Replace("*", "[*]");
+                    string sBusqueda = System.Text.RegularExpressions.Regex.Replace(
+                        sTexto.Replace("'", "''"),
+                        @"[\[\]%*]",
+                        gCoincidencia => "[" + gCoincidencia.Value + "]");
 
                     gFuente.Filter =
-                        "Cmp_Nombre_Actividad_Proyecto LIKE '%"
-                        + sBusqueda + "%'";
+                        "[Cmp_Nombre_Actividad_Proyecto] LIKE '%" + sBusqueda + "%'";
                 }
 
                 if (gFuente.Count > 0)
