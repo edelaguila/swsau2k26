@@ -1,17 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <!-- Convertido de net8.0 a .NET Framework 4.7.2 para poder usarse dentro del MDI de Auditoria. -->
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- Salida en bin\Debug\ (sin subcarpeta net472), igual que los demas modulos. -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <!-- La DLL real viene del módulo Seguridad del sistema; no se incluye una copia ficticia. -->
+    <!-- DLL real del componente de Seguridad (misma ruta que usan los demas modulos del Grupo 4). -->
+    <!-- System.Data.Odbc viene incluido en System.Data de .NET Framework, por eso ya no se usa el paquete NuGet. -->
     <Reference Include="Capa_Modelo_Seguridad">
-      <HintPath>../Dependencias/Capa_Modelo_Seguridad.dll</HintPath>
+      <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaModelo\bin\Debug\Capa_Modelo_Seguridad.dll</HintPath>
       <Private>true</Private>
     </Reference>
-    <!-- OdbcConnection/OdbcCommand siguen siendo tipos necesarios porque Seguridad devuelve OdbcConnection. -->
-    <PackageReference Include="System.Data.Odbc" Version="8.0.0" />
   </ItemGroup>
 </Project>

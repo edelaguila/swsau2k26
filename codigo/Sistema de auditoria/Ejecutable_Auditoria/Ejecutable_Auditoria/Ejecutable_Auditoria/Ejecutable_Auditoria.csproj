@@ -17,4 +17,18 @@
     </Reference>
   </ItemGroup>
 
+  <!-- Informe Final (Grupo 4): en .NET Framework las DLL nativas y la fuente de QuestPDF
+       solo se copian al ejecutable que tiene el paquete, por eso se referencia aqui. -->
+  <ItemGroup>
+    <PackageReference Include="QuestPDF" Version="2026.9.1" />
+  </ItemGroup>
+
+  <!-- Logo del encabezado del PDF (se busca en Assets\Logo_Informe.png junto al EXE). -->
+  <ItemGroup>
+    <None Include="..\..\..\..\Grupo_4_Informes\InformeAuditoria_Formato_Referencia\InformeAuditoria_Formato_Referencia\Capa_Vista_Informe\Assets\Logo_Informe.png">
+      <Link>Assets\Logo_Informe.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
