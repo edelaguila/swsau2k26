@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ayuda">
+		<param name="Local" value="Ayuda_Recursos.html#botones">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Cancelar">
+		<param name="Local" value="Ayuda_Recursos.html#botones">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Cantidad">
+		<param name="Local" value="Ayuda_Recursos.html#campos">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Consultar">
+		<param name="Local" value="Ayuda_Recursos.html#consultar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Eliminar">
+		<param name="Local" value="Ayuda_Recursos.html#eliminar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Guardar">
+		<param name="Local" value="Ayuda_Recursos.html#ingresar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Imprimir">
+		<param name="Local" value="Ayuda_Recursos.html#reporte">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ingresar">
+		<param name="Local" value="Ayuda_Recursos.html#ingresar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Modificar">
+		<param name="Local" value="Ayuda_Recursos.html#modificar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Proyecto">
+		<param name="Local" value="Ayuda_Recursos.html#campos">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Refrescar">
+		<param name="Local" value="Ayuda_Recursos.html#consultar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Reporte">
+		<param name="Local" value="Ayuda_Recursos.html#reporte">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Salir">
+		<param name="Local" value="Ayuda_Recursos.html#botones">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tipo de recurso">
+		<param name="Local" value="Ayuda_Recursos.html#campos">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Validaciones">
+		<param name="Local" value="Ayuda_Recursos.html#validaciones">
+		</OBJECT>
+</UL>
+</BODY></HTML>

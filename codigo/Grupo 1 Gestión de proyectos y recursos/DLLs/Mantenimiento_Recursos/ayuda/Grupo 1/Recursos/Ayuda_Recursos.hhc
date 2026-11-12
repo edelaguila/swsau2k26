@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ayuda de Recursos">
+		<param name="Local" value="Ayuda_Recursos.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="1. Descripci&oacute;n general">
+		<param name="Local" value="Ayuda_Recursos.html#descripcion">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="2. Barra de botones">
+		<param name="Local" value="Ayuda_Recursos.html#botones">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3. Campos del recurso">
+		<param name="Local" value="Ayuda_Recursos.html#campos">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="4. Ingresar un recurso">
+		<param name="Local" value="Ayuda_Recursos.html#ingresar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="5. Modificar un recurso">
+		<param name="Local" value="Ayuda_Recursos.html#modificar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6. Eliminar un recurso">
+		<param name="Local" value="Ayuda_Recursos.html#eliminar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="7. Consultar y refrescar">
+		<param name="Local" value="Ayuda_Recursos.html#consultar">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="8. Imprimir el reporte">
+		<param name="Local" value="Ayuda_Recursos.html#reporte">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="9. Validaciones y mensajes">
+		<param name="Local" value="Ayuda_Recursos.html#validaciones">
+		</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>
