@@ -208,6 +208,12 @@ namespace Capa_Vista_PY
                 "marque la casilla del campo para activarlas.",
                 "Ayuda - Proyectos", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_PY_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 //Fin de código de Paula Daniela Leonardo Paredes carné 0901-22-9580 en la fecha de: "20/10/2026"

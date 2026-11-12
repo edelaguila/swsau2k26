@@ -405,5 +405,11 @@ namespace Capa_Vista_Reportes
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -223,6 +223,12 @@ namespace Capa_Vista_Planificacion
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e) { }
         private void Txt_observaciones_TextChanged(object sender, EventArgs e) { }
         private void Dgv_planificacion_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 // Termina codigo hecho por Pablo Quiroa 0901-22-2929 el dia 09/10/2026

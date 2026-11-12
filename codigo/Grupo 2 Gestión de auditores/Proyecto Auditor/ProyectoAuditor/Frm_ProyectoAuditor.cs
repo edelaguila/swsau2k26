@@ -30,14 +30,10 @@ namespace Capa_Vista_ProAuditor
         private void pro_aplicar_estilo()
         {
             Text = "Proyecto Auditor";
-            Font = gFuenteTexto;
             MinimumSize = new Size(850, 550);
             StartPosition = FormStartPosition.CenterScreen;
             MinimizeBox = true; MaximizeBox = true; ControlBox = true;
 
-            Pnl_Encabezado.BackColor = gColorArea;
-            Lbl_Titulo.Font = gFuenteTitulo; Lbl_Titulo.ForeColor = Color.Black;
-            Lbl_Subtitulo.Font = gFuenteSubtitulo; Lbl_Subtitulo.ForeColor = Color.Black;
             Txt_Buscar.Font = gFuenteTexto;
             Cbo_Proyecto.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_Auditor.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -46,15 +42,6 @@ namespace Capa_Vista_ProAuditor
 
             Cbo_CodApl.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            foreach (Button Btn in new[] { Btn_Nuevo, Btn_Guardar, Btn_Modificar, Btn_Eliminar, Btn_Cancelar, Btn_Buscar })
-            {
-                Btn.Font = gFuenteTexto;
-                Btn.FlatStyle = FlatStyle.Flat;
-                Btn.FlatAppearance.BorderSize = 0;
-                Btn.BackColor = gColorArea;
-                Btn.ForeColor = Color.Black;
-                Btn.Cursor = Cursors.Hand;
-            }
 
             Dgv_ProyectoAuditor.ReadOnly = true;
             Dgv_ProyectoAuditor.AllowUserToAddRows = false;
@@ -64,9 +51,6 @@ namespace Capa_Vista_ProAuditor
             Dgv_ProyectoAuditor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Dgv_ProyectoAuditor.RowHeadersVisible = false;
             Dgv_ProyectoAuditor.Font = gFuenteTexto;
-            Dgv_ProyectoAuditor.EnableHeadersVisualStyles = false;
-            Dgv_ProyectoAuditor.ColumnHeadersDefaultCellStyle.BackColor = gColorArea;
-            Dgv_ProyectoAuditor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void pro_enlazar_eventos()
@@ -225,6 +209,12 @@ namespace Capa_Vista_ProAuditor
             {
                 Frm_Reporte.ShowDialog();
             }
+        }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

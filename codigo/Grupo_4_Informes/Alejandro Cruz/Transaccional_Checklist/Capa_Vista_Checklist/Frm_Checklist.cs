@@ -274,5 +274,11 @@ namespace Capa_Vista_Checklist
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

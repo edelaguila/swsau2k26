@@ -415,5 +415,11 @@ namespace Capa_Vista_Graficas_Informes
             MessageBox.Show(resultado.sMensaje, resultado.bExito ? "Éxito" : "Aviso",
                 MessageBoxButtons.OK, icono);
         }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
