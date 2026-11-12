@@ -143,6 +143,19 @@ namespace Capa_Modelo_Cronograma
         }
 
 
+        // Auditores registrados (tbl_auditor) para elegir el responsable de la tarea
+        public List<string> fun_obtener_auditores()
+        {
+            string sSql = "SELECT Cmp_Nombre_Auditor FROM tbl_auditor " +
+                          "WHERE Cmp_Nombre_Auditor IS NOT NULL AND Cmp_Nombre_Auditor <> '' " +
+                          "ORDER BY Cmp_Nombre_Auditor";
+            List<string> lista = new List<string>();
+            foreach (DataRow fila in fun_consultar_tabla(sSql, null).Rows)
+                lista.Add(fila[0].ToString());
+            return lista;
+        }
+
+
         // Solo las actividades del proyecto al que pertenece la planificacion
         public DataTable fun_obtener_actividades_por_planificacion(int iIdPlanificacion)
         {
