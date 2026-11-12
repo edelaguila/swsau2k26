@@ -1,16 +1,10 @@
-﻿namespace Capa_Vista_Criterios
+﻿//Inicio de código de "Nombre del programador" con carné: "No_carné" en la fecha de: "11/11/2026"
+namespace Capa_Vista_Criterios
 {
     partial class Frm_Criterio
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,235 +14,580 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de Windows Forms
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.lblSuma = new System.Windows.Forms.Label();
-            this.chkSinPorcentaje = new System.Windows.Forms.CheckBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.cmbImportancia = new System.Windows.Forms.ComboBox();
-            this.numPorcentaje = new System.Windows.Forms.NumericUpDown();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.cmbRubrica = new System.Windows.Forms.ComboBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.lblImportancia = new System.Windows.Forms.Label();
-            this.lblPorcentaje = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblRubrica = new System.Windows.Forms.Label();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPorcentaje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Criterio));
+            this.Pnl_Titulo = new System.Windows.Forms.Panel();
+            this.Lbl_CodigoAplicacion = new System.Windows.Forms.Label();
+            this.Lbl_Titulo = new System.Windows.Forms.Label();
+            this.Pnl_Botones = new System.Windows.Forms.FlowLayoutPanel();
+            this.Btn_Ingresar = new System.Windows.Forms.Button();
+            this.Btn_Modificar = new System.Windows.Forms.Button();
+            this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.Btn_Cancelar = new System.Windows.Forms.Button();
+            this.Btn_Eliminar = new System.Windows.Forms.Button();
+            this.Btn_Consultar = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
+            this.Btn_Refrescar = new System.Windows.Forms.Button();
+            this.Btn_Inicio = new System.Windows.Forms.Button();
+            this.Btn_Anterior = new System.Windows.Forms.Button();
+            this.Btn_Siguiente = new System.Windows.Forms.Button();
+            this.Btn_Fin = new System.Windows.Forms.Button();
+            this.Btn_Ayuda = new System.Windows.Forms.Button();
+            this.Btn_Salir = new System.Windows.Forms.Button();
+            this.Gpb_Datos = new System.Windows.Forms.GroupBox();
+            this.Lbl_Suma = new System.Windows.Forms.Label();
+            this.Txt_Descripcion = new System.Windows.Forms.TextBox();
+            this.Lbl_Descripcion = new System.Windows.Forms.Label();
+            this.Cbo_Importancia = new System.Windows.Forms.ComboBox();
+            this.Lbl_Importancia = new System.Windows.Forms.Label();
+            this.Nud_Porcentaje = new System.Windows.Forms.NumericUpDown();
+            this.Lbl_Porcentaje = new System.Windows.Forms.Label();
+            this.Txt_Nombre = new System.Windows.Forms.TextBox();
+            this.Lbl_Nombre = new System.Windows.Forms.Label();
+            this.Cbo_Rubrica = new System.Windows.Forms.ComboBox();
+            this.Lbl_Rubrica = new System.Windows.Forms.Label();
+            this.Dgv_Criterios = new System.Windows.Forms.DataGridView();
+            this.Erp_Validacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Pnl_Titulo.SuspendLayout();
+            this.Pnl_Botones.SuspendLayout();
+            this.Gpb_Datos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_Porcentaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Criterios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Erp_Validacion)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // Pnl_Titulo
             // 
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Controls.Add(this.btnNuevo);
-            this.groupBox1.Controls.Add(this.lblSuma);
-            this.groupBox1.Controls.Add(this.chkSinPorcentaje);
-            this.groupBox1.Controls.Add(this.txtDescripcion);
-            this.groupBox1.Controls.Add(this.cmbImportancia);
-            this.groupBox1.Controls.Add(this.numPorcentaje);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.cmbRubrica);
-            this.groupBox1.Controls.Add(this.lblDescripcion);
-            this.groupBox1.Controls.Add(this.lblImportancia);
-            this.groupBox1.Controls.Add(this.lblPorcentaje);
-            this.groupBox1.Controls.Add(this.lblNombre);
-            this.groupBox1.Controls.Add(this.lblRubrica);
-            this.groupBox1.Location = new System.Drawing.Point(22, 44);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(610, 210);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.Pnl_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(0)))));
+            this.Pnl_Titulo.Controls.Add(this.Lbl_CodigoAplicacion);
+            this.Pnl_Titulo.Controls.Add(this.Lbl_Titulo);
+            this.Pnl_Titulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Titulo.Location = new System.Drawing.Point(0, 0);
+            this.Pnl_Titulo.Name = "Pnl_Titulo";
+            this.Pnl_Titulo.Size = new System.Drawing.Size(1175, 64);
+            this.Pnl_Titulo.TabIndex = 0;
             // 
-            // btnEliminar
+            // Lbl_CodigoAplicacion
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(449, 93);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.Lbl_CodigoAplicacion.AutoSize = true;
+            this.Lbl_CodigoAplicacion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_CodigoAplicacion.ForeColor = System.Drawing.Color.Black;
+            this.Lbl_CodigoAplicacion.Location = new System.Drawing.Point(17, 40);
+            this.Lbl_CodigoAplicacion.Name = "Lbl_CodigoAplicacion";
+            this.Lbl_CodigoAplicacion.Size = new System.Drawing.Size(179, 17);
+            this.Lbl_CodigoAplicacion.TabIndex = 1;
+            this.Lbl_CodigoAplicacion.Text = "Código de aplicación: 516";
             // 
-            // btnCancelar
+            // Lbl_Titulo
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(449, 127);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 14;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.Lbl_Titulo.AutoSize = true;
+            this.Lbl_Titulo.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Titulo.ForeColor = System.Drawing.Color.Black;
+            this.Lbl_Titulo.Location = new System.Drawing.Point(14, 6);
+            this.Lbl_Titulo.Name = "Lbl_Titulo";
+            this.Lbl_Titulo.Size = new System.Drawing.Size(341, 29);
+            this.Lbl_Titulo.TabIndex = 0;
+            this.Lbl_Titulo.Text = "Mantenimiento de Criterios";
             // 
-            // btnGuardar
+            // Pnl_Botones
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(449, 60);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.Pnl_Botones.AutoSize = true;
+            this.Pnl_Botones.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Pnl_Botones.BackColor = System.Drawing.Color.White;
+            this.Pnl_Botones.Controls.Add(this.Btn_Ingresar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Modificar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Guardar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Cancelar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Eliminar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Consultar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Imprimir);
+            this.Pnl_Botones.Controls.Add(this.Btn_Refrescar);
+            this.Pnl_Botones.Controls.Add(this.Btn_Inicio);
+            this.Pnl_Botones.Controls.Add(this.Btn_Anterior);
+            this.Pnl_Botones.Controls.Add(this.Btn_Siguiente);
+            this.Pnl_Botones.Controls.Add(this.Btn_Fin);
+            this.Pnl_Botones.Controls.Add(this.Btn_Ayuda);
+            this.Pnl_Botones.Controls.Add(this.Btn_Salir);
+            this.Pnl_Botones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Botones.Location = new System.Drawing.Point(0, 64);
+            this.Pnl_Botones.Name = "Pnl_Botones";
+            this.Pnl_Botones.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.Pnl_Botones.Size = new System.Drawing.Size(1175, 82);
+            this.Pnl_Botones.TabIndex = 1;
             // 
-            // btnNuevo
+            // Btn_Ingresar
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(449, 25);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 12;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.Btn_Ingresar.BackColor = System.Drawing.Color.White;
+            this.Btn_Ingresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Ingresar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Ingresar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Ingresar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Ingresar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ingresar.Image")));
+            this.Btn_Ingresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Ingresar.Location = new System.Drawing.Point(10, 8);
+            this.Btn_Ingresar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Ingresar.Name = "Btn_Ingresar";
+            this.Btn_Ingresar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Ingresar.TabIndex = 0;
+            this.Btn_Ingresar.Text = "Ingresar";
+            this.Btn_Ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Ingresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Ingresar.UseVisualStyleBackColor = false;
+            this.Btn_Ingresar.Click += new System.EventHandler(this.pro_btn_ingresar_click);
             // 
-            // lblSuma
+            // Btn_Modificar
             // 
-            this.lblSuma.AutoSize = true;
-            this.lblSuma.Location = new System.Drawing.Point(247, 30);
-            this.lblSuma.Name = "lblSuma";
-            this.lblSuma.Size = new System.Drawing.Size(34, 13);
-            this.lblSuma.TabIndex = 11;
-            this.lblSuma.Text = "Suma";
+            this.Btn_Modificar.BackColor = System.Drawing.Color.White;
+            this.Btn_Modificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Modificar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Modificar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Modificar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Modificar.Image")));
+            this.Btn_Modificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Modificar.Location = new System.Drawing.Point(88, 8);
+            this.Btn_Modificar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Modificar.Name = "Btn_Modificar";
+            this.Btn_Modificar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Modificar.TabIndex = 1;
+            this.Btn_Modificar.Text = "Modificar";
+            this.Btn_Modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Modificar.UseVisualStyleBackColor = false;
+            this.Btn_Modificar.Click += new System.EventHandler(this.pro_btn_modificar_click);
             // 
-            // chkSinPorcentaje
+            // Btn_Guardar
             // 
-            this.chkSinPorcentaje.AutoSize = true;
-            this.chkSinPorcentaje.Location = new System.Drawing.Point(247, 93);
-            this.chkSinPorcentaje.Name = "chkSinPorcentaje";
-            this.chkSinPorcentaje.Size = new System.Drawing.Size(95, 17);
-            this.chkSinPorcentaje.TabIndex = 10;
-            this.chkSinPorcentaje.Text = "Sin Porcentaje";
-            this.chkSinPorcentaje.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.BackColor = System.Drawing.Color.White;
+            this.Btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Guardar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Guardar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Guardar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Guardar.Image")));
+            this.Btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Guardar.Location = new System.Drawing.Point(166, 8);
+            this.Btn_Guardar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Guardar.TabIndex = 2;
+            this.Btn_Guardar.Text = "Guardar";
+            this.Btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Guardar.UseVisualStyleBackColor = false;
+            this.Btn_Guardar.Click += new System.EventHandler(this.pro_btn_guardar_click);
             // 
-            // txtDescripcion
+            // Btn_Cancelar
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(95, 160);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(135, 20);
-            this.txtDescripcion.TabIndex = 9;
+            this.Btn_Cancelar.BackColor = System.Drawing.Color.White;
+            this.Btn_Cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Cancelar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Cancelar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Cancelar.Image")));
+            this.Btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Cancelar.Location = new System.Drawing.Point(244, 8);
+            this.Btn_Cancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Cancelar.Name = "Btn_Cancelar";
+            this.Btn_Cancelar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Cancelar.TabIndex = 3;
+            this.Btn_Cancelar.Text = "Cancelar";
+            this.Btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Cancelar.UseVisualStyleBackColor = false;
+            this.Btn_Cancelar.Click += new System.EventHandler(this.pro_btn_cancelar_click);
             // 
-            // cmbImportancia
+            // Btn_Eliminar
             // 
-            this.cmbImportancia.FormattingEnabled = true;
-            this.cmbImportancia.Location = new System.Drawing.Point(95, 127);
-            this.cmbImportancia.Name = "cmbImportancia";
-            this.cmbImportancia.Size = new System.Drawing.Size(135, 21);
-            this.cmbImportancia.TabIndex = 8;
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.White;
+            this.Btn_Eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Eliminar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Eliminar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Eliminar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Eliminar.Image")));
+            this.Btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Eliminar.Location = new System.Drawing.Point(322, 8);
+            this.Btn_Eliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Eliminar.TabIndex = 4;
+            this.Btn_Eliminar.Text = "Eliminar";
+            this.Btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Eliminar.UseVisualStyleBackColor = false;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.pro_btn_eliminar_click);
             // 
-            // numPorcentaje
+            // Btn_Consultar
             // 
-            this.numPorcentaje.Location = new System.Drawing.Point(95, 91);
-            this.numPorcentaje.Name = "numPorcentaje";
-            this.numPorcentaje.Size = new System.Drawing.Size(135, 20);
-            this.numPorcentaje.TabIndex = 7;
+            this.Btn_Consultar.BackColor = System.Drawing.Color.White;
+            this.Btn_Consultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Consultar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Consultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Consultar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Consultar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Consultar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Consultar.Image")));
+            this.Btn_Consultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Consultar.Location = new System.Drawing.Point(400, 8);
+            this.Btn_Consultar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Consultar.Name = "Btn_Consultar";
+            this.Btn_Consultar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Consultar.TabIndex = 5;
+            this.Btn_Consultar.Text = "Consultar";
+            this.Btn_Consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Consultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Consultar.UseVisualStyleBackColor = false;
+            this.Btn_Consultar.Click += new System.EventHandler(this.pro_btn_consultar_click);
             // 
-            // txtNombre
+            // Btn_Imprimir
             // 
-            this.txtNombre.Location = new System.Drawing.Point(95, 60);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(135, 20);
-            this.txtNombre.TabIndex = 6;
+            this.Btn_Imprimir.BackColor = System.Drawing.Color.White;
+            this.Btn_Imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Imprimir.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Imprimir.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
+            this.Btn_Imprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Imprimir.Location = new System.Drawing.Point(478, 8);
+            this.Btn_Imprimir.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Imprimir.TabIndex = 6;
+            this.Btn_Imprimir.Text = "Imprimir";
+            this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Imprimir.UseVisualStyleBackColor = false;
+            this.Btn_Imprimir.Click += new System.EventHandler(this.pro_btn_imprimir_click);
             // 
-            // cmbRubrica
+            // Btn_Refrescar
             // 
-            this.cmbRubrica.FormattingEnabled = true;
-            this.cmbRubrica.Location = new System.Drawing.Point(95, 27);
-            this.cmbRubrica.Name = "cmbRubrica";
-            this.cmbRubrica.Size = new System.Drawing.Size(135, 21);
-            this.cmbRubrica.TabIndex = 5;
+            this.Btn_Refrescar.BackColor = System.Drawing.Color.White;
+            this.Btn_Refrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Refrescar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Refrescar.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Refrescar.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Refrescar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Refrescar.Image")));
+            this.Btn_Refrescar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Refrescar.Location = new System.Drawing.Point(556, 8);
+            this.Btn_Refrescar.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Refrescar.Name = "Btn_Refrescar";
+            this.Btn_Refrescar.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Refrescar.TabIndex = 7;
+            this.Btn_Refrescar.Text = "Refrescar";
+            this.Btn_Refrescar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Refrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Refrescar.UseVisualStyleBackColor = false;
+            this.Btn_Refrescar.Click += new System.EventHandler(this.pro_btn_refrescar_click);
             // 
-            // lblDescripcion
+            // Btn_Inicio
             // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(21, 160);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
-            this.lblDescripcion.TabIndex = 4;
-            this.lblDescripcion.Text = "Descripción";
+            this.Btn_Inicio.BackColor = System.Drawing.Color.White;
+            this.Btn_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Inicio.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Inicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Inicio.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Inicio.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Inicio.Image")));
+            this.Btn_Inicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Inicio.Location = new System.Drawing.Point(634, 8);
+            this.Btn_Inicio.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Inicio.Name = "Btn_Inicio";
+            this.Btn_Inicio.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Inicio.TabIndex = 8;
+            this.Btn_Inicio.Text = "Inicio";
+            this.Btn_Inicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Inicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Inicio.UseVisualStyleBackColor = false;
+            this.Btn_Inicio.Click += new System.EventHandler(this.pro_btn_inicio_click);
             // 
-            // lblImportancia
+            // Btn_Anterior
             // 
-            this.lblImportancia.AutoSize = true;
-            this.lblImportancia.Location = new System.Drawing.Point(21, 127);
-            this.lblImportancia.Name = "lblImportancia";
-            this.lblImportancia.Size = new System.Drawing.Size(62, 13);
-            this.lblImportancia.TabIndex = 3;
-            this.lblImportancia.Text = "Importancia";
+            this.Btn_Anterior.BackColor = System.Drawing.Color.White;
+            this.Btn_Anterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Anterior.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Anterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Anterior.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Anterior.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Anterior.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Anterior.Image")));
+            this.Btn_Anterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Anterior.Location = new System.Drawing.Point(712, 8);
+            this.Btn_Anterior.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Anterior.Name = "Btn_Anterior";
+            this.Btn_Anterior.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Anterior.TabIndex = 9;
+            this.Btn_Anterior.Text = "Anterior";
+            this.Btn_Anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Anterior.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Anterior.UseVisualStyleBackColor = false;
+            this.Btn_Anterior.Click += new System.EventHandler(this.pro_btn_anterior_click);
             // 
-            // lblPorcentaje
+            // Btn_Siguiente
             // 
-            this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(21, 91);
-            this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(58, 13);
-            this.lblPorcentaje.TabIndex = 2;
-            this.lblPorcentaje.Text = "Porcentaje";
+            this.Btn_Siguiente.BackColor = System.Drawing.Color.White;
+            this.Btn_Siguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Siguiente.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Siguiente.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Siguiente.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Siguiente.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Siguiente.Image")));
+            this.Btn_Siguiente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Siguiente.Location = new System.Drawing.Point(790, 8);
+            this.Btn_Siguiente.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Siguiente.Name = "Btn_Siguiente";
+            this.Btn_Siguiente.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Siguiente.TabIndex = 10;
+            this.Btn_Siguiente.Text = "Siguiente";
+            this.Btn_Siguiente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Siguiente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Siguiente.UseVisualStyleBackColor = false;
+            this.Btn_Siguiente.Click += new System.EventHandler(this.pro_btn_siguiente_click);
             // 
-            // lblNombre
+            // Btn_Fin
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(21, 60);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
+            this.Btn_Fin.BackColor = System.Drawing.Color.White;
+            this.Btn_Fin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Fin.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Fin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Fin.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Fin.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Fin.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Fin.Image")));
+            this.Btn_Fin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Fin.Location = new System.Drawing.Point(868, 8);
+            this.Btn_Fin.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Fin.Name = "Btn_Fin";
+            this.Btn_Fin.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Fin.TabIndex = 11;
+            this.Btn_Fin.Text = "Fin";
+            this.Btn_Fin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Fin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Fin.UseVisualStyleBackColor = false;
+            this.Btn_Fin.Click += new System.EventHandler(this.pro_btn_fin_click);
             // 
-            // lblRubrica
+            // Btn_Ayuda
             // 
-            this.lblRubrica.AutoSize = true;
-            this.lblRubrica.Location = new System.Drawing.Point(21, 30);
-            this.lblRubrica.Name = "lblRubrica";
-            this.lblRubrica.Size = new System.Drawing.Size(44, 13);
-            this.lblRubrica.TabIndex = 0;
-            this.lblRubrica.Text = "Rúbrica";
+            this.Btn_Ayuda.BackColor = System.Drawing.Color.White;
+            this.Btn_Ayuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Ayuda.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Ayuda.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Ayuda.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ayuda.Image")));
+            this.Btn_Ayuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Ayuda.Location = new System.Drawing.Point(946, 8);
+            this.Btn_Ayuda.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Ayuda.Name = "Btn_Ayuda";
+            this.Btn_Ayuda.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Ayuda.TabIndex = 12;
+            this.Btn_Ayuda.Text = "Ayuda";
+            this.Btn_Ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Ayuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Ayuda.UseVisualStyleBackColor = false;
+            this.Btn_Ayuda.Click += new System.EventHandler(this.pro_btn_ayuda_click);
             // 
-            // dgv
+            // Btn_Salir
             // 
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(22, 271);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(610, 217);
-            this.dgv.TabIndex = 1;
+            this.Btn_Salir.BackColor = System.Drawing.Color.White;
+            this.Btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Salir.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Salir.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Salir.ForeColor = System.Drawing.Color.Black;
+            this.Btn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Salir.Image")));
+            this.Btn_Salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Salir.Location = new System.Drawing.Point(1024, 8);
+            this.Btn_Salir.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Size = new System.Drawing.Size(74, 66);
+            this.Btn_Salir.TabIndex = 13;
+            this.Btn_Salir.Text = "Salir";
+            this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Btn_Salir.UseVisualStyleBackColor = false;
+            this.Btn_Salir.Click += new System.EventHandler(this.pro_btn_salir_click);
             // 
-            // label1
+            // Gpb_Datos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mantenimiento Criterios";
+            this.Gpb_Datos.Controls.Add(this.Lbl_Suma);
+            this.Gpb_Datos.Controls.Add(this.Txt_Descripcion);
+            this.Gpb_Datos.Controls.Add(this.Lbl_Descripcion);
+            this.Gpb_Datos.Controls.Add(this.Cbo_Importancia);
+            this.Gpb_Datos.Controls.Add(this.Lbl_Importancia);
+            this.Gpb_Datos.Controls.Add(this.Nud_Porcentaje);
+            this.Gpb_Datos.Controls.Add(this.Lbl_Porcentaje);
+            this.Gpb_Datos.Controls.Add(this.Txt_Nombre);
+            this.Gpb_Datos.Controls.Add(this.Lbl_Nombre);
+            this.Gpb_Datos.Controls.Add(this.Cbo_Rubrica);
+            this.Gpb_Datos.Controls.Add(this.Lbl_Rubrica);
+            this.Gpb_Datos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Gpb_Datos.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gpb_Datos.Location = new System.Drawing.Point(0, 146);
+            this.Gpb_Datos.Name = "Gpb_Datos";
+            this.Gpb_Datos.Padding = new System.Windows.Forms.Padding(10);
+            this.Gpb_Datos.Size = new System.Drawing.Size(1175, 200);
+            this.Gpb_Datos.TabIndex = 2;
+            this.Gpb_Datos.TabStop = false;
+            this.Gpb_Datos.Text = "Datos del criterio";
+            // 
+            // Lbl_Suma
+            // 
+            this.Lbl_Suma.AutoSize = true;
+            this.Lbl_Suma.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Suma.ForeColor = System.Drawing.Color.DimGray;
+            this.Lbl_Suma.Location = new System.Drawing.Point(540, 148);
+            this.Lbl_Suma.MaximumSize = new System.Drawing.Size(550, 0);
+            this.Lbl_Suma.Name = "Lbl_Suma";
+            this.Lbl_Suma.Size = new System.Drawing.Size(0, 17);
+            this.Lbl_Suma.TabIndex = 10;
+            // 
+            // Txt_Descripcion
+            // 
+            this.Txt_Descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txt_Descripcion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Descripcion.Location = new System.Drawing.Point(540, 58);
+            this.Txt_Descripcion.MaxLength = 1000;
+            this.Txt_Descripcion.Multiline = true;
+            this.Txt_Descripcion.Name = "Txt_Descripcion";
+            this.Txt_Descripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Txt_Descripcion.Size = new System.Drawing.Size(605, 80);
+            this.Txt_Descripcion.TabIndex = 9;
+            // 
+            // Lbl_Descripcion
+            // 
+            this.Lbl_Descripcion.AutoSize = true;
+            this.Lbl_Descripcion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Descripcion.Location = new System.Drawing.Point(540, 35);
+            this.Lbl_Descripcion.Name = "Lbl_Descripcion";
+            this.Lbl_Descripcion.Size = new System.Drawing.Size(171, 18);
+            this.Lbl_Descripcion.TabIndex = 8;
+            this.Lbl_Descripcion.Text = "Descripción (opcional):";
+            // 
+            // Cbo_Importancia
+            // 
+            this.Cbo_Importancia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbo_Importancia.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Importancia.Location = new System.Drawing.Point(160, 142);
+            this.Cbo_Importancia.Name = "Cbo_Importancia";
+            this.Cbo_Importancia.Size = new System.Drawing.Size(160, 24);
+            this.Cbo_Importancia.TabIndex = 7;
+            // 
+            // Lbl_Importancia
+            // 
+            this.Lbl_Importancia.AutoSize = true;
+            this.Lbl_Importancia.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Importancia.Location = new System.Drawing.Point(20, 146);
+            this.Lbl_Importancia.Name = "Lbl_Importancia";
+            this.Lbl_Importancia.Size = new System.Drawing.Size(99, 18);
+            this.Lbl_Importancia.TabIndex = 6;
+            this.Lbl_Importancia.Text = "Importancia:";
+            // 
+            // Nud_Porcentaje
+            // 
+            this.Nud_Porcentaje.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nud_Porcentaje.Location = new System.Drawing.Point(160, 105);
+            this.Nud_Porcentaje.Name = "Nud_Porcentaje";
+            this.Nud_Porcentaje.Size = new System.Drawing.Size(80, 23);
+            this.Nud_Porcentaje.TabIndex = 5;
+            this.Nud_Porcentaje.ValueChanged += new System.EventHandler(this.pro_nud_porcentaje_cambiado);
+            // 
+            // Lbl_Porcentaje
+            // 
+            this.Lbl_Porcentaje.AutoSize = true;
+            this.Lbl_Porcentaje.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Porcentaje.Location = new System.Drawing.Point(20, 109);
+            this.Lbl_Porcentaje.Name = "Lbl_Porcentaje";
+            this.Lbl_Porcentaje.Size = new System.Drawing.Size(114, 18);
+            this.Lbl_Porcentaje.TabIndex = 4;
+            this.Lbl_Porcentaje.Text = "Porcentaje (%):";
+            // 
+            // Txt_Nombre
+            // 
+            this.Txt_Nombre.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Nombre.Location = new System.Drawing.Point(160, 68);
+            this.Txt_Nombre.MaxLength = 100;
+            this.Txt_Nombre.Name = "Txt_Nombre";
+            this.Txt_Nombre.Size = new System.Drawing.Size(340, 23);
+            this.Txt_Nombre.TabIndex = 3;
+            this.Txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pro_txt_nombre_keypress);
+            // 
+            // Lbl_Nombre
+            // 
+            this.Lbl_Nombre.AutoSize = true;
+            this.Lbl_Nombre.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Nombre.Location = new System.Drawing.Point(20, 72);
+            this.Lbl_Nombre.Name = "Lbl_Nombre";
+            this.Lbl_Nombre.Size = new System.Drawing.Size(69, 18);
+            this.Lbl_Nombre.TabIndex = 2;
+            this.Lbl_Nombre.Text = "Nombre:";
+            // 
+            // Cbo_Rubrica
+            // 
+            this.Cbo_Rubrica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbo_Rubrica.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Rubrica.Location = new System.Drawing.Point(160, 31);
+            this.Cbo_Rubrica.Name = "Cbo_Rubrica";
+            this.Cbo_Rubrica.Size = new System.Drawing.Size(340, 24);
+            this.Cbo_Rubrica.TabIndex = 1;
+            this.Cbo_Rubrica.SelectedIndexChanged += new System.EventHandler(this.pro_cbo_rubrica_cambiado);
+            // 
+            // Lbl_Rubrica
+            // 
+            this.Lbl_Rubrica.AutoSize = true;
+            this.Lbl_Rubrica.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Rubrica.Location = new System.Drawing.Point(20, 35);
+            this.Lbl_Rubrica.Name = "Lbl_Rubrica";
+            this.Lbl_Rubrica.Size = new System.Drawing.Size(68, 18);
+            this.Lbl_Rubrica.TabIndex = 0;
+            this.Lbl_Rubrica.Text = "Rúbrica:";
+            // 
+            // Dgv_Criterios
+            // 
+            this.Dgv_Criterios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Criterios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dgv_Criterios.Location = new System.Drawing.Point(0, 346);
+            this.Dgv_Criterios.Name = "Dgv_Criterios";
+            this.Dgv_Criterios.Size = new System.Drawing.Size(1175, 334);
+            this.Dgv_Criterios.TabIndex = 3;
+            this.Dgv_Criterios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pro_dgv_criterios_cellclick);
+            // 
+            // Erp_Validacion
+            // 
+            this.Erp_Validacion.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.Erp_Validacion.ContainerControl = this;
             // 
             // Frm_Criterio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(688, 520);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgv);
-            this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1175, 680);
+            this.Controls.Add(this.Dgv_Criterios);
+            this.Controls.Add(this.Gpb_Datos);
+            this.Controls.Add(this.Pnl_Botones);
+            this.Controls.Add(this.Pnl_Titulo);
+            this.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(850, 550);
             this.Name = "Frm_Criterio";
-            this.Text = "Frm_Criterio";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPorcentaje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "516 - Criterios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pro_frm_criterio_closing);
+            this.Load += new System.EventHandler(this.pro_frm_criterio_load);
+            this.Pnl_Titulo.ResumeLayout(false);
+            this.Pnl_Titulo.PerformLayout();
+            this.Pnl_Botones.ResumeLayout(false);
+            this.Gpb_Datos.ResumeLayout(false);
+            this.Gpb_Datos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_Porcentaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Criterios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Erp_Validacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,24 +595,38 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.Label lblImportancia;
-        private System.Windows.Forms.Label lblPorcentaje;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblRubrica;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.ComboBox cmbImportancia;
-        private System.Windows.Forms.NumericUpDown numPorcentaje;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.ComboBox cmbRubrica;
-        private System.Windows.Forms.Label lblSuma;
-        private System.Windows.Forms.CheckBox chkSinPorcentaje;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel Pnl_Titulo;
+        private System.Windows.Forms.Label Lbl_Titulo;
+        private System.Windows.Forms.Label Lbl_CodigoAplicacion;
+        private System.Windows.Forms.FlowLayoutPanel Pnl_Botones;
+        private System.Windows.Forms.Button Btn_Ingresar;
+        private System.Windows.Forms.Button Btn_Modificar;
+        private System.Windows.Forms.Button Btn_Guardar;
+        private System.Windows.Forms.Button Btn_Cancelar;
+        private System.Windows.Forms.Button Btn_Eliminar;
+        private System.Windows.Forms.Button Btn_Consultar;
+        private System.Windows.Forms.Button Btn_Imprimir;
+        private System.Windows.Forms.Button Btn_Refrescar;
+        private System.Windows.Forms.Button Btn_Inicio;
+        private System.Windows.Forms.Button Btn_Anterior;
+        private System.Windows.Forms.Button Btn_Siguiente;
+        private System.Windows.Forms.Button Btn_Fin;
+        private System.Windows.Forms.Button Btn_Ayuda;
+        private System.Windows.Forms.Button Btn_Salir;
+        private System.Windows.Forms.GroupBox Gpb_Datos;
+        private System.Windows.Forms.Label Lbl_Rubrica;
+        private System.Windows.Forms.ComboBox Cbo_Rubrica;
+        private System.Windows.Forms.Label Lbl_Nombre;
+        private System.Windows.Forms.TextBox Txt_Nombre;
+        private System.Windows.Forms.Label Lbl_Porcentaje;
+        private System.Windows.Forms.NumericUpDown Nud_Porcentaje;
+        private System.Windows.Forms.Label Lbl_Importancia;
+        private System.Windows.Forms.ComboBox Cbo_Importancia;
+        private System.Windows.Forms.Label Lbl_Descripcion;
+        private System.Windows.Forms.TextBox Txt_Descripcion;
+        private System.Windows.Forms.Label Lbl_Suma;
+        private System.Windows.Forms.DataGridView Dgv_Criterios;
+        private System.Windows.Forms.ErrorProvider Erp_Validacion;
     }
 }
+//Fin del código de "Nombre del programador" con carné: "No_carné" en la fecha de: "11/11/2026"
