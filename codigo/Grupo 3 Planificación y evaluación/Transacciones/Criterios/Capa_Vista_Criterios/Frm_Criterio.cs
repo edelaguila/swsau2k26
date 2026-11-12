@@ -185,5 +185,11 @@ namespace Capa_Vista_Criterios
         }
 
 
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

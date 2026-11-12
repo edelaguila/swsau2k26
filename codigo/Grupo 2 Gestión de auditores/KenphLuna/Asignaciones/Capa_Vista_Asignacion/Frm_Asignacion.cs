@@ -56,9 +56,6 @@ namespace Capa_Vista_Asignacion
 
             Txt_IdAsignacion.ReadOnly = true;
 
-            Pnl_Titulo.BackColor = Color.FromArgb(0, 170, 255);
-            Lbl_Titulo.Font = new Font("Rockwell", 18F, FontStyle.Bold);
-            Lbl_Titulo.ForeColor = Color.White;
 
             // Estilización del DataGridView
             pro_EstilizarDataGridView();
@@ -78,29 +75,16 @@ namespace Capa_Vista_Asignacion
             Dgv_Asignaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Encabezados con el color representativo
-            Dgv_Asignaciones.EnableHeadersVisualStyles = false;
-            Dgv_Asignaciones.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 170, 255);
-            Dgv_Asignaciones.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            Dgv_Asignaciones.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 10F, FontStyle.Bold);
             Dgv_Asignaciones.ColumnHeadersHeight = 35;
 
             // Filas alternadas para lectura descansada
             Dgv_Asignaciones.DefaultCellStyle.Font = new Font("Rockwell", 10F, FontStyle.Regular);
-            Dgv_Asignaciones.DefaultCellStyle.SelectionBackColor = Color.FromArgb(179, 229, 252);
-            Dgv_Asignaciones.DefaultCellStyle.SelectionForeColor = Color.Black;
-            Dgv_Asignaciones.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 247, 255);
         }
 
         private void pro_CentrarPaneles()
         {
-            if (Pnl_ContenedorCampos != null && Pnl_CentroCampos != null)
-            {
-                // Centra el bloque de datos horizontalmente respecto al ancho de la pantalla
-                int iPosicionX = (Pnl_ContenedorCampos.ClientSize.Width - Pnl_CentroCampos.Width) / 2;
-                if (iPosicionX < 0) iPosicionX = 0;
-
-                Pnl_CentroCampos.Location = new Point(iPosicionX, 5);
-            }
+            // Estandarización de diseño: los campos ahora están en un GroupBox fijo,
+            // ya no hay paneles que centrar.
         }
 
         private void Frm_Asignacion_Resize(object sender, EventArgs e)

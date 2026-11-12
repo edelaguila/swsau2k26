@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Auditor));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.Btn_salir = new System.Windows.Forms.Button();
             this.Btn_eliminar = new System.Windows.Forms.Button();
             this.Btn_guardar = new System.Windows.Forms.Button();
@@ -54,39 +52,15 @@
             this.Lbl_email = new System.Windows.Forms.Label();
             this.Lbl_id_auditor = new System.Windows.Forms.Label();
             this.Dgv_auditor = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
             this.gb_auditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_auditor)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(105)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1486, 82);
-            this.panel1.TabIndex = 32;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(38, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 35);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "507 - Auditor";
             // 
             // Btn_salir
             // 
             this.Btn_salir.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_salir.Image")));
-            this.Btn_salir.Location = new System.Drawing.Point(859, 108);
+            this.Btn_salir.Location = new System.Drawing.Point(877, 15);
             this.Btn_salir.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_salir.Name = "Btn_salir";
             this.Btn_salir.Size = new System.Drawing.Size(97, 93);
@@ -100,7 +74,7 @@
             // 
             this.Btn_eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminar.Image")));
-            this.Btn_eliminar.Location = new System.Drawing.Point(431, 108);
+            this.Btn_eliminar.Location = new System.Drawing.Point(445, 15);
             this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_eliminar.Name = "Btn_eliminar";
             this.Btn_eliminar.Size = new System.Drawing.Size(97, 93);
@@ -112,10 +86,9 @@
             // 
             // Btn_guardar
             // 
-            this.Btn_guardar.BackColor = System.Drawing.Color.White;
             this.Btn_guardar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_guardar.Image")));
-            this.Btn_guardar.Location = new System.Drawing.Point(213, 108);
+            this.Btn_guardar.Location = new System.Drawing.Point(229, 15);
             this.Btn_guardar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_guardar.Name = "Btn_guardar";
             this.Btn_guardar.Size = new System.Drawing.Size(97, 93);
@@ -129,7 +102,7 @@
             // 
             this.Btn_consultar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_consultar.Image")));
-            this.Btn_consultar.Location = new System.Drawing.Point(540, 108);
+            this.Btn_consultar.Location = new System.Drawing.Point(553, 15);
             this.Btn_consultar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_consultar.Name = "Btn_consultar";
             this.Btn_consultar.Size = new System.Drawing.Size(97, 93);
@@ -143,7 +116,7 @@
             // 
             this.Btn_reporte.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_reporte.Image = ((System.Drawing.Image)(resources.GetObject("Btn_reporte.Image")));
-            this.Btn_reporte.Location = new System.Drawing.Point(649, 108);
+            this.Btn_reporte.Location = new System.Drawing.Point(661, 15);
             this.Btn_reporte.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_reporte.Name = "Btn_reporte";
             this.Btn_reporte.Size = new System.Drawing.Size(97, 93);
@@ -157,10 +130,10 @@
             // 
             this.Btn_ingresar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_ingresar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ingresar.Image")));
-            this.Btn_ingresar.Location = new System.Drawing.Point(13, 108);
+            this.Btn_ingresar.Location = new System.Drawing.Point(13, 15);
             this.Btn_ingresar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_ingresar.Name = "Btn_ingresar";
-            this.Btn_ingresar.Size = new System.Drawing.Size(87, 93);
+            this.Btn_ingresar.Size = new System.Drawing.Size(97, 93);
             this.Btn_ingresar.TabIndex = 70;
             this.Btn_ingresar.Text = "Ingresar";
             this.Btn_ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -171,7 +144,7 @@
             // 
             this.Btn_ayuda.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
-            this.Btn_ayuda.Location = new System.Drawing.Point(754, 108);
+            this.Btn_ayuda.Location = new System.Drawing.Point(769, 15);
             this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_ayuda.Name = "Btn_ayuda";
             this.Btn_ayuda.Size = new System.Drawing.Size(97, 93);
@@ -185,7 +158,7 @@
             // 
             this.Btn_cancelar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_cancelar.Image")));
-            this.Btn_cancelar.Location = new System.Drawing.Point(322, 108);
+            this.Btn_cancelar.Location = new System.Drawing.Point(337, 15);
             this.Btn_cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_cancelar.Name = "Btn_cancelar";
             this.Btn_cancelar.Size = new System.Drawing.Size(97, 93);
@@ -199,7 +172,7 @@
             // 
             this.Btn_modificar.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.Btn_modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_modificar.Image")));
-            this.Btn_modificar.Location = new System.Drawing.Point(108, 108);
+            this.Btn_modificar.Location = new System.Drawing.Point(121, 15);
             this.Btn_modificar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_modificar.Name = "Btn_modificar";
             this.Btn_modificar.Size = new System.Drawing.Size(97, 93);
@@ -224,11 +197,11 @@
             this.gb_auditor.Controls.Add(this.Lbl_email);
             this.gb_auditor.Controls.Add(this.Lbl_id_auditor);
             this.gb_auditor.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.gb_auditor.Location = new System.Drawing.Point(54, 229);
+            this.gb_auditor.Location = new System.Drawing.Point(13, 123);
             this.gb_auditor.Margin = new System.Windows.Forms.Padding(4);
             this.gb_auditor.Name = "gb_auditor";
             this.gb_auditor.Padding = new System.Windows.Forms.Padding(4);
-            this.gb_auditor.Size = new System.Drawing.Size(848, 225);
+            this.gb_auditor.Size = new System.Drawing.Size(964, 225);
             this.gb_auditor.TabIndex = 83;
             this.gb_auditor.TabStop = false;
             this.gb_auditor.Text = "Datos del Auditor";
@@ -355,7 +328,7 @@
             this.Dgv_auditor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_auditor.BackgroundColor = System.Drawing.Color.White;
             this.Dgv_auditor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_auditor.Location = new System.Drawing.Point(54, 475);
+            this.Dgv_auditor.Location = new System.Drawing.Point(13, 363);
             this.Dgv_auditor.MultiSelect = false;
             this.Dgv_auditor.Name = "Dgv_auditor";
             this.Dgv_auditor.ReadOnly = true;
@@ -363,8 +336,11 @@
             this.Dgv_auditor.RowHeadersWidth = 51;
             this.Dgv_auditor.RowTemplate.Height = 24;
             this.Dgv_auditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv_auditor.Size = new System.Drawing.Size(848, 171);
+            this.Dgv_auditor.Size = new System.Drawing.Size(964, 260);
             this.Dgv_auditor.TabIndex = 84;
+            this.Dgv_auditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_auditor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_auditor_CellClick);
             // 
             // Frm_Auditor
@@ -372,36 +348,31 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(973, 669);
-            this.Controls.Add(this.Dgv_auditor);
-            this.Controls.Add(this.gb_auditor);
-            this.Controls.Add(this.Btn_salir);
-            this.Controls.Add(this.Btn_eliminar);
+            this.ClientSize = new System.Drawing.Size(990, 638);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.Btn_ingresar);
+            this.Controls.Add(this.Btn_modificar);
             this.Controls.Add(this.Btn_guardar);
+            this.Controls.Add(this.Btn_cancelar);
+            this.Controls.Add(this.Btn_eliminar);
             this.Controls.Add(this.Btn_consultar);
             this.Controls.Add(this.Btn_reporte);
-            this.Controls.Add(this.Btn_ingresar);
             this.Controls.Add(this.Btn_ayuda);
-            this.Controls.Add(this.Btn_cancelar);
-            this.Controls.Add(this.Btn_modificar);
-            this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.Btn_salir);
+            this.Controls.Add(this.gb_auditor);
+            this.Controls.Add(this.Dgv_auditor);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Name = "Frm_Auditor";
             this.Text = "Auditor";
             this.Load += new System.EventHandler(this.Frm_Auditor_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.gb_auditor.ResumeLayout(false);
             this.gb_auditor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_auditor)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btn_salir;
         private System.Windows.Forms.Button Btn_eliminar;
         private System.Windows.Forms.Button Btn_guardar;

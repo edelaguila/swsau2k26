@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
             this.Btn_Cancelar = new System.Windows.Forms.Button();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_Modificar = new System.Windows.Forms.Button();
@@ -54,10 +55,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSugerencias = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.Cbo_id_reporte = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.Btn_Salir = new System.Windows.Forms.Button();
+            this.Gpb_Datos = new System.Windows.Forms.GroupBox();
             this.GPB_Aspectos_Positivos.SuspendLayout();
             this.GBP_Correcciones.SuspendLayout();
             this.GBSugerencias.SuspendLayout();
@@ -65,320 +67,360 @@
             // 
             // Btn_Cancelar
             // 
-            this.Btn_Cancelar.Location = new System.Drawing.Point(540, 86);
+            this.Btn_Cancelar.Location = new System.Drawing.Point(229, 15);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
-            this.Btn_Cancelar.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Cancelar.Size = new System.Drawing.Size(97, 93);
             this.Btn_Cancelar.TabIndex = 18;
             this.Btn_Cancelar.Text = "Cancelar";
             this.Btn_Cancelar.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Cancelar.Image")));
             this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(646, 86);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(337, 15);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(97, 93);
             this.Btn_Eliminar.TabIndex = 17;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Eliminar.Image")));
             this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_Modificar
             // 
-            this.Btn_Modificar.Location = new System.Drawing.Point(434, 86);
+            this.Btn_Modificar.Location = new System.Drawing.Point(13, 15);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Modificar.Size = new System.Drawing.Size(97, 93);
             this.Btn_Modificar.TabIndex = 16;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
+            this.Btn_Modificar.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Modificar.Image")));
             this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(324, 86);
+            this.Btn_Guardar.Location = new System.Drawing.Point(121, 15);
             this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Guardar.Size = new System.Drawing.Size(97, 93);
             this.Btn_Guardar.TabIndex = 15;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Guardar.Image")));
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
             // Cbo_Fk_Informe
             // 
             this.Cbo_Fk_Informe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_Fk_Informe.FormattingEnabled = true;
-            this.Cbo_Fk_Informe.Location = new System.Drawing.Point(577, 148);
+            this.Cbo_Fk_Informe.Location = new System.Drawing.Point(430, 35);
             this.Cbo_Fk_Informe.Name = "Cbo_Fk_Informe";
-            this.Cbo_Fk_Informe.Size = new System.Drawing.Size(145, 21);
+            this.Cbo_Fk_Informe.Size = new System.Drawing.Size(170, 28);
             this.Cbo_Fk_Informe.TabIndex = 20;
+            this.Cbo_Fk_Informe.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // Cbo_Fk_Rubrica
             // 
             this.Cbo_Fk_Rubrica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_Fk_Rubrica.FormattingEnabled = true;
-            this.Cbo_Fk_Rubrica.Location = new System.Drawing.Point(858, 148);
+            this.Cbo_Fk_Rubrica.Location = new System.Drawing.Point(815, 35);
             this.Cbo_Fk_Rubrica.Name = "Cbo_Fk_Rubrica";
-            this.Cbo_Fk_Rubrica.Size = new System.Drawing.Size(146, 21);
+            this.Cbo_Fk_Rubrica.Size = new System.Drawing.Size(129, 28);
             this.Cbo_Fk_Rubrica.TabIndex = 21;
+            this.Cbo_Fk_Rubrica.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(517, 151);
+            this.label1.Location = new System.Drawing.Point(320, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Id-Informe";
+            this.label1.Text = "Id informe:";
+            this.label1.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(749, 151);
+            this.label2.Location = new System.Drawing.Point(620, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Id-Actividad Rubrica";
+            this.label2.Text = "Id actividad rúbrica:";
+            this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // GPB_Aspectos_Positivos
             // 
-            this.GPB_Aspectos_Positivos.BackColor = System.Drawing.Color.Silver;
-            this.GPB_Aspectos_Positivos.Controls.Add(this.btn_Rutas_Positivos);
-            this.GPB_Aspectos_Positivos.Controls.Add(this.txtRutaImagenPos);
-            this.GPB_Aspectos_Positivos.Controls.Add(this.label5);
-            this.GPB_Aspectos_Positivos.Controls.Add(this.TxtAspectosPositivos);
-            this.GPB_Aspectos_Positivos.Controls.Add(this.label3);
-            this.GPB_Aspectos_Positivos.Location = new System.Drawing.Point(30, 201);
+            this.GPB_Aspectos_Positivos.Location = new System.Drawing.Point(13, 215);
             this.GPB_Aspectos_Positivos.Name = "GPB_Aspectos_Positivos";
-            this.GPB_Aspectos_Positivos.Size = new System.Drawing.Size(1144, 244);
+            this.GPB_Aspectos_Positivos.Size = new System.Drawing.Size(964, 190);
             this.GPB_Aspectos_Positivos.TabIndex = 24;
             this.GPB_Aspectos_Positivos.TabStop = false;
-            this.GPB_Aspectos_Positivos.Text = "Aspectos Positivos";
+            this.GPB_Aspectos_Positivos.Text = "Aspectos positivos";
+            this.GPB_Aspectos_Positivos.Font = new System.Drawing.Font("Rockwell", 10F);
             this.GPB_Aspectos_Positivos.Enter += new System.EventHandler(this.GPB_Aspectos_Positivos_Enter);
             // 
             // btn_Rutas_Positivos
             // 
-            this.btn_Rutas_Positivos.Location = new System.Drawing.Point(969, 178);
+            this.btn_Rutas_Positivos.Location = new System.Drawing.Point(784, 140);
             this.btn_Rutas_Positivos.Name = "btn_Rutas_Positivos";
-            this.btn_Rutas_Positivos.Size = new System.Drawing.Size(117, 32);
+            this.btn_Rutas_Positivos.Size = new System.Drawing.Size(160, 40);
             this.btn_Rutas_Positivos.TabIndex = 27;
             this.btn_Rutas_Positivos.Text = "Ruta";
             this.btn_Rutas_Positivos.UseVisualStyleBackColor = true;
+            this.btn_Rutas_Positivos.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.btn_Rutas_Positivos.Click += new System.EventHandler(this.btn_Rutas_Positivos_Click);
             // 
             // txtRutaImagenPos
             // 
-            this.txtRutaImagenPos.Location = new System.Drawing.Point(6, 157);
+            this.txtRutaImagenPos.Location = new System.Drawing.Point(20, 140);
             this.txtRutaImagenPos.Multiline = true;
             this.txtRutaImagenPos.Name = "txtRutaImagenPos";
-            this.txtRutaImagenPos.Size = new System.Drawing.Size(946, 81);
+            this.txtRutaImagenPos.Size = new System.Drawing.Size(754, 40);
             this.txtRutaImagenPos.TabIndex = 26;
+            this.txtRutaImagenPos.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 141);
+            this.label5.Location = new System.Drawing.Point(20, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Ruta Imagenes Positivos";
+            this.label5.Text = "Rutas de imágenes:";
+            this.label5.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // TxtAspectosPositivos
             // 
-            this.TxtAspectosPositivos.Location = new System.Drawing.Point(30, 48);
+            this.TxtAspectosPositivos.Location = new System.Drawing.Point(20, 50);
             this.TxtAspectosPositivos.Multiline = true;
             this.TxtAspectosPositivos.Name = "TxtAspectosPositivos";
-            this.TxtAspectosPositivos.Size = new System.Drawing.Size(1088, 90);
+            this.TxtAspectosPositivos.Size = new System.Drawing.Size(924, 60);
             this.TxtAspectosPositivos.TabIndex = 24;
+            this.TxtAspectosPositivos.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 31);
+            this.label3.Location = new System.Drawing.Point(20, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Aspectos Positivos";
+            this.label3.Text = "Aspectos positivos:";
+            this.label3.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // GBP_Correcciones
             // 
-            this.GBP_Correcciones.BackColor = System.Drawing.Color.Silver;
-            this.GBP_Correcciones.Controls.Add(this.btn_Rutas_Correciones);
-            this.GBP_Correcciones.Controls.Add(this.txtRutaImagenCorrecion);
-            this.GBP_Correcciones.Controls.Add(this.label6);
-            this.GBP_Correcciones.Controls.Add(this.txtCorreciones);
-            this.GBP_Correcciones.Controls.Add(this.label4);
-            this.GBP_Correcciones.Location = new System.Drawing.Point(30, 474);
+            this.GBP_Correcciones.Location = new System.Drawing.Point(13, 415);
             this.GBP_Correcciones.Name = "GBP_Correcciones";
-            this.GBP_Correcciones.Size = new System.Drawing.Size(1144, 252);
+            this.GBP_Correcciones.Size = new System.Drawing.Size(964, 190);
             this.GBP_Correcciones.TabIndex = 25;
             this.GBP_Correcciones.TabStop = false;
-            this.GBP_Correcciones.Text = "Correciones";
+            this.GBP_Correcciones.Text = "Correcciones";
+            this.GBP_Correcciones.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // btn_Rutas_Correciones
             // 
-            this.btn_Rutas_Correciones.Location = new System.Drawing.Point(969, 187);
+            this.btn_Rutas_Correciones.Location = new System.Drawing.Point(784, 140);
             this.btn_Rutas_Correciones.Name = "btn_Rutas_Correciones";
-            this.btn_Rutas_Correciones.Size = new System.Drawing.Size(117, 32);
+            this.btn_Rutas_Correciones.Size = new System.Drawing.Size(160, 40);
             this.btn_Rutas_Correciones.TabIndex = 30;
             this.btn_Rutas_Correciones.Text = "Ruta";
             this.btn_Rutas_Correciones.UseVisualStyleBackColor = true;
+            this.btn_Rutas_Correciones.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.btn_Rutas_Correciones.Click += new System.EventHandler(this.btn_Rutas_Correciones_Click);
             // 
             // txtRutaImagenCorrecion
             // 
-            this.txtRutaImagenCorrecion.Location = new System.Drawing.Point(21, 157);
+            this.txtRutaImagenCorrecion.Location = new System.Drawing.Point(20, 140);
             this.txtRutaImagenCorrecion.Multiline = true;
             this.txtRutaImagenCorrecion.Name = "txtRutaImagenCorrecion";
-            this.txtRutaImagenCorrecion.Size = new System.Drawing.Size(931, 89);
+            this.txtRutaImagenCorrecion.Size = new System.Drawing.Size(754, 40);
             this.txtRutaImagenCorrecion.TabIndex = 29;
+            this.txtRutaImagenCorrecion.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 141);
+            this.label6.Location = new System.Drawing.Point(20, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 13);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Ruta Imagenes Correcciones";
+            this.label6.Text = "Rutas de imágenes:";
+            this.label6.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // txtCorreciones
             // 
-            this.txtCorreciones.Location = new System.Drawing.Point(30, 48);
+            this.txtCorreciones.Location = new System.Drawing.Point(20, 50);
             this.txtCorreciones.Multiline = true;
             this.txtCorreciones.Name = "txtCorreciones";
-            this.txtCorreciones.Size = new System.Drawing.Size(1088, 90);
+            this.txtCorreciones.Size = new System.Drawing.Size(924, 60);
             this.txtCorreciones.TabIndex = 24;
+            this.txtCorreciones.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 31);
+            this.label4.Location = new System.Drawing.Point(20, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Correciones";
+            this.label4.Text = "Correcciones:";
+            this.label4.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // GBSugerencias
             // 
-            this.GBSugerencias.BackColor = System.Drawing.Color.Silver;
-            this.GBSugerencias.Controls.Add(this.btn_Rutas_Sugerencias);
-            this.GBSugerencias.Controls.Add(this.txtRutaImagenSugerencias);
-            this.GBSugerencias.Controls.Add(this.label7);
-            this.GBSugerencias.Controls.Add(this.txtSugerencias);
-            this.GBSugerencias.Controls.Add(this.label8);
-            this.GBSugerencias.Location = new System.Drawing.Point(30, 753);
+            this.GBSugerencias.Location = new System.Drawing.Point(13, 615);
             this.GBSugerencias.Name = "GBSugerencias";
-            this.GBSugerencias.Size = new System.Drawing.Size(1144, 252);
+            this.GBSugerencias.Size = new System.Drawing.Size(964, 190);
             this.GBSugerencias.TabIndex = 26;
             this.GBSugerencias.TabStop = false;
             this.GBSugerencias.Text = "Sugerencias";
+            this.GBSugerencias.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // btn_Rutas_Sugerencias
             // 
-            this.btn_Rutas_Sugerencias.Location = new System.Drawing.Point(969, 187);
+            this.btn_Rutas_Sugerencias.Location = new System.Drawing.Point(784, 140);
             this.btn_Rutas_Sugerencias.Name = "btn_Rutas_Sugerencias";
-            this.btn_Rutas_Sugerencias.Size = new System.Drawing.Size(117, 32);
+            this.btn_Rutas_Sugerencias.Size = new System.Drawing.Size(160, 40);
             this.btn_Rutas_Sugerencias.TabIndex = 30;
             this.btn_Rutas_Sugerencias.Text = "Ruta";
             this.btn_Rutas_Sugerencias.UseVisualStyleBackColor = true;
+            this.btn_Rutas_Sugerencias.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.btn_Rutas_Sugerencias.Click += new System.EventHandler(this.btn_Rutas_Sugerencias_Click);
             // 
             // txtRutaImagenSugerencias
             // 
-            this.txtRutaImagenSugerencias.Location = new System.Drawing.Point(6, 157);
+            this.txtRutaImagenSugerencias.Location = new System.Drawing.Point(20, 140);
             this.txtRutaImagenSugerencias.Multiline = true;
             this.txtRutaImagenSugerencias.Name = "txtRutaImagenSugerencias";
-            this.txtRutaImagenSugerencias.Size = new System.Drawing.Size(931, 89);
+            this.txtRutaImagenSugerencias.Size = new System.Drawing.Size(754, 40);
             this.txtRutaImagenSugerencias.TabIndex = 29;
+            this.txtRutaImagenSugerencias.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 141);
+            this.label7.Location = new System.Drawing.Point(20, 118);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 13);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Ruta Imagenes Sugerencias";
+            this.label7.Text = "Rutas de imágenes:";
+            this.label7.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // txtSugerencias
             // 
-            this.txtSugerencias.Location = new System.Drawing.Point(30, 48);
+            this.txtSugerencias.Location = new System.Drawing.Point(20, 50);
             this.txtSugerencias.Multiline = true;
             this.txtSugerencias.Name = "txtSugerencias";
-            this.txtSugerencias.Size = new System.Drawing.Size(1088, 90);
+            this.txtSugerencias.Size = new System.Drawing.Size(924, 60);
             this.txtSugerencias.TabIndex = 24;
+            this.txtSugerencias.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(27, 31);
+            this.label8.Location = new System.Drawing.Point(20, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 13);
             this.label8.TabIndex = 23;
-            this.label8.Text = "Sugerencias";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(281, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(686, 29);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "ASPECTOS POSITIVOS, CORRECCIONES Y SUGERENCIAS";
+            this.label8.Text = "Sugerencias:";
+            this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(283, 151);
+            this.label10.Location = new System.Drawing.Point(20, 39);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Id-Reporte";
+            this.label10.Text = "Id reporte:";
+            this.label10.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // Cbo_id_reporte
             // 
             this.Cbo_id_reporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_id_reporte.FormattingEnabled = true;
-            this.Cbo_id_reporte.Location = new System.Drawing.Point(343, 148);
+            this.Cbo_id_reporte.Location = new System.Drawing.Point(130, 35);
             this.Cbo_id_reporte.Name = "Cbo_id_reporte";
-            this.Cbo_id_reporte.Size = new System.Drawing.Size(145, 21);
+            this.Cbo_id_reporte.Size = new System.Drawing.Size(170, 28);
             this.Cbo_id_reporte.TabIndex = 28;
+            this.Cbo_id_reporte.Font = new System.Drawing.Font("Rockwell", 10F);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(752, 86);
+            this.btnBuscar.Location = new System.Drawing.Point(445, 15);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(97, 93);
             this.btnBuscar.TabIndex = 30;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Consultar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(194)))), ((int)(((byte)(99)))));
-            this.ClientSize = new System.Drawing.Size(1216, 1050);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.Cbo_id_reporte);
-            this.Controls.Add(this.label9);
+            this.ClientSize = new System.Drawing.Size(990, 820);
             this.Controls.Add(this.GBSugerencias);
             this.Controls.Add(this.GBP_Correcciones);
             this.Controls.Add(this.GPB_Aspectos_Positivos);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Cbo_Fk_Rubrica);
-            this.Controls.Add(this.Cbo_Fk_Informe);
-            this.Controls.Add(this.Btn_Cancelar);
-            this.Controls.Add(this.Btn_Eliminar);
+            // 
+            // Btn_Salir
+            // 
+            this.Btn_Salir.Text = "Salir";
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Location = new System.Drawing.Point(553, 15);
+            this.Btn_Salir.Size = new System.Drawing.Size(97, 93);
+            this.Btn_Salir.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Salir.Image")));
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
+            this.Controls.Add(this.Btn_Salir);
             this.Controls.Add(this.Btn_Modificar);
             this.Controls.Add(this.Btn_Guardar);
+            this.Controls.Add(this.Btn_Cancelar);
+            this.Controls.Add(this.Btn_Eliminar);
+            this.Controls.Add(this.btnBuscar);
+            // 
+            // Gpb_Datos
+            // 
+            this.Gpb_Datos.Location = new System.Drawing.Point(13, 123);
+            this.Gpb_Datos.Size = new System.Drawing.Size(964, 80);
+            this.Gpb_Datos.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.Gpb_Datos.TabStop = false;
+            this.Gpb_Datos.Text = "Datos del reporte";
+            this.Gpb_Datos.Name = "Gpb_Datos";
+            this.Controls.Add(this.Gpb_Datos);
+            this.Gpb_Datos.Controls.Add(this.label10);
+            this.Gpb_Datos.Controls.Add(this.Cbo_id_reporte);
+            this.Gpb_Datos.Controls.Add(this.label1);
+            this.Gpb_Datos.Controls.Add(this.Cbo_Fk_Informe);
+            this.Gpb_Datos.Controls.Add(this.label2);
+            this.Gpb_Datos.Controls.Add(this.Cbo_Fk_Rubrica);
+            this.GPB_Aspectos_Positivos.Controls.Add(this.label3);
+            this.GPB_Aspectos_Positivos.Controls.Add(this.TxtAspectosPositivos);
+            this.GPB_Aspectos_Positivos.Controls.Add(this.label5);
+            this.GPB_Aspectos_Positivos.Controls.Add(this.txtRutaImagenPos);
+            this.GPB_Aspectos_Positivos.Controls.Add(this.btn_Rutas_Positivos);
+            this.GBP_Correcciones.Controls.Add(this.label4);
+            this.GBP_Correcciones.Controls.Add(this.txtCorreciones);
+            this.GBP_Correcciones.Controls.Add(this.label6);
+            this.GBP_Correcciones.Controls.Add(this.txtRutaImagenCorrecion);
+            this.GBP_Correcciones.Controls.Add(this.btn_Rutas_Correciones);
+            this.GBSugerencias.Controls.Add(this.label8);
+            this.GBSugerencias.Controls.Add(this.txtSugerencias);
+            this.GBSugerencias.Controls.Add(this.label7);
+            this.GBSugerencias.Controls.Add(this.txtRutaImagenSugerencias);
+            this.GBSugerencias.Controls.Add(this.btn_Rutas_Sugerencias);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Name = "FrmReportes";
-            this.Text = "FrmReportes";
+            this.Text = "Reportes";
             this.Load += new System.EventHandler(this.FrmReportes_Load);
             this.GPB_Aspectos_Positivos.ResumeLayout(false);
             this.GPB_Aspectos_Positivos.PerformLayout();
@@ -388,7 +430,6 @@
             this.GBSugerencias.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -418,9 +459,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSugerencias;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox Cbo_id_reporte;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button Btn_Salir;
+        private System.Windows.Forms.GroupBox Gpb_Datos;
     }
 }

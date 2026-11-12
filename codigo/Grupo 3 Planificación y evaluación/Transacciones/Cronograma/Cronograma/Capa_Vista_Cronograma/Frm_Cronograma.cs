@@ -61,11 +61,6 @@ namespace Capa_Vista_Cronograma
             Dtp_Cmp_Fecha_Fin_Cronograma.Format = DateTimePickerFormat.Short;
 
             
-            foreach (Button btn in new[] { Btn_Nuevo, Btn_Guardar, Btn_Modificar, Btn_Eliminar })
-            {
-                btn.FlatStyle = FlatStyle.Flat;
-                btn.FlatAppearance.BorderSize = 1;
-            }
 
             Dgv_Cronograma.ReadOnly = true;
             Dgv_Cronograma.AllowUserToAddRows = false;
@@ -348,6 +343,12 @@ namespace Capa_Vista_Cronograma
         private void Btn_Eliminar_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

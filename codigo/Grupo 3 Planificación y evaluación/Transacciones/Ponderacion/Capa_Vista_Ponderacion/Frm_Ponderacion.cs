@@ -25,28 +25,15 @@ namespace Capa_Vista_Ponderacion
         private void pro_aplicar_estandar()
         {
             BackColor = gColorModulo;
-            Font = new Font("Rockwell", 10f);                               
             MinimumSize = new Size(850, 550);                             
             MinimizeBox = true;                                   
             MaximizeBox = true;
 
-            Lbl_Titulo.Font = new Font("Rockwell", 18f, FontStyle.Bold);    
-            Gpb_Datos.Font = new Font("Rockwell", 11f);               
-            Gpb_Listado.Font = new Font("Rockwell", 11f);
+            Gpb_Datos.Font = new Font("Rockwell", 10f);               
             foreach (Control ctlHijo in Gpb_Datos.Controls) ctlHijo.Font = new Font("Rockwell", 10f);
             Dgv_Ponderacion.Font = new Font("Rockwell", 10f);
 
-            pro_estilo_boton(Btn_Guardar, Cls_Iconos.fun_guardar(Color.FromArgb(33, 33, 33)));
-            pro_estilo_boton(Btn_Modificar, Cls_Iconos.fun_modificar(Color.FromArgb(33, 33, 33)));
-            pro_estilo_boton(Btn_Eliminar, Cls_Iconos.fun_eliminar(Color.FromArgb(33, 33, 33)));
-            pro_estilo_boton(Btn_Limpiar, Cls_Iconos.fun_limpiar(Color.FromArgb(33, 33, 33)));
 
-            Dgv_Ponderacion.EnableHeadersVisualStyles = false;
-            Dgv_Ponderacion.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(33, 33, 33);
-            Dgv_Ponderacion.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            Dgv_Ponderacion.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 10f, FontStyle.Bold);
-            Dgv_Ponderacion.DefaultCellStyle.SelectionBackColor = gColorModulo;
-            Dgv_Ponderacion.DefaultCellStyle.SelectionForeColor = Color.Black;
         }
 
         private void pro_estilo_boton(Button btnBoton, Bitmap bmpIcono)
@@ -225,6 +212,12 @@ namespace Capa_Vista_Ponderacion
             Btn_Guardar.Enabled = false;
             Btn_Modificar.Enabled = true;
             Btn_Eliminar.Enabled = true;
+        }
+
+        // Boton Salir agregado en la estandarizacion de diseño: solo cierra la ventana
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
