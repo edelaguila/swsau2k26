@@ -34,6 +34,15 @@
     <Reference Include="Capa_Controlador_Rubrica">
       <HintPath>..\Capa_Controlador_Rubrica\bin\Debug\Capa_Controlador_Rubrica.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Controlador_Seguridad">
+      <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Componente_Consultas">
+      <HintPath>..\..\..\..\componentes\consultas\Componente_Consultas\Capa_Vista_Componente_Consultas\bin\Debug\Capa_Vista_Componente_Consultas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Reporteador">
+      <HintPath>..\..\..\..\componentes\reporteador\reporteador\Capa_Vista_Reporteador\bin\Debug\Capa_Vista_Reporteador.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -53,10 +62,19 @@
       <DependentUpon>Frm_Rubrica.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Frm_Rubrica.resx">
       <DependentUpon>Frm_Rubrica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,214 +9,176 @@ using System.Threading.Tasks;
 
 namespace Capa_Modelo_Rubrica
 {
+    // Acceso a datos de tbl_rubrica. Usa la conexión ODBC propia del módulo (DSN bd_auditoria).
+    // Las excepciones OdbcException se dejan subir para que el Controlador las traduzca.
     public class Cls_RubricaDAO
     {
-        private readonly Cls_Conexion_Rubrica cn = new Cls_Conexion_Rubrica();
+        private readonly Cls_Conexion_Rubrica gConexion = new Cls_Conexion_Rubrica();
 
-
-        public bool Insertar(Cls_Rubrica r)
+        // ===================== Consultas =====================
+        public List<Cls_Rubrica> fun_listar()
         {
-            string sql = "INSERT INTO tbl_rubrica " +
-                         "(Fk_Id_Cronograma, Cmp_Nombre_Rubrica, Cmp_Descripcion_Rubrica, Cmp_Objetivo_Rubrica) " +
-                         "VALUES (?, ?, ?, ?)";
+            List<Cls_Rubrica> lstRubricas = new List<Cls_Rubrica>();
+            const string sSql = @"SELECT r.Pk_Id_Rubrica, r.Fk_Id_Cronograma, c.Cmp_Nombre_Tarea_Cronograma,
+                                         r.Cmp_Nombre_Rubrica, r.Cmp_Descripcion_Rubrica, r.Cmp_Objetivo_Rubrica
+                                  FROM tbl_rubrica r
+                                  JOIN tbl_cronograma c ON c.Pk_Id_Cronograma = r.Fk_Id_Cronograma
+                                  ORDER BY r.Pk_Id_Rubrica";
 
-            OdbcConnection conn = cn.conexion();
+            OdbcConnection cnConexion = gConexion.conexion();
             try
             {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                cnConexion.Open();
+                using (OdbcCommand cmdConsulta = new OdbcCommand(sSql, cnConexion))
+                using (OdbcDataReader drLector = cmdConsulta.ExecuteReader())
                 {
-                    cmd.Parameters.AddWithValue("@fk", r.FkIdCronograma);
-                    cmd.Parameters.AddWithValue("@nombre", r.NombreRubrica);
-                    cmd.Parameters.AddWithValue("@desc", (object)r.DescripcionRubrica ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@obj", (object)r.ObjetivoRubrica ?? DBNull.Value);
-                    return cmd.ExecuteNonQuery() > 0;
-                }
-            }
-            finally
-            {
-                cn.desconexion(conn);
-            }
-        }
-
-
-        public bool Actualizar(Cls_Rubrica r)
-        {
-            string sql = "UPDATE tbl_rubrica SET " +
-                         "Fk_Id_Cronograma = ?, " +
-                         "Cmp_Nombre_Rubrica = ?, " +
-                         "Cmp_Descripcion_Rubrica = ?, " +
-                         "Cmp_Objetivo_Rubrica = ? " +
-                         "WHERE Pk_Id_Rubrica = ?";
-
-            OdbcConnection conn = cn.conexion();
-            try
-            {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@fk", r.FkIdCronograma);
-                    cmd.Parameters.AddWithValue("@nombre", r.NombreRubrica);
-                    cmd.Parameters.AddWithValue("@desc", (object)r.DescripcionRubrica ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@obj", (object)r.ObjetivoRubrica ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@id", r.PkIdRubrica);
-                    return cmd.ExecuteNonQuery() > 0;
-                }
-            }
-            finally
-            {
-                cn.desconexion(conn);
-            }
-        }
-
-
-        public bool Eliminar(int id)
-        {
-            string sql = "DELETE FROM tbl_rubrica WHERE Pk_Id_Rubrica = ?";
-
-            OdbcConnection conn = cn.conexion();
-            try
-            {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    return cmd.ExecuteNonQuery() > 0;
-                }
-            }
-            catch (OdbcException ex)
-            {
-
-                if (ex.Message.IndexOf("foreign key", StringComparison.OrdinalIgnoreCase) >= 0)
-                    throw new Exception("No se puede eliminar la rúbrica porque tiene ponderaciones asociadas.");
-                throw;
-            }
-            finally
-            {
-                cn.desconexion(conn);
-            }
-        }
-
-
-        public List<Cls_Rubrica> ObtenerTodas()
-        {
-            List<Cls_Rubrica> lista = new List<Cls_Rubrica>();
-            string sql = "SELECT Pk_Id_Rubrica, Fk_Id_Cronograma, Cmp_Nombre_Rubrica, " +
-                         "Cmp_Descripcion_Rubrica, Cmp_Objetivo_Rubrica " +
-                         "FROM tbl_rubrica ORDER BY Pk_Id_Rubrica";
-
-            OdbcConnection conn = cn.conexion();
-            try
-            {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
-                using (OdbcDataReader dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
-                        lista.Add(MapearRubrica(dr));
-                }
-            }
-            finally
-            {
-                cn.desconexion(conn);
-            }
-            return lista;
-        }
-
-
-        public Cls_Rubrica ObtenerPorId(int id)
-        {
-            string sql = "SELECT Pk_Id_Rubrica, Fk_Id_Cronograma, Cmp_Nombre_Rubrica, " +
-                         "Cmp_Descripcion_Rubrica, Cmp_Objetivo_Rubrica " +
-                         "FROM tbl_rubrica WHERE Pk_Id_Rubrica = ?";
-
-            OdbcConnection conn = cn.conexion();
-            try
-            {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (OdbcDataReader dr = cmd.ExecuteReader())
+                    while (drLector.Read())
                     {
-                        if (dr.Read())
-                            return MapearRubrica(dr);
+                        lstRubricas.Add(new Cls_Rubrica
+                        {
+                            pIdRubrica = Convert.ToInt32(drLector["Pk_Id_Rubrica"]),
+                            pIdCronograma = Convert.ToInt32(drLector["Fk_Id_Cronograma"]),
+                            pNombreCronograma = fun_texto(drLector["Cmp_Nombre_Tarea_Cronograma"]),
+                            pNombre = fun_texto(drLector["Cmp_Nombre_Rubrica"]),
+                            pDescripcion = fun_texto(drLector["Cmp_Descripcion_Rubrica"]),
+                            pObjetivo = fun_texto(drLector["Cmp_Objetivo_Rubrica"])
+                        });
                     }
                 }
             }
             finally
             {
-                cn.desconexion(conn);
+                gConexion.desconexion(cnConexion);
             }
-            return null;
+            return lstRubricas;
         }
 
-
-        public List<Cls_Rubrica> BuscarPorNombre(string texto)
+        // Cronogramas para el ComboBox (solo lectura). Columnas: Id, Texto, Info
+        public DataTable fun_listar_cronogramas()
         {
-            List<Cls_Rubrica> lista = new List<Cls_Rubrica>();
-            string sql = "SELECT Pk_Id_Rubrica, Fk_Id_Cronograma, Cmp_Nombre_Rubrica, " +
-                         "Cmp_Descripcion_Rubrica, Cmp_Objetivo_Rubrica " +
-                         "FROM tbl_rubrica WHERE Cmp_Nombre_Rubrica LIKE ? ORDER BY Pk_Id_Rubrica";
+            DataTable dtCronogramas = new DataTable();
+            const string sSql = @"SELECT Pk_Id_Cronograma AS Id,
+                                         CONCAT(Pk_Id_Cronograma, ' - ', Cmp_Nombre_Tarea_Cronograma) AS Texto,
+                                         CONCAT('Del ', DATE_FORMAT(Cmp_Fecha_Inicio_Cronograma, '%d/%m/%Y'),
+                                                ' al ', DATE_FORMAT(Cmp_Fecha_Fin_Cronograma, '%d/%m/%Y'),
+                                                '  |  Estado: ', IFNULL(Cmp_Estado_Tarea_Cronograma, 'Sin estado')) AS Info
+                                  FROM tbl_cronograma
+                                  ORDER BY Pk_Id_Cronograma";
 
-            OdbcConnection conn = cn.conexion();
+            OdbcConnection cnConexion = gConexion.conexion();
             try
             {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                cnConexion.Open();
+                using (OdbcDataAdapter daAdaptador = new OdbcDataAdapter(sSql, cnConexion))
                 {
-                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
-                    using (OdbcDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                            lista.Add(MapearRubrica(dr));
-                    }
+                    daAdaptador.Fill(dtCronogramas);
                 }
             }
             finally
             {
-                cn.desconexion(conn);
+                gConexion.desconexion(cnConexion);
             }
-            return lista;
+            return dtCronogramas;
         }
 
-
-        public DataTable ObtenerCronogramasCombo()
+        // Evita dos rúbricas con el mismo nombre dentro del mismo cronograma
+        public bool fun_existe_nombre(int iIdCronograma, string sNombre, int iIdExcluido)
         {
-            DataTable tabla = new DataTable();
-            string sql = "SELECT Pk_Id_Cronograma AS Id, " +
-                         "CONCAT(Pk_Id_Cronograma, ' - ', Cmp_Nombre_Tarea_Cronograma) AS Texto " +
-                         "FROM tbl_cronograma ORDER BY Pk_Id_Cronograma";
+            const string sSql = @"SELECT COUNT(*) FROM tbl_rubrica
+                                  WHERE Fk_Id_Cronograma = ? AND Cmp_Nombre_Rubrica = ? AND Pk_Id_Rubrica <> ?";
+            return Convert.ToInt32(fun_escalar(sSql, iIdCronograma, sNombre, iIdExcluido)) > 0;
+        }
 
-            OdbcConnection conn = cn.conexion();
+        // ===================== Operaciones =====================
+        public void pro_insertar(Cls_Rubrica oRubrica)
+        {
+            // En ODBC los parámetros son posicionales (?): el orden importa
+            const string sSql = @"INSERT INTO tbl_rubrica
+                (Fk_Id_Cronograma, Cmp_Nombre_Rubrica, Cmp_Descripcion_Rubrica, Cmp_Objetivo_Rubrica)
+                VALUES (?, ?, ?, ?)";
+            pro_ejecutar(sSql, oRubrica, false);
+        }
+
+        public void pro_actualizar(Cls_Rubrica oRubrica)
+        {
+            const string sSql = @"UPDATE tbl_rubrica SET
+                Fk_Id_Cronograma = ?, Cmp_Nombre_Rubrica = ?,
+                Cmp_Descripcion_Rubrica = ?, Cmp_Objetivo_Rubrica = ?
+                WHERE Pk_Id_Rubrica = ?";
+            pro_ejecutar(sSql, oRubrica, true);
+        }
+
+        public void pro_eliminar(int iIdRubrica)
+        {
+            OdbcConnection cnConexion = gConexion.conexion();
             try
             {
-                conn.Open();
-                using (OdbcCommand cmd = new OdbcCommand(sql, conn))
-                using (OdbcDataReader dr = cmd.ExecuteReader())
+                cnConexion.Open();
+                using (OdbcCommand cmdComando = new OdbcCommand("DELETE FROM tbl_rubrica WHERE Pk_Id_Rubrica = ?", cnConexion))
                 {
-                    tabla.Load(dr);
+                    cmdComando.Parameters.AddWithValue("@id", iIdRubrica);
+                    cmdComando.ExecuteNonQuery();
                 }
             }
             finally
             {
-                cn.desconexion(conn);
+                gConexion.desconexion(cnConexion);
             }
-            return tabla;
         }
 
-
-        private Cls_Rubrica MapearRubrica(OdbcDataReader dr)
+        // ===================== Auxiliares =====================
+        private void pro_ejecutar(string sSql, Cls_Rubrica oRubrica, bool bIncluirId)
         {
-            return new Cls_Rubrica
+            OdbcConnection cnConexion = gConexion.conexion();
+            try
             {
-                PkIdRubrica = dr.GetInt32(0),
-                FkIdCronograma = dr.GetInt32(1),
-                NombreRubrica = dr.GetString(2),
-                DescripcionRubrica = dr.IsDBNull(3) ? "" : dr.GetString(3),
-                ObjetivoRubrica = dr.IsDBNull(4) ? "" : dr.GetString(4)
-            };
+                cnConexion.Open();
+                using (OdbcCommand cmdComando = new OdbcCommand(sSql, cnConexion))
+                {
+                    cmdComando.Parameters.AddWithValue("@cronograma", oRubrica.pIdCronograma);
+                    cmdComando.Parameters.AddWithValue("@nombre", oRubrica.pNombre);
+                    cmdComando.Parameters.AddWithValue("@descripcion", fun_valor_o_nulo(oRubrica.pDescripcion));
+                    cmdComando.Parameters.AddWithValue("@objetivo", fun_valor_o_nulo(oRubrica.pObjetivo));
+                    if (bIncluirId) cmdComando.Parameters.AddWithValue("@id", oRubrica.pIdRubrica);
+                    cmdComando.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                gConexion.desconexion(cnConexion);
+            }
+        }
+
+        private object fun_escalar(string sSql, params object[] arrParametros)
+        {
+            OdbcConnection cnConexion = gConexion.conexion();
+            try
+            {
+                cnConexion.Open();
+                using (OdbcCommand cmdConsulta = new OdbcCommand(sSql, cnConexion))
+                {
+                    for (int iIndice = 0; iIndice < arrParametros.Length; iIndice++)
+                        cmdConsulta.Parameters.AddWithValue("@p" + iIndice, arrParametros[iIndice]);
+                    object oResultado = cmdConsulta.ExecuteScalar();
+                    return oResultado == null || oResultado == DBNull.Value ? 0 : oResultado;
+                }
+            }
+            finally
+            {
+                gConexion.desconexion(cnConexion);
+            }
+        }
+
+        private static string fun_texto(object oValor)
+        {
+            return oValor == DBNull.Value ? "" : oValor.ToString();
+        }
+
+        private static object fun_valor_o_nulo(string sValor)
+        {
+            return string.IsNullOrWhiteSpace(sValor) ? (object)DBNull.Value : sValor;
         }
     }
 }
+
 // Termina codigo hecho por Maria Morales 0901-22-1226 el dia 07/10/2026

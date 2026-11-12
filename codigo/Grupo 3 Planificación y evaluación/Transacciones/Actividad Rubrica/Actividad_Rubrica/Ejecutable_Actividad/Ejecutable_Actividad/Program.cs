@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista_Actividad;
+using Capa_Vista_Actividad_Rubrica;
 
 namespace Ejecutable_Actividad
 {
