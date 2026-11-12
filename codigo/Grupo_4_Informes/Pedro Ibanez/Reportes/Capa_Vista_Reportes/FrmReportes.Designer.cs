@@ -60,6 +60,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Btn_Salir = new System.Windows.Forms.Button();
             this.Gpb_Datos = new System.Windows.Forms.GroupBox();
+            this.flpImagenesPos = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpImagenesCorrecion = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpImagenesSugerencias = new System.Windows.Forms.FlowLayoutPanel();
             this.GPB_Aspectos_Positivos.SuspendLayout();
             this.GBP_Correcciones.SuspendLayout();
             this.GBSugerencias.SuspendLayout();
@@ -159,7 +162,7 @@
             // 
             this.GPB_Aspectos_Positivos.Location = new System.Drawing.Point(13, 215);
             this.GPB_Aspectos_Positivos.Name = "GPB_Aspectos_Positivos";
-            this.GPB_Aspectos_Positivos.Size = new System.Drawing.Size(964, 190);
+            this.GPB_Aspectos_Positivos.Size = new System.Drawing.Size(964, 300);
             this.GPB_Aspectos_Positivos.TabIndex = 24;
             this.GPB_Aspectos_Positivos.TabStop = false;
             this.GPB_Aspectos_Positivos.Text = "Aspectos positivos";
@@ -215,9 +218,9 @@
             // 
             // GBP_Correcciones
             // 
-            this.GBP_Correcciones.Location = new System.Drawing.Point(13, 415);
+            this.GBP_Correcciones.Location = new System.Drawing.Point(13, 525);
             this.GBP_Correcciones.Name = "GBP_Correcciones";
-            this.GBP_Correcciones.Size = new System.Drawing.Size(964, 190);
+            this.GBP_Correcciones.Size = new System.Drawing.Size(964, 300);
             this.GBP_Correcciones.TabIndex = 25;
             this.GBP_Correcciones.TabStop = false;
             this.GBP_Correcciones.Text = "Correcciones";
@@ -272,9 +275,9 @@
             // 
             // GBSugerencias
             // 
-            this.GBSugerencias.Location = new System.Drawing.Point(13, 615);
+            this.GBSugerencias.Location = new System.Drawing.Point(13, 835);
             this.GBSugerencias.Name = "GBSugerencias";
-            this.GBSugerencias.Size = new System.Drawing.Size(964, 190);
+            this.GBSugerencias.Size = new System.Drawing.Size(964, 300);
             this.GBSugerencias.TabIndex = 26;
             this.GBSugerencias.TabStop = false;
             this.GBSugerencias.Text = "Sugerencias";
@@ -418,6 +421,39 @@
             this.GBSugerencias.Controls.Add(this.label7);
             this.GBSugerencias.Controls.Add(this.txtRutaImagenSugerencias);
             this.GBSugerencias.Controls.Add(this.btn_Rutas_Sugerencias);
+            // 
+            // flpImagenesPos (vista previa de las imagenes)
+            // 
+            this.flpImagenesPos.AutoScroll = true;
+            this.flpImagenesPos.BackColor = System.Drawing.Color.White;
+            this.flpImagenesPos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpImagenesPos.Location = new System.Drawing.Point(20, 188);
+            this.flpImagenesPos.Name = "flpImagenesPos";
+            this.flpImagenesPos.Size = new System.Drawing.Size(924, 102);
+            this.flpImagenesPos.WrapContents = false;
+            this.GPB_Aspectos_Positivos.Controls.Add(this.flpImagenesPos);
+            // 
+            // flpImagenesCorrecion (vista previa de las imagenes)
+            // 
+            this.flpImagenesCorrecion.AutoScroll = true;
+            this.flpImagenesCorrecion.BackColor = System.Drawing.Color.White;
+            this.flpImagenesCorrecion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpImagenesCorrecion.Location = new System.Drawing.Point(20, 188);
+            this.flpImagenesCorrecion.Name = "flpImagenesCorrecion";
+            this.flpImagenesCorrecion.Size = new System.Drawing.Size(924, 102);
+            this.flpImagenesCorrecion.WrapContents = false;
+            this.GBP_Correcciones.Controls.Add(this.flpImagenesCorrecion);
+            // 
+            // flpImagenesSugerencias (vista previa de las imagenes)
+            // 
+            this.flpImagenesSugerencias.AutoScroll = true;
+            this.flpImagenesSugerencias.BackColor = System.Drawing.Color.White;
+            this.flpImagenesSugerencias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpImagenesSugerencias.Location = new System.Drawing.Point(20, 188);
+            this.flpImagenesSugerencias.Name = "flpImagenesSugerencias";
+            this.flpImagenesSugerencias.Size = new System.Drawing.Size(924, 102);
+            this.flpImagenesSugerencias.WrapContents = false;
+            this.GBSugerencias.Controls.Add(this.flpImagenesSugerencias);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Name = "FrmReportes";
             this.Text = "Reportes";
@@ -464,5 +500,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button Btn_Salir;
         private System.Windows.Forms.GroupBox Gpb_Datos;
+        private System.Windows.Forms.FlowLayoutPanel flpImagenesPos;
+        private System.Windows.Forms.FlowLayoutPanel flpImagenesCorrecion;
+        private System.Windows.Forms.FlowLayoutPanel flpImagenesSugerencias;
     }
 }

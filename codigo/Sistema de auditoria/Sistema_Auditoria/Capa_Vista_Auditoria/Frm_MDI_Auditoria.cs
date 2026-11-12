@@ -75,7 +75,8 @@ namespace Capa_Vista_Auditoria
         }
 
         // Control agregado: solo se permite un formulario abierto a la vez desde el MDI.
-        // Guarda el formulario abierto como ventana independiente (los que no son hijos MDI).
+        // Guarda el formulario abierto como ventana independiente: se puede mover por toda
+        // la pantalla y queda encima del sistema (Show(this)).
         private Form frmAbiertoFueraMdi = null;
 
         // Cierra el formulario que este abierto antes de abrir otro.
@@ -183,7 +184,7 @@ namespace Capa_Vista_Auditoria
 
             Frm_PY FrmProyecto = new Frm_PY();
             frmAbiertoFueraMdi = FrmProyecto;
-            FrmProyecto.Show();
+            FrmProyecto.Show(this);
 
         }
 
@@ -194,7 +195,7 @@ namespace Capa_Vista_Auditoria
 
             Frm_Actividades_Proyecto FrmActividadesProyecto = new Frm_Actividades_Proyecto();
             frmAbiertoFueraMdi = FrmActividadesProyecto;
-            FrmActividadesProyecto.Show();
+            FrmActividadesProyecto.Show(this);
         }
 
         private void áreasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,7 +205,7 @@ namespace Capa_Vista_Auditoria
             //pendiente
             Frm_Areas frmAreas = new Frm_Areas();
             frmAbiertoFueraMdi = frmAreas;
-            frmAreas.Show();
+            frmAreas.Show(this);
         }
 
         private void recursosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,7 +214,7 @@ namespace Capa_Vista_Auditoria
 
             Frm_Recursos FrmRecursos = new Frm_Recursos();
             frmAbiertoFueraMdi = FrmRecursos;
-            FrmRecursos.Show();
+            FrmRecursos.Show(this);
         }
 
         private void proyectoEstadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -222,7 +223,7 @@ namespace Capa_Vista_Auditoria
 
             Frm_PE FrmProyectoEstado = new Frm_PE();
             frmAbiertoFueraMdi = FrmProyectoEstado;
-            FrmProyectoEstado.Show();
+            FrmProyectoEstado.Show(this);
         }
 
         private void auditorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,8 +352,9 @@ namespace Capa_Vista_Auditoria
             if (!pro_cerrar_formulario_abierto()) return;
 
             Frm_MEI frm = new Frm_MEI();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
 
         private void cheToolStripMenuItem_Click(object sender, EventArgs e)
@@ -360,8 +362,9 @@ namespace Capa_Vista_Auditoria
             if (!pro_cerrar_formulario_abierto()) return;
 
             Frm_Informes frm = new Frm_Informes();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
 
         private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,8 +372,9 @@ namespace Capa_Vista_Auditoria
             if (!pro_cerrar_formulario_abierto()) return;
 
             FrmReportes frm = new FrmReportes();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
 
         private void checklistToolStripMenuItem_Click(object sender, EventArgs e)
@@ -378,8 +382,9 @@ namespace Capa_Vista_Auditoria
             if (!pro_cerrar_formulario_abierto()) return;
 
             Frm_Checklist frm = new Frm_Checklist();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -387,8 +392,9 @@ namespace Capa_Vista_Auditoria
             if (!pro_cerrar_formulario_abierto()) return;
 
             FrmGraficasI frm = new FrmGraficasI();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -407,8 +413,9 @@ namespace Capa_Vista_Auditoria
 
             // Generador del informe final en PDF (Grupo 4 - InformeAuditoria_Formato_Referencia)
             Capa_Vista_Informe.Frm_Informe frm = new Capa_Vista_Informe.Frm_Informe();
-            frm.MdiParent = this;
-            frm.Show();
+            // Ventana libre (se puede mover por toda la pantalla) y encima del sistema
+            frmAbiertoFueraMdi = frm;
+            frm.Show(this);
         }
     }
 }
