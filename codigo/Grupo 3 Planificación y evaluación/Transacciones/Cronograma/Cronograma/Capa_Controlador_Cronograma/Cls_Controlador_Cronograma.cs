@@ -105,6 +105,12 @@ namespace Capa_Controlador_Cronograma
             return dao.fun_obtener_planificaciones_combo();
         }
 
+        // Nombres de los auditores para el combo de responsable de tarea
+        public string[] fun_listar_auditores()
+        {
+            return dao.fun_obtener_auditores().ToArray();
+        }
+
         public DataTable fun_listar_actividades(int iIdPlanificacion)
         {
             if (iIdPlanificacion <= 0) return new DataTable();

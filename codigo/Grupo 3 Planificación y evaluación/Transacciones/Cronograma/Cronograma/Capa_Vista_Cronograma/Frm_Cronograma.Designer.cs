@@ -44,7 +44,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.Dtp_Cmp_Fecha_Fin_Cronograma = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.Txt_Cmp_Responsable_Tarea_Cronograma = new System.Windows.Forms.TextBox();
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Cbo_Cmp_Estado_Tarea_Cronograma = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -206,13 +206,14 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Responsable de tarea:";
             // 
-            // Txt_Cmp_Responsable_Tarea_Cronograma
+            // Cbo_Cmp_Responsable_Tarea_Cronograma
             // 
-            this.Txt_Cmp_Responsable_Tarea_Cronograma.Location = new System.Drawing.Point(221, 231);
-            this.Txt_Cmp_Responsable_Tarea_Cronograma.Name = "Txt_Cmp_Responsable_Tarea_Cronograma";
-            this.Txt_Cmp_Responsable_Tarea_Cronograma.Size = new System.Drawing.Size(157, 22);
-            this.Txt_Cmp_Responsable_Tarea_Cronograma.TabIndex = 16;
-            this.Txt_Cmp_Responsable_Tarea_Cronograma.TextChanged += new System.EventHandler(this.Txt_Cmp_Responsable_Tarea_Cronograma_TextChanged);
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.FormattingEnabled = true;
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.Location = new System.Drawing.Point(221, 231);
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.Name = "Cbo_Cmp_Responsable_Tarea_Cronograma";
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.Size = new System.Drawing.Size(210, 24);
+            this.Cbo_Cmp_Responsable_Tarea_Cronograma.TabIndex = 16;
             // 
             // label10
             // 
@@ -254,11 +255,14 @@
             // Dgv_Cronograma
             // 
             this.Dgv_Cronograma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Cronograma.Location = new System.Drawing.Point(34, 295);
+            this.Dgv_Cronograma.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_Cronograma.Location = new System.Drawing.Point(34, 385);
             this.Dgv_Cronograma.Name = "Dgv_Cronograma";
             this.Dgv_Cronograma.RowHeadersWidth = 51;
             this.Dgv_Cronograma.RowTemplate.Height = 24;
-            this.Dgv_Cronograma.Size = new System.Drawing.Size(633, 151);
+            this.Dgv_Cronograma.Size = new System.Drawing.Size(960, 240);
             this.Dgv_Cronograma.TabIndex = 21;
             this.Dgv_Cronograma.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Cronograma_CellContentClick);
             // 
@@ -311,7 +315,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1028, 478);
+            this.ClientSize = new System.Drawing.Size(1028, 645);
             this.Controls.Add(this.Btn_Eliminar);
             this.Controls.Add(this.Btn_Modificar);
             this.Controls.Add(this.Btn_Guardar);
@@ -321,7 +325,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Cbo_Cmp_Estado_Tarea_Cronograma);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.Txt_Cmp_Responsable_Tarea_Cronograma);
+            this.Controls.Add(this.Cbo_Cmp_Responsable_Tarea_Cronograma);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Dtp_Cmp_Fecha_Fin_Cronograma);
             this.Controls.Add(this.label8);
@@ -364,7 +368,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker Dtp_Cmp_Fecha_Fin_Cronograma;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Txt_Cmp_Responsable_Tarea_Cronograma;
+        private System.Windows.Forms.ComboBox Cbo_Cmp_Responsable_Tarea_Cronograma;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox Cbo_Cmp_Estado_Tarea_Cronograma;
         private System.Windows.Forms.Label label11;
